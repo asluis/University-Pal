@@ -70,9 +70,10 @@
 		AAAB81C8270AC9E700B2BA61 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				AABD07EC270ADDAA002841CC /* View Controller */,
+				AABD07EB270ADD84002841CC /* Views */,
 				AABD07E9270AD9D2002841CC /* GoogleService-Info.plist */,
 				AAAB81C9270AC9E700B2BA61 /* University_PalApp.swift */,
-				AAAB81CB270AC9E700B2BA61 /* ContentView.swift */,
 				AAAB81CD270AC9E900B2BA61 /* Assets.xcassets */,
 				AAAB81D2270AC9E900B2BA61 /* Info.plist */,
 				AAAB81CF270AC9E900B2BA61 /* Preview Content */,
@@ -86,6 +87,21 @@
 				AAAB81D0270AC9E900B2BA61 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AABD07EB270ADD84002841CC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AAAB81CB270AC9E700B2BA61 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AABD07EC270ADDAA002841CC /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 		E1696392BB76FC6C7ACA6243 /* Frameworks */ = {
