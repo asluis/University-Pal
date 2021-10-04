@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DBE464E2F75E0F5EFCD6729 /* Pods_University_Pal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3633C4547D42905A7F7DBF /* Pods_University_Pal.framework */; };
 		AAAB81CA270AC9E700B2BA61 /* University_PalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB81C9270AC9E700B2BA61 /* University_PalApp.swift */; };
 		AAAB81CC270AC9E700B2BA61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB81CB270AC9E700B2BA61 /* ContentView.swift */; };
 		AAAB81CE270AC9E900B2BA61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAAB81CD270AC9E900B2BA61 /* Assets.xcassets */; };
@@ -14,6 +15,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		78B8821F4F429F463CD0CE5D /* Pods-University Pal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Pal.debug.xcconfig"; path = "Target Support Files/Pods-University Pal/Pods-University Pal.debug.xcconfig"; sourceTree = "<group>"; };
+		7D7E8675BD5C516518243C03 /* Pods-University Pal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Pal.release.xcconfig"; path = "Target Support Files/Pods-University Pal/Pods-University Pal.release.xcconfig"; sourceTree = "<group>"; };
+		8F3633C4547D42905A7F7DBF /* Pods_University_Pal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_University_Pal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAAB81C6270AC9E700B2BA61 /* University Pal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "University Pal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAAB81C9270AC9E700B2BA61 /* University_PalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = University_PalApp.swift; sourceTree = "<group>"; };
 		AAAB81CB270AC9E700B2BA61 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -27,17 +31,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DBE464E2F75E0F5EFCD6729 /* Pods_University_Pal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70B092ED938C96B6E53B34C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				78B8821F4F429F463CD0CE5D /* Pods-University Pal.debug.xcconfig */,
+				7D7E8675BD5C516518243C03 /* Pods-University Pal.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		AAAB81BD270AC9E700B2BA61 = {
 			isa = PBXGroup;
 			children = (
 				AAAB81C8270AC9E700B2BA61 /* University Pal */,
 				AAAB81C7270AC9E700B2BA61 /* Products */,
+				70B092ED938C96B6E53B34C5 /* Pods */,
+				E1696392BB76FC6C7ACA6243 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +86,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		E1696392BB76FC6C7ACA6243 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F3633C4547D42905A7F7DBF /* Pods_University_Pal.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -76,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAAB81D5270AC9E900B2BA61 /* Build configuration list for PBXNativeTarget "University Pal" */;
 			buildPhases = (
+				0EFD8A4E5FAB254C8FA1FD84 /* [CP] Check Pods Manifest.lock */,
 				AAAB81C2270AC9E700B2BA61 /* Sources */,
 				AAAB81C3270AC9E700B2BA61 /* Frameworks */,
 				AAAB81C4270AC9E700B2BA61 /* Resources */,
+				A7587A9BBA12BE855A5549AF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EFD8A4E5FAB254C8FA1FD84 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-University Pal-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7587A9BBA12BE855A5549AF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-University Pal/Pods-University Pal-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-University Pal/Pods-University Pal-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-University Pal/Pods-University Pal-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AAAB81C2270AC9E700B2BA61 /* Sources */ = {
@@ -264,6 +333,7 @@
 		};
 		AAAB81D6270AC9E900B2BA61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78B8821F4F429F463CD0CE5D /* Pods-University Pal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -286,6 +356,7 @@
 		};
 		AAAB81D7270AC9E900B2BA61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D7E8675BD5C516518243C03 /* Pods-University Pal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
