@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		AAAB81CC270AC9E700B2BA61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB81CB270AC9E700B2BA61 /* ContentView.swift */; };
 		AAAB81CE270AC9E900B2BA61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAAB81CD270AC9E900B2BA61 /* Assets.xcassets */; };
 		AAAB81D1270AC9E900B2BA61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAAB81D0270AC9E900B2BA61 /* Preview Assets.xcassets */; };
+		AABD07EA270AD9D2002841CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AABD07E9270AD9D2002841CC /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		AAAB81CD270AC9E900B2BA61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAAB81D0270AC9E900B2BA61 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AAAB81D2270AC9E900B2BA61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AABD07E9270AD9D2002841CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,14 +46,13 @@
 				78B8821F4F429F463CD0CE5D /* Pods-University Pal.debug.xcconfig */,
 				7D7E8675BD5C516518243C03 /* Pods-University Pal.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		AAAB81BD270AC9E700B2BA61 = {
 			isa = PBXGroup;
 			children = (
-				AAAB81C8270AC9E700B2BA61 /* University Pal */,
+				AAAB81C8270AC9E700B2BA61 /* src */,
 				AAAB81C7270AC9E700B2BA61 /* Products */,
 				70B092ED938C96B6E53B34C5 /* Pods */,
 				E1696392BB76FC6C7ACA6243 /* Frameworks */,
@@ -66,16 +67,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AAAB81C8270AC9E700B2BA61 /* University Pal */ = {
+		AAAB81C8270AC9E700B2BA61 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				AABD07E9270AD9D2002841CC /* GoogleService-Info.plist */,
 				AAAB81C9270AC9E700B2BA61 /* University_PalApp.swift */,
 				AAAB81CB270AC9E700B2BA61 /* ContentView.swift */,
 				AAAB81CD270AC9E900B2BA61 /* Assets.xcassets */,
 				AAAB81D2270AC9E900B2BA61 /* Info.plist */,
 				AAAB81CF270AC9E900B2BA61 /* Preview Content */,
 			);
-			path = "University Pal";
+			path = src;
 			sourceTree = "<group>";
 		};
 		AAAB81CF270AC9E900B2BA61 /* Preview Content */ = {
@@ -155,6 +157,7 @@
 			files = (
 				AAAB81D1270AC9E900B2BA61 /* Preview Assets.xcassets in Resources */,
 				AAAB81CE270AC9E900B2BA61 /* Assets.xcassets in Resources */,
+				AABD07EA270AD9D2002841CC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +344,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"University Pal/Preview Content\"";
 				DEVELOPMENT_TEAM = PC8D4A24P4;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "University Pal/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/src/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -364,7 +367,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"University Pal/Preview Content\"";
 				DEVELOPMENT_TEAM = PC8D4A24P4;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "University Pal/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/src/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

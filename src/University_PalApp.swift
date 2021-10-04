@@ -6,12 +6,23 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct University_PalApp: App {
+    // initialize anything you need on app startup here
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
+    }
+}
+
+//Connect Firebase
+class Delegate : NSObject, UIApplicationDelegate, ObservableObject {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+
+        return true
     }
 }
