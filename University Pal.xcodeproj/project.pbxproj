@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		3107A345271300A200D9A742 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107A344271300A200D9A742 /* ChatListViewController.swift */; };
 		313201C82712FE7600B3D9BA /* ChatList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 313201C72712FE7600B3D9BA /* ChatList.storyboard */; };
-		4DBE464E2F75E0F5EFCD6729 /* Pods_University_Pal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3633C4547D42905A7F7DBF /* Pods_University_Pal.framework */; };
+		319FF522272FEE6F004A8347 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FF521272FEE6F004A8347 /* ChatView.swift */; };
+		319FF524272FEEC8004A8347 /* ChattingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FF523272FEEC8004A8347 /* ChattingView.swift */; };
+		319FF526272FF361004A8347 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FF525272FF361004A8347 /* SettingView.swift */; };
 		AAAB81CA270AC9E700B2BA61 /* University_PalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB81C9270AC9E700B2BA61 /* University_PalApp.swift */; };
 		AAAB81CC270AC9E700B2BA61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB81CB270AC9E700B2BA61 /* ContentView.swift */; };
 		AAAB81CE270AC9E900B2BA61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAAB81CD270AC9E900B2BA61 /* Assets.xcassets */; };
@@ -20,9 +22,11 @@
 /* Begin PBXFileReference section */
 		3107A344271300A200D9A742 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatListViewController.swift; path = src/ChatFunction/ChatListViewController.swift; sourceTree = SOURCE_ROOT; };
 		313201C72712FE7600B3D9BA /* ChatList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatList.storyboard; sourceTree = "<group>"; };
+		319FF521272FEE6F004A8347 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		319FF523272FEEC8004A8347 /* ChattingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingView.swift; sourceTree = "<group>"; };
+		319FF525272FF361004A8347 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		78B8821F4F429F463CD0CE5D /* Pods-University Pal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Pal.debug.xcconfig"; path = "Target Support Files/Pods-University Pal/Pods-University Pal.debug.xcconfig"; sourceTree = "<group>"; };
 		7D7E8675BD5C516518243C03 /* Pods-University Pal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Pal.release.xcconfig"; path = "Target Support Files/Pods-University Pal/Pods-University Pal.release.xcconfig"; sourceTree = "<group>"; };
-		8F3633C4547D42905A7F7DBF /* Pods_University_Pal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_University_Pal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAAB81C6270AC9E700B2BA61 /* University Pal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "University Pal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAAB81C9270AC9E700B2BA61 /* University_PalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = University_PalApp.swift; sourceTree = "<group>"; };
 		AAAB81CB270AC9E700B2BA61 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,7 +41,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DBE464E2F75E0F5EFCD6729 /* Pods_University_Pal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,7 +71,6 @@
 				AAAB81C8270AC9E700B2BA61 /* src */,
 				AAAB81C7270AC9E700B2BA61 /* Products */,
 				70B092ED938C96B6E53B34C5 /* Pods */,
-				E1696392BB76FC6C7ACA6243 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				AAAB81CB270AC9E700B2BA61 /* ContentView.swift */,
+				319FF521272FEE6F004A8347 /* ChatView.swift */,
+				319FF523272FEEC8004A8347 /* ChattingView.swift */,
+				319FF525272FF361004A8347 /* SettingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -116,14 +121,6 @@
 			children = (
 			);
 			path = "View Controller";
-			sourceTree = "<group>";
-		};
-		E1696392BB76FC6C7ACA6243 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8F3633C4547D42905A7F7DBF /* Pods_University_Pal.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,7 +238,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				319FF522272FEE6F004A8347 /* ChatView.swift in Sources */,
+				319FF524272FEEC8004A8347 /* ChattingView.swift in Sources */,
 				3107A345271300A200D9A742 /* ChatListViewController.swift in Sources */,
+				319FF526272FF361004A8347 /* SettingView.swift in Sources */,
 				AAAB81CC270AC9E700B2BA61 /* ContentView.swift in Sources */,
 				AAAB81CA270AC9E700B2BA61 /* University_PalApp.swift in Sources */,
 			);
