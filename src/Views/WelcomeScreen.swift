@@ -13,30 +13,58 @@ struct WelcomeScreen: View {
             ZStack{
                 Image("Books")
                     .resizable()
-                    .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                    .edgesIgnoringSafeArea(.all)
+                
                 VStack{
-                    Text("UNIVERSITY PAL")
-                        .foregroundColor(.white)
-                        .fontWeight(.black)
-                        .font(.system(size: 45))
-                        .bold()
-                        .padding()
                     
-                    Spacer()
-                    /*
-                    Button(action: {}, label: {
+                    Section{
+                        Text("U")
+                            .foregroundColor(.yellow)
+                            .font(.system(size: 65))
+                            .bold()
+                        +
+                        Text("niversity")
+                            .foregroundColor(.white)
+                            .font(.system(size: 65))
+                            .bold()
+                    }
+                    
+                    
+                    
+                    Section{
+                        Text("P")
+                            .foregroundColor(.yellow)
+                            .font(.system(size: 65))
+                            .bold()
+                        +
+                        Text("al")
+                            .foregroundColor(.white)
+                            .font(.system(size: 65))
+                            .bold()
+                    }
+                    .offset(x: geo.size.width / 4)
+                    .padding(.bottom, 300)
+                    
+                    
+                    Button(action: {
+                        
+                    }, label: {
                         Text("Login")
                             .foregroundColor(.black)
                             .font(.system(size: 35))
                             .bold()
                             .frame(width: geo.size.width * 0.9, height: geo.size.height * 0.1)
-                            .background(Color("PinkRed"))
+                            .background(Color("MangoYellow"))
                             .clipShape(RoundedRectangle(cornerRadius: 15))
                             .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
                             .padding()
+                        
                     })
                     
-                    Button(action: {}, label: {
+                    Button(action: {
+                        
+                    }, label: {
                         Text("Create Account")
                             .foregroundColor(.black)
                             .font(.system(size: 35))
@@ -45,10 +73,9 @@ struct WelcomeScreen: View {
                             .background(Color("MangoYellow"))
                             .clipShape(RoundedRectangle(cornerRadius: 15))
                             .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
                             .padding()
                     })
-                    
-                    */
                 }
             }
         }
