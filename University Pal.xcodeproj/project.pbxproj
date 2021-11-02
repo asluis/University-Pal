@@ -49,6 +49,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		AAA856252730E8B9007948C8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		AAAB81BD270AC9E700B2BA61 = {
 			isa = PBXGroup;
 			children = (
@@ -70,7 +77,8 @@
 		AAAB81C8270AC9E700B2BA61 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				AABD07EC270ADDAA002841CC /* View Controller */,
+				AAA856252730E8B9007948C8 /* Model */,
+				AABD07EC270ADDAA002841CC /* Controller */,
 				AABD07EB270ADD84002841CC /* Views */,
 				AABD07E9270AD9D2002841CC /* GoogleService-Info.plist */,
 				AAAB81C9270AC9E700B2BA61 /* University_PalApp.swift */,
@@ -97,11 +105,11 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		AABD07EC270ADDAA002841CC /* View Controller */ = {
+		AABD07EC270ADDAA002841CC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "View Controller";
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		E1696392BB76FC6C7ACA6243 /* Frameworks */ = {
