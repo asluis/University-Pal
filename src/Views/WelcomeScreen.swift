@@ -29,8 +29,6 @@ struct WelcomeScreen: View {
                             .bold()
                     }
                     
-                    
-                    
                     Section{
                         Text("P")
                             .foregroundColor(.yellow)
@@ -44,7 +42,6 @@ struct WelcomeScreen: View {
                     }
                     .offset(x: geo.size.width / 4)
                     .padding(.bottom, 300)
-                    
                     
                     Button(action: {
                         
