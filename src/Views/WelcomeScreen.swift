@@ -14,6 +14,16 @@ struct WelcomeScreen: View {
                 Image("Books")
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
+                HStack{
+                    Spacer()
+                    
+                    LineAccent(Orientation: .Vertical, percentLength: 0.8, lineColor: .white, circleColor: .white)
+                    GeometryReader{ geo in
+                        LineAccent(Orientation: .Horizontal, percentLength: 1, lineColor: .white, circleColor: .white)
+                            .rotationEffect(Angle(degrees: 180))
+                            .offset(y: geo.size.height / -1.23)
+                    }
+                }
                 
                 VStack{
                     
@@ -50,7 +60,7 @@ struct WelcomeScreen: View {
                             .foregroundColor(.black)
                             .font(.system(size: 35))
                             .bold()
-                            .frame(width: geo.size.width * 0.9, height: geo.size.height * 0.1)
+                            .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.1)
                             .background(Color("MangoYellow"))
                             .clipShape(RoundedRectangle(cornerRadius: 15))
                             .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
@@ -66,7 +76,7 @@ struct WelcomeScreen: View {
                             .foregroundColor(.black)
                             .font(.system(size: 35))
                             .bold()
-                            .frame(width: geo.size.width * 0.9, height: geo.size.height * 0.1)
+                            .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.1)
                             .background(Color("MangoYellow"))
                             .clipShape(RoundedRectangle(cornerRadius: 15))
                             .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
