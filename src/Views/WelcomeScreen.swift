@@ -55,7 +55,7 @@ struct WelcomeScreen: View {
                     .padding(.bottom, 300)
                     
                     Button(action: {
-                        
+                        // TODO: Add action here
                     }, label: {
                         Text("Login")
                             .foregroundColor(.black)
@@ -71,7 +71,7 @@ struct WelcomeScreen: View {
                     })
                     
                     Button(action: {
-                        
+                        // TODO: Add action here
                     }, label: {
                         Text("Create Account")
                             .foregroundColor(.black)
