@@ -28,13 +28,14 @@ struct LineAccent: View{
     let lineColor:Color
     let circleColor:Color
     let percentLength: CGFloat
-    let lineWidth:CGFloat = 7
+    let lineWidth:CGFloat
     
-    init(Orientation: Orientation, percentLength:CGFloat = 1, lineColor:Color = .black, circleColor:Color = .black){
+    init(Orientation: Orientation, percentLength:CGFloat = 1, lineColor:Color = .black, circleColor:Color = .black, lineWidth:CGFloat = 7){
         self.orientation = Orientation
         self.lineColor = lineColor
         self.circleColor = circleColor
         self.percentLength = percentLength
+        self.lineWidth = lineWidth
     }
     
     var body: some View{
