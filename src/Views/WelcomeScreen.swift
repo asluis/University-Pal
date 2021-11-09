@@ -14,20 +14,15 @@ struct WelcomeScreen: View {
                 Image("Books")
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
-                HStack{
-                    Spacer()
                     
-                    LineAccent(Orientation: .Vertical, percentLength: 0.8, lineColor: .white, circleColor: .white)
-                    GeometryReader{ geo in
-                        LineAccent(Orientation: .Horizontal, percentLength: 1, lineColor: .white, circleColor: .white)
-                            .rotationEffect(Angle(degrees: 180))
-                            .offset(y: geo.size.height / -1.23)
-                    }
-                }
+                LineAccent(Orientation: .Vertical, percentLength: 0.8, lineColor: .white, circleColor: .white)
+                    .padding(.leading, 5)
                 
-                VStack{
+                
+                VStack(spacing: 0){
                     
                     Section{
+                        
                         Text("U")
                             .foregroundColor(.yellow)
                             .font(.system(size: 65))
@@ -38,6 +33,12 @@ struct WelcomeScreen: View {
                             .font(.system(size: 65))
                             .bold()
                     }
+                    .offset(x: geo.size.width / 25)
+                    
+                    LineAccent(Orientation: .Horizontal, percentLength: 1, lineColor: .white, circleColor: .white)
+                        .frame(width: geo.size.width / 2, height: geo.size.height / 100)
+                        .offset(x: -geo.size.width / 4)
+                        .rotationEffect(Angle(degrees: 180))
                     
                     Section{
                         Text("P")

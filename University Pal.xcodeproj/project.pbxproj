@@ -53,6 +53,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A0E09C72273A3C72008DFF4F /* ViewElements */ = {
+			isa = PBXGroup;
+			children = (
+				A0E09C702738B3E8008DFF4F /* LineAccent.swift */,
+			);
+			path = ViewElements;
+			sourceTree = "<group>";
+		};
 		AAA856252730E8B9007948C8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,9 +112,9 @@
 		AABD07EB270ADD84002841CC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A0E09C72273A3C72008DFF4F /* ViewElements */,
 				AAAB81CB270AC9E700B2BA61 /* ContentView.swift */,
 				AAA856262730EC8D007948C8 /* WelcomeScreen.swift */,
-				A0E09C702738B3E8008DFF4F /* LineAccent.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
