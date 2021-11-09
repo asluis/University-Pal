@@ -28,6 +28,7 @@ struct LineAccent: View{
     let lineColor:Color
     let circleColor:Color
     let percentLength: CGFloat
+    let lineWidth:CGFloat = 7
     
     init(Orientation: Orientation, percentLength:CGFloat = 1, lineColor:Color = .black, circleColor:Color = .black){
         self.orientation = Orientation
@@ -36,32 +37,26 @@ struct LineAccent: View{
         self.percentLength = percentLength
     }
     
-    var lineWidthAdjuster:CGFloat {
-        return orientation == .Vertical ? 32 : 1.1
-    }
-    
-    var lineHeightDivisor:CGFloat {
-        return orientation == .Vertical ? 1 : 150
-    }
-    
     var body: some View{
         GeometryReader{ geo in
             
             // determine whether to show vertical or horizontal line
             if orientation == .Vertical{
-            VStack(spacing: 0){
+                let lineXWidthFactor = lineWidth / geo.size.width
+                VStack(spacing: 0){
                     Rectangle()
                         .fill(lineColor)
-                        .frame(width: geo.size.width / lineWidthAdjuster , height: geo.size.height * percentLength)
+                        .frame(width: geo.size.width * lineXWidthFactor , height: geo.size.height * percentLength)
                     Circle()
                         .fill(circleColor)
                         .frame(width:  20, height: 20)
                 }
             } else {
+                let lineYWidthFactor = lineWidth / geo.size.height
                 HStack(spacing: 0){
                     Rectangle()
                         .fill(lineColor)
-                        .frame(width: geo.size.width * percentLength , height: geo.size.height / lineHeightDivisor)
+                        .frame(width: geo.size.width * percentLength , height: geo.size.height * lineYWidthFactor)
                     Circle()
                         .fill(circleColor)
                         .frame(width:  15, height: 15)
