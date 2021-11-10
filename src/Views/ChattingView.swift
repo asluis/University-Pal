@@ -18,7 +18,12 @@ struct ChattingView: View {
     }
     
     var body: some View {
+  
         VStack {
+            Image("books-1163695_1").frame(width: UIScreen.main.nativeBounds.size.width, height: 0)
+            Text("Chat")
+                .foregroundColor(Color.white)
+                .font(Font.system(size: 50).bold())
             // Chat
             List {
                 ForEach(chats) { chat in
@@ -50,6 +55,7 @@ struct ChattingView: View {
                 
             }.ignoresSafeArea(.keyboard, edges: .bottom)
             .padding()
+            .background(Color.white)
         }
     }
     private func endEditing() {
@@ -75,7 +81,7 @@ struct UserRowView: View {
                     .padding(2)
                     .font(.caption)
                     .foregroundColor(.white)
-            }.background(Color.green)
+            }.background(Color.gray)
             .frame(minWidth: 10, maxWidth: 200)
             .cornerRadius(10)
         }
@@ -101,6 +107,8 @@ struct ChatRowView: View {
 
         }.background(Color.blue)
         .cornerRadius(10)
+        //.border(Color.red, width: 5).cornerRadius(10)
+        
     }
 }
 
