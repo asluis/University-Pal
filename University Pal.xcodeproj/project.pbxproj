@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4DBE464E2F75E0F5EFCD6729 /* Pods_University_Pal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3633C4547D42905A7F7DBF /* Pods_University_Pal.framework */; };
+		A0E09C712738B3E8008DFF4F /* LineAccent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E09C702738B3E8008DFF4F /* LineAccent.swift */; };
+		AAA856272730EC8D007948C8 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA856262730EC8D007948C8 /* WelcomeScreen.swift */; };
 		AAAB81CA270AC9E700B2BA61 /* University_PalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB81C9270AC9E700B2BA61 /* University_PalApp.swift */; };
 		AAAB81CC270AC9E700B2BA61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB81CB270AC9E700B2BA61 /* ContentView.swift */; };
 		AAAB81CE270AC9E900B2BA61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAAB81CD270AC9E900B2BA61 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 		78B8821F4F429F463CD0CE5D /* Pods-University Pal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Pal.debug.xcconfig"; path = "Target Support Files/Pods-University Pal/Pods-University Pal.debug.xcconfig"; sourceTree = "<group>"; };
 		7D7E8675BD5C516518243C03 /* Pods-University Pal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Pal.release.xcconfig"; path = "Target Support Files/Pods-University Pal/Pods-University Pal.release.xcconfig"; sourceTree = "<group>"; };
 		8F3633C4547D42905A7F7DBF /* Pods_University_Pal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_University_Pal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0E09C702738B3E8008DFF4F /* LineAccent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineAccent.swift; sourceTree = "<group>"; };
+		AAA856262730EC8D007948C8 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		AAAB81C6270AC9E700B2BA61 /* University Pal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "University Pal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAAB81C9270AC9E700B2BA61 /* University_PalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = University_PalApp.swift; sourceTree = "<group>"; };
 		AAAB81CB270AC9E700B2BA61 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,6 +51,14 @@
 				7D7E8675BD5C516518243C03 /* Pods-University Pal.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A0E09C72273A3C72008DFF4F /* ViewElements */ = {
+			isa = PBXGroup;
+			children = (
+				A0E09C702738B3E8008DFF4F /* LineAccent.swift */,
+			);
+			path = ViewElements;
 			sourceTree = "<group>";
 		};
 		AAA856252730E8B9007948C8 /* Model */ = {
@@ -100,7 +112,9 @@
 		AABD07EB270ADD84002841CC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A0E09C72273A3C72008DFF4F /* ViewElements */,
 				AAAB81CB270AC9E700B2BA61 /* ContentView.swift */,
+				AAA856262730EC8D007948C8 /* WelcomeScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -234,6 +248,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAA856272730EC8D007948C8 /* WelcomeScreen.swift in Sources */,
+				A0E09C712738B3E8008DFF4F /* LineAccent.swift in Sources */,
 				AAAB81CC270AC9E700B2BA61 /* ContentView.swift in Sources */,
 				AAAB81CA270AC9E700B2BA61 /* University_PalApp.swift in Sources */,
 			);
