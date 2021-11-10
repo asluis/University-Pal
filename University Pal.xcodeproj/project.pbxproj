@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3107A345271300A200D9A742 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107A344271300A200D9A742 /* ChatListViewController.swift */; };
 		313201C82712FE7600B3D9BA /* ChatList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 313201C72712FE7600B3D9BA /* ChatList.storyboard */; };
+		316C2651273B69E100933A30 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316C2650273B69E100933A30 /* ContentView.swift */; };
 		319FF522272FEE6F004A8347 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FF521272FEE6F004A8347 /* ChatView.swift */; };
 		319FF524272FEEC8004A8347 /* ChattingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FF523272FEEC8004A8347 /* ChattingView.swift */; };
 		319FF526272FF361004A8347 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FF525272FF361004A8347 /* SettingView.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		3107A344271300A200D9A742 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatListViewController.swift; path = src/ChatFunction/ChatListViewController.swift; sourceTree = SOURCE_ROOT; };
 		313201C72712FE7600B3D9BA /* ChatList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatList.storyboard; sourceTree = "<group>"; };
+		316C2650273B69E100933A30 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		319FF521272FEE6F004A8347 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		319FF523272FEEC8004A8347 /* ChattingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingView.swift; sourceTree = "<group>"; };
 		319FF525272FF361004A8347 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		AABD07EB270ADD84002841CC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				316C2650273B69E100933A30 /* ContentView.swift */,
 				319FF521272FEE6F004A8347 /* ChatView.swift */,
 				319FF523272FEEC8004A8347 /* ChattingView.swift */,
 				319FF525272FF361004A8347 /* SettingView.swift */,
@@ -237,6 +240,7 @@
 			files = (
 				319FF522272FEE6F004A8347 /* ChatView.swift in Sources */,
 				319FF524272FEEC8004A8347 /* ChattingView.swift in Sources */,
+				316C2651273B69E100933A30 /* ContentView.swift in Sources */,
 				3107A345271300A200D9A742 /* ChatListViewController.swift in Sources */,
 				319FF526272FF361004A8347 /* SettingView.swift in Sources */,
 				AAAB81CA270AC9E700B2BA61 /* University_PalApp.swift in Sources */,
