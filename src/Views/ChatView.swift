@@ -12,12 +12,21 @@ struct ChatView: View {
     ]
     
     init() {
-        UITableView.appearance().backgroundColor = .white
-    }
+            // Large Title Text Color
+            UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+            UITableView.appearance().backgroundColor = UIColor.clear
+            UITableView.appearance().separatorStyle = .singleLine
+            UITableView.appearance().separatorColor = UIColor.white.withAlphaComponent(0.6)
+            UITableViewCell.appearance().backgroundColor = .clear
+        }
     
     var body: some View {
         NavigationView {
             VStack {
+                Image("books-1163695_1").frame(width: UIScreen.main.nativeBounds.size.width, height: 0)
+                    .foregroundColor(Color.white)
+                    .font(Font.system(size: 50).bold())
                 List {
                     ForEach(chats) { chat in
                         NavigationLink(
@@ -44,6 +53,8 @@ struct ChatView: View {
                     }
                 }.background(Color.white)
             }.navigationBarTitle("Chats", displayMode: .inline)
+            
+
         }
     }
 }
