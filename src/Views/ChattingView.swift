@@ -83,6 +83,28 @@ struct UserRowView: View {
     }
 }
 
+struct ChatRowView: View {
+    var chat: Chat
+    var body: some View {
+        VStack (alignment: .trailing){
+            HStack() {
+                Image(systemName: chat.image)
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .padding()
+                Text(chat.lastMessage)
+                Spacer()
+            }.frame(maxWidth: 200)
+            Text(timeFormat(date: chat.timestamp))
+                .padding(2)
+                .font(.caption)
+                .foregroundColor(.white)
+
+        }.background(Color.blue)
+        .cornerRadius(10)
+    }
+}
+
 struct ChattingView_Previews: PreviewProvider {
     static var previews: some View {
         ChattingView()

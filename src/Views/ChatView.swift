@@ -49,6 +49,21 @@ struct ChatView: View {
     }
 }
 
+func timeFormat(date: Date) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "HH:mm"
+    return formatter.string(from: date)
+}
+
+struct Chat: Identifiable {
+    var id = UUID()
+    var name: String
+    var image: String
+    var lastMessage: String
+    var timestamp: Date
+    var chatId: String
+}
+
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
         ChatView()
