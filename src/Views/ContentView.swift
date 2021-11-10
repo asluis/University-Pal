@@ -9,17 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TabView {
-            NavigationView {
-                ContactsView()
-                    .navigationBarTitle("", displayMode: .inline)
-            }
-            .tabItem {  Label("Contacts", systemImage: "rectangle.stack.person.crop.fill")}
-            ChatView()
-                .tabItem {  Label("Chat", systemImage: "message.fill")}
-            //SettingView()
-            //    .tabItem {  Label("Settings", systemImage: "gear")}
-        }
+        Text("Hell world")
+            .padding()
     }
 }
 
@@ -88,30 +79,7 @@ struct Chat: Identifiable {
     var chatId: String
 }
 
-struct UserRowView: View {
-    var chat: Chat
-    var body: some View {
-        HStack {
-            Spacer()
-            VStack (alignment: .trailing){
-                HStack() {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        Text(chat.lastMessage)
-                            .padding()
-                    }
-                }
-                Text(timeFormat(date: chat.timestamp))
-                    .padding(2)
-                    .font(.caption)
-                    .foregroundColor(.white)
-            }.background(Color.green)
-            .frame(minWidth: 10, maxWidth: 200)
-            .cornerRadius(10)
-        }
-    }
-}
+
 
 func timeFormat(date: Date) -> String {
     let formatter = DateFormatter()

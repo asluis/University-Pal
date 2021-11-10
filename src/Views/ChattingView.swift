@@ -58,6 +58,31 @@ struct ChattingView: View {
     }
 }
 
+struct UserRowView: View {
+    var chat: Chat
+    var body: some View {
+        HStack {
+            Spacer()
+            VStack (alignment: .trailing){
+                HStack() {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Text(chat.lastMessage)
+                            .padding()
+                    }
+                }
+                Text(timeFormat(date: chat.timestamp))
+                    .padding(2)
+                    .font(.caption)
+                    .foregroundColor(.white)
+            }.background(Color.green)
+            .frame(minWidth: 10, maxWidth: 200)
+            .cornerRadius(10)
+        }
+    }
+}
+
 struct ChattingView_Previews: PreviewProvider {
     static var previews: some View {
         ChattingView()
