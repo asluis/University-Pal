@@ -2,7 +2,6 @@
 //  ChatView.swift
 //  University Pal
 //
-//  Created by 矢野敦也 on 2021/11/01.
 //
 
 import SwiftUI
@@ -69,3 +68,11 @@ struct ChatView_Previews: PreviewProvider {
         ChatView()
     }
 }
+
+
+//func setupNavigationBar(){
+//    let appearance = UINavigationBarAppearance()
+//    appearance.configureWithTransparentBackground()
+//    appearance.backgroundImage = UIImage(named:"books-1163695_1")
+//
+//}

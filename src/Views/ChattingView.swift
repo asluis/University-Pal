@@ -2,7 +2,6 @@
 //  ChattingView.swift
 //  University Pal
 //
-//  Created by 矢野敦也 on 2021/11/01.
 //
 
 import SwiftUI
