@@ -21,9 +21,9 @@ struct ChattingView: View {
   
         VStack {
             Image("books-1163695_1").frame(width: UIScreen.main.nativeBounds.size.width, height: 0)
-            Text("Chat")
+            Text("Athalia Putri")
                 .foregroundColor(Color.white)
-                .font(Font.system(size: 50).bold())
+                .font(Font.system(size:25).bold())
             // Chat
             List {
                 ForEach(chats) { chat in
