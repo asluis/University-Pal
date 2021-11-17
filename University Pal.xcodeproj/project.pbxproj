@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		319AF0632744AE600086B392 /* Listinginfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319AF0622744AE600086B392 /* Listinginfo.swift */; };
 		319AF0652744AE760086B392 /* ListingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319AF0642744AE760086B392 /* ListingImage.swift */; };
+		31DF40452745284F00030AC1 /* ListingUploadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF40442745284F00030AC1 /* ListingUploadImage.swift */; };
+		31DF40482745317E00030AC1 /* pickImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF40472745317E00030AC1 /* pickImage.swift */; };
 		4DBE464E2F75E0F5EFCD6729 /* Pods_University_Pal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3633C4547D42905A7F7DBF /* Pods_University_Pal.framework */; };
 		A0E09C712738B3E8008DFF4F /* LineAccent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E09C702738B3E8008DFF4F /* LineAccent.swift */; };
 		AAA856272730EC8D007948C8 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA856262730EC8D007948C8 /* WelcomeScreen.swift */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		319AF0622744AE600086B392 /* Listinginfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listinginfo.swift; sourceTree = "<group>"; };
 		319AF0642744AE760086B392 /* ListingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingImage.swift; sourceTree = "<group>"; };
+		31DF40442745284F00030AC1 /* ListingUploadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingUploadImage.swift; sourceTree = "<group>"; };
+		31DF40472745317E00030AC1 /* pickImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickImage.swift; sourceTree = "<group>"; };
 		78B8821F4F429F463CD0CE5D /* Pods-University Pal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Pal.debug.xcconfig"; path = "Target Support Files/Pods-University Pal/Pods-University Pal.debug.xcconfig"; sourceTree = "<group>"; };
 		7D7E8675BD5C516518243C03 /* Pods-University Pal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Pal.release.xcconfig"; path = "Target Support Files/Pods-University Pal/Pods-University Pal.release.xcconfig"; sourceTree = "<group>"; };
 		8F3633C4547D42905A7F7DBF /* Pods_University_Pal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_University_Pal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +52,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31DF40462745315C00030AC1 /* Listing */ = {
+			isa = PBXGroup;
+			children = (
+				31DF40442745284F00030AC1 /* ListingUploadImage.swift */,
+				31DF40472745317E00030AC1 /* pickImage.swift */,
+			);
+			path = Listing;
+			sourceTree = "<group>";
+		};
 		70B092ED938C96B6E53B34C5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +129,7 @@
 		AABD07EB270ADD84002841CC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				31DF40462745315C00030AC1 /* Listing */,
 				A0E09C72273A3C72008DFF4F /* ViewElements */,
 				AAAB81CB270AC9E700B2BA61 /* ContentView.swift */,
 				319AF0622744AE600086B392 /* Listinginfo.swift */,
@@ -258,6 +272,8 @@
 				AAA856272730EC8D007948C8 /* WelcomeScreen.swift in Sources */,
 				A0E09C712738B3E8008DFF4F /* LineAccent.swift in Sources */,
 				319AF0632744AE600086B392 /* Listinginfo.swift in Sources */,
+				31DF40482745317E00030AC1 /* pickImage.swift in Sources */,
+				31DF40452745284F00030AC1 /* ListingUploadImage.swift in Sources */,
 				AAAB81CC270AC9E700B2BA61 /* ContentView.swift in Sources */,
 				AAAB81CA270AC9E700B2BA61 /* University_PalApp.swift in Sources */,
 			);
