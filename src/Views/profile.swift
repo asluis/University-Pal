@@ -13,6 +13,8 @@ struct editDetail: Identifiable{
 
 struct profile: View {
     @State private var selection = 5
+    @State private var name = ""
+    @State private var university = ""
     
     var body: some View {
         VStack{
@@ -32,28 +34,24 @@ struct profile: View {
                                 .overlay(Circle().stroke(Color.blue, lineWidth: 2.0))
                             
                             VStack{
-                                HStack{
-                                    Text("Name")
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                    Text("Midala Huera")
-                                        .frame(maxWidth: .infinity, alignment: .trailing)
-                                }
-                                HStack{
-                                    Text("University")
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                    Text("San Jose State University")
-                                        .frame(maxWidth: .infinity, alignment: .trailing)
-                                }
-                                HStack{
-                                    Text("Year")
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                    Picker(selection: $selection, label: Text("")){
-                                        Text("Freshman").tag(1)
-                                        Text("Sophomore").tag(2)
-                                        Text("Junior").tag(3)
-                                        Text("Senior").tag(4)
-                                        Text("Graduated").tag(5)
-                                    }
+                                //Name field
+                                Text("Name").frame(maxWidth: .infinity, alignment: .leading)
+                                TextField("Name", text: $name)
+                            
+                                //University name field
+                                Divider()
+                                Text("University").frame(maxWidth: .infinity, alignment: .leading)
+                                TextField("University", text: $university)
+                                
+                                //Year field
+                                Divider()
+                                Text("Year").frame(maxWidth: .infinity, alignment: .leading)
+                                Picker(selection: $selection, label: Text("")){
+                                    Text("Freshman").tag(1)
+                                    Text("Sophomore").tag(2)
+                                    Text("Junior").tag(3)
+                                    Text("Senior").tag(4)
+                                    Text("Graduated").tag(5)
                                 }
                             }
                         }
