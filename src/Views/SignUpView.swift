@@ -30,8 +30,11 @@ struct SignUpView: View {
                         }
                     }){
                         Form{
-                            Section(header: Text("Name").font(.headline)){
+                            Section(header: Text("Name").font(.subheadline)){
                                 TextField("Name", text: $name)
+                            }
+                            Section(header: Text("Email").font(.subheadline)){
+                                TextField("Email", text: $email)
                             }
                         }.padding(.top, -geo.size.height * 0.07)
                     }
