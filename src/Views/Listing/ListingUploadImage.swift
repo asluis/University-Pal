@@ -18,87 +18,85 @@ struct ListingUploadImage: View {
     
     var body: some View {
         GeometryReader{ geo in
-            //VStack{
-                VStack{
-                    Section(header: Group{
-                        ZStack{
-                            Image("Books")
-                                .resizable()
-                                .frame(width: geo.size.width, height: geo.size.height * 0.2)
-                                .edgesIgnoringSafeArea(.top)
-                            Text("Listing")
-                                .foregroundColor(.white)
-                                .font(.system(size: 65))
-                                .bold()
-                                .padding(.bottom, 60)
-                        }
-                    }){
-                        Text("Is this the book that you want to list?")
-                            .font(.system(size: 20))
+            VStack{
+                Section(header: Group{
+                    ZStack{
+                        Image("Books")
+                            .resizable()
+                            .frame(width: geo.size.width, height: geo.size.height * 0.2)
+                            .edgesIgnoringSafeArea(.top)
+                        Text("Listing")
+                            .foregroundColor(.white)
+                            .font(.system(size: 65))
                             .bold()
-                        
-                        HStack{
-                            VStack{
-                                if let uiImage = image {
-                                    Image(uiImage: uiImage)
-                                        .resizable()
-                                        .frame(width: 200, height: 200)
-                                        .clipShape(Circle())
-                                } else {
-                                    Image("noimage")
-                                        .resizable()
-                                        .frame(width: 200, height: 200)
-                                        .clipShape(Circle())
-                                }
-                                Button(action: {
-                                    showingImagePicker = true
-                                }){
-                                    Text("Input book image")
-                                }
+                            .padding(.bottom, 60)
+                    }
+                }){
+                    Text("Is this the book that you want to list?")
+                        .font(.system(size: 20))
+                        .bold()
+                    
+                    HStack{
+                        VStack{
+                            if let uiImage = image {
+                                Image(uiImage: uiImage)
+                                    .resizable()
+                                    .frame(width: 200, height: 200)
+                                    .clipShape(Circle())
+                            } else {
+                                Image("noimage")
+                                    .resizable()
+                                    .frame(width: 200, height: 200)
+                                    .clipShape(Circle())
                             }
-                            .sheet(isPresented: $showingImagePicker){
-                                ImagePicker(sourceType: .photoLibrary, selectedImage: $image)
+                            Button(action: {
+                                showingImagePicker = true
+                            }){
+                                Text("Input book image")
                             }
-                            VStack{
-                                Text("Title").frame(maxWidth: .infinity, alignment: .leading)
-                                TextField("Title", text: $title)
-                                Text("Author").frame(maxWidth: .infinity, alignment: .leading)
-                                TextField("Author", text: $Author)
-                                Text("ISBN").frame(maxWidth: .infinity, alignment: .leading)
-                                TextField("ISBN", value: $ISBN, formatter: NumberFormatter())
-                                Text("Subject").frame(maxWidth: .infinity, alignment: .leading)
-                                TextField("Subject", text: $Subject)
+                        }
+                        .sheet(isPresented: $showingImagePicker){
+                            ImagePicker(sourceType: .photoLibrary, selectedImage: $image)
+                        }
+                        VStack{
+                            Text("Title").frame(maxWidth: .infinity, alignment: .leading)
+                            TextField("Title", text: $title)
+                            Text("Author").frame(maxWidth: .infinity, alignment: .leading)
+                            TextField("Author", text: $Author)
+                            Text("ISBN").frame(maxWidth: .infinity, alignment: .leading)
+                            TextField("ISBN", value: $ISBN, formatter: NumberFormatter())
+                            Text("Subject").frame(maxWidth: .infinity, alignment: .leading)
+                            TextField("Subject", text: $Subject)
 
-                            }
                         }
                     }
                 }
-                VStack{
-                    Divider()
-                    Spacer()
-                        .frame(height: 20)
-                    //Cancel button
-                    Button(action: {
-                        // TODO: Add action here
-                    }) {
-                        Text("Edit")
-                            .frame(width: 70, height: 30)
-                    }.buttonStyle(GradientButtonStyle())
-                    Spacer()
-                        .frame(height: 40)
-                    
-                    //List button
-                    Button(action: {
-                        // TODO: Add action here
-                    }) {
-                        Text("Yes, continute listing")
-                            .frame(width: 170, height: 30)
-                    }.buttonStyle(GradientButtonStyle())
-                    
-                }.padding(.top, -geo.size.height * -0.7)
-                    .padding(.horizontal, 40)
+            }
+            VStack{
+                Divider()
+                Spacer()
+                    .frame(height: 20)
+                //Cancel button
+                Button(action: {
+                    // TODO: Add action here
+                }) {
+                    Text("Edit")
+                        .frame(width: 70, height: 30)
+                }.buttonStyle(GradientButtonStyle())
+                Spacer()
+                    .frame(height: 40)
+                
+                //List button
+                Button(action: {
+                    // TODO: Add action here
+                }) {
+                    Text("Yes, continute listing")
+                        .frame(width: 170, height: 30)
+                }.buttonStyle(GradientButtonStyle())
+                
+            }.padding(.top, -geo.size.height * -0.7)
+                .padding(.horizontal, 40)
 
-            //}
         }
     }
 }
