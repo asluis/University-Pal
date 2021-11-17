@@ -11,6 +11,8 @@ struct SignUpView: View {
     
     @State private var email = ""
     @State private var name = ""
+    @State private var password = ""
+    @State private var confirmPassword = ""
     
     var body: some View {
         GeometryReader{ geo in
@@ -35,6 +37,12 @@ struct SignUpView: View {
                             }
                             Section(header: Text("Email").font(.subheadline)){
                                 TextField("Email", text: $email)
+                            }
+                            Section(header: Text("Password").font(.subheadline)){
+                                SecureField("Password", text: $password)
+                            }
+                            Section(header: Text("Confirm Password").font(.subheadline)){
+                                SecureField("Password", text: $confirmPassword)
                             }
                         }.padding(.top, -geo.size.height * 0.07)
                     }
