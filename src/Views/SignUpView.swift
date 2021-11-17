@@ -32,22 +32,31 @@ struct SignUpView: View {
                         }
                     }){
                         Form{
-                            Section(header: Text("Name").font(.subheadline)){
+                            Section(header: Text("Name").font(.headline)){
                                 TextField("Name", text: $name)
                             }
-                            Section(header: Text("Email").font(.subheadline)){
+                            Section(header: Text("Email").font(.headline)){
                                 TextField("Email", text: $email)
                             }
-                            Section(header: Text("Password").font(.subheadline)){
+                            Section(header: Text("Password").font(.headline)){
                                 SecureField("Password", text: $password)
                             }
-                            Section(header: Text("Confirm Password").font(.subheadline)){
+                            Section(header: Text("Confirm Password").font(.headline)){
                                 SecureField("Password", text: $confirmPassword)
                             }
                         }.padding(.top, -geo.size.height * 0.07)
                     }
-                    
                 }
+                
+                Button(action: {
+                    
+                }, label: {
+                    ZStack{
+                        RoundedRectangle(cornerRadius: CGFloat(20))
+                            .frame(width: geo.size.width * 0.7, height: geo.size.height * 0.08)
+                            .padding(.top, geo.size.height * 0.7)
+                    }
+                })
                 LineAccent(Orientation: .Vertical, percentLength: 0.9, lineColor: .yellow, circleColor: .black, lineWidth: 5)
                     .padding(.leading, 5)
                 LineAccent(Orientation: .Horizontal, percentLength: 0.5, lineColor: .yellow, circleColor: .black, lineWidth: 5)
