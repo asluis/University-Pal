@@ -49,16 +49,18 @@ struct SignUpView: View {
                 }
                 
                 Button(action: {
-                    
+                    // TODO: Handle account creation
                 }, label: {
-                    ZStack{
-                        RoundedRectangle(cornerRadius: CGFloat(20))
-                            .frame(width: geo.size.width * 0.7, height: geo.size.height * 0.08)
-                        Text("Sign in")
-                            .foregroundColor(.black)
-                            .font(.system(size: 25))
-                    }
-                    .padding(.top, geo.size.height * 0.7)
+                    Text("Sign in")
+                        .foregroundColor(.black)
+                        .font(.system(size: 30))
+                        .bold()
+                        .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.1)
+                        .background(Color.yellow)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                        .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                        .padding(.top, geo.size.height * 0.7)
 
                 })
                 LineAccent(Orientation: .Vertical, percentLength: 0.9, lineColor: .yellow, circleColor: .black, lineWidth: 5)
