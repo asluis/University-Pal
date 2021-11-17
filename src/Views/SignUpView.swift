@@ -54,8 +54,12 @@ struct SignUpView: View {
                     ZStack{
                         RoundedRectangle(cornerRadius: CGFloat(20))
                             .frame(width: geo.size.width * 0.7, height: geo.size.height * 0.08)
-                            .padding(.top, geo.size.height * 0.7)
+                        Text("Sign in")
+                            .foregroundColor(.black)
+                            .font(.system(size: 25))
                     }
+                    .padding(.top, geo.size.height * 0.7)
+
                 })
                 LineAccent(Orientation: .Vertical, percentLength: 0.9, lineColor: .yellow, circleColor: .black, lineWidth: 5)
                     .padding(.leading, 5)
