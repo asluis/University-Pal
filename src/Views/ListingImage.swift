@@ -12,58 +12,67 @@ struct ListingImage: View {
     @State private var Subject = ""
     
     var body: some View {
-        VStack{
-            Text("Title")
-                .frame(maxWidth: .infinity, alignment: .leading)
-            TextField("Enter book title", text: $title)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            Text("Author:")
-                .frame(maxWidth: .infinity, alignment: .leading)
-            TextField("Enter author", text: $Author)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            Text("ISBN:")
-                .frame(maxWidth: .infinity, alignment: .leading)
-            TextField("Enter ISBN", value: $ISBN, formatter: NumberFormatter())
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            Text("Subject:")
-                .frame(maxWidth: .infinity, alignment: .leading)
-            TextField("Enter subject", text: $Subject)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            // make space between input form and button
-            Spacer()
-                .frame(height: 50)
-            
-            // button
-            HStack{
-                //Cancel button
-                Button(action: {
-                    // TODO: Add action here
-                }) {
-                    HStack{
-                        Image(systemName: "multiply")
-                        Text("Cancel")
-                            .frame(width: 70, height: 30)
+        GeometryReader{ geo in
+            ZStack{
+                VStack{
+                    Section(header: Group{
+                        ZStack{
+                            Image("Books")
+                                .resizable()
+                                .frame(width: geo.size.width, height: geo.size.height * 0.2)
+                                .edgesIgnoringSafeArea(.top)
+                            Text("Listing")
+                                .foregroundColor(.white)
+                                .font(.system(size: 65))
+                                .bold()
+                                .padding(.bottom, 60)
+                        }
+                    }){
+                        Form{
+                            Section(header: Text("Title").font(.headline)){
+                                TextField("Title", text: $title)
+                            }
+                            Section(header: Text("Author").font(.headline)){
+                                TextField("Author", text: $Author)
+                            }
+                            Section(header: Text("ISBN").font(.headline)){
+                                TextField("ISBN", value: $ISBN, formatter: NumberFormatter())
+                            }
+                            Section(header: Text("Subject").font(.headline)){
+                                TextField("Subject", text: $Subject)
+                            }
+                        }.padding(.vertical, -geo.size.height * 0.07)
                     }
-                }.buttonStyle(GradientButtonStyle())
-                Spacer()
-                
-                //List button
-                Button(action: {
-                    // TODO: Add action here
-                }) {
-                    HStack{
-                        Image(systemName: "plus.square.fill.on.square.fill")
-                        Text("List")
-                            .frame(width: 70, height: 30)
-                    }
-                }.buttonStyle(GradientButtonStyle())
-            }
+                }
+                HStack{
+                    //Cancel button
+                    Button(action: {
+                        // TODO: Add action here
+                    }) {
+                        HStack{
+                            Image(systemName: "multiply")
+                            Text("Cancel")
+                                .frame(width: 70, height: 30)
+                        }
+                    }.buttonStyle(GradientButtonStyle())
+                    Spacer()
+                    
+                    //List button
+                    Button(action: {
+                        // TODO: Add action here
+                    }) {
+                        HStack{
+                            Image(systemName: "plus.square.fill.on.square.fill")
+                            Text("List")
+                                .frame(width: 70, height: 30)
+                        }
+                    }.buttonStyle(GradientButtonStyle())
+                    
+                }.padding(.top, -geo.size.height * -0.7)
+                    .padding(.horizontal, 40)
 
-        }.padding(.horizontal, 50)
+            }
+        }
     }
 }
 
