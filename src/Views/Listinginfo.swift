@@ -54,7 +54,7 @@ struct ListingInfo: View {
                             Text("Cancel")
                                 .frame(width: 70, height: 30)
                         }
-                    }.buttonStyle(GradientButtonStyle())
+                    }.buttonStyle(GradientButtonStyle(pressedColor: .red))
                     Spacer()
                     
                     //List button
@@ -77,11 +77,19 @@ struct ListingInfo: View {
 }
 
 struct GradientButtonStyle: ButtonStyle{
+    
+    var pressedColor:Color
+    
+    // assumes green as default pressed color
+    init(pressedColor:Color = .green){
+        self.pressedColor = pressedColor
+    }
+    
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .foregroundColor(Color.white)
             .padding()
-            .background(configuration.isPressed ? Color.green : Color("MangoYellow"))
+            .background(configuration.isPressed ? pressedColor : Color("MangoYellow"))
             .cornerRadius(20)
             .scaleEffect(configuration.isPressed ? 1.3 : 1.0)
     }
