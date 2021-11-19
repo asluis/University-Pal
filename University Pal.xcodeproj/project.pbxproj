@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		319AF0632744AE600086B392 /* Listinginfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319AF0622744AE600086B392 /* Listinginfo.swift */; };
-		319AF0652744AE760086B392 /* ListingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319AF0642744AE760086B392 /* ListingImage.swift */; };
+		319AF0652744AE760086B392 /* ListingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319AF0642744AE760086B392 /* ListingInfo.swift */; };
 		31DF40452745284F00030AC1 /* ListingUploadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF40442745284F00030AC1 /* ListingUploadImage.swift */; };
 		31DF40482745317E00030AC1 /* pickImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF40472745317E00030AC1 /* pickImage.swift */; };
 		4DBE464E2F75E0F5EFCD6729 /* Pods_University_Pal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3633C4547D42905A7F7DBF /* Pods_University_Pal.framework */; };
@@ -22,8 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		319AF0622744AE600086B392 /* Listinginfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listinginfo.swift; sourceTree = "<group>"; };
-		319AF0642744AE760086B392 /* ListingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingImage.swift; sourceTree = "<group>"; };
+		319AF0642744AE760086B392 /* ListingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingInfo.swift; sourceTree = "<group>"; };
 		31DF40442745284F00030AC1 /* ListingUploadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingUploadImage.swift; sourceTree = "<group>"; };
 		31DF40472745317E00030AC1 /* pickImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickImage.swift; sourceTree = "<group>"; };
 		78B8821F4F429F463CD0CE5D /* Pods-University Pal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Pal.debug.xcconfig"; path = "Target Support Files/Pods-University Pal/Pods-University Pal.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,9 +130,8 @@
 				31DF40462745315C00030AC1 /* Listing */,
 				A0E09C72273A3C72008DFF4F /* ViewElements */,
 				AAAB81CB270AC9E700B2BA61 /* ContentView.swift */,
-				319AF0622744AE600086B392 /* Listinginfo.swift */,
 				AAA856262730EC8D007948C8 /* WelcomeScreen.swift */,
-				319AF0642744AE760086B392 /* ListingImage.swift */,
+				319AF0642744AE760086B392 /* ListingInfo.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,10 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				319AF0652744AE760086B392 /* ListingImage.swift in Sources */,
+				319AF0652744AE760086B392 /* ListingInfo.swift in Sources */,
 				AAA856272730EC8D007948C8 /* WelcomeScreen.swift in Sources */,
 				A0E09C712738B3E8008DFF4F /* LineAccent.swift in Sources */,
-				319AF0632744AE600086B392 /* Listinginfo.swift in Sources */,
 				31DF40482745317E00030AC1 /* pickImage.swift in Sources */,
 				31DF40452745284F00030AC1 /* ListingUploadImage.swift in Sources */,
 				AAAB81CC270AC9E700B2BA61 /* ContentView.swift in Sources */,
@@ -414,6 +410,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail.asluisinfo.University-Pal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -431,12 +428,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"src/Preview Content\"";
 				DEVELOPMENT_TEAM = PC8D4A24P4;
 				ENABLE_PREVIEWS = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "$(SRCROOT)/src/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail.asluisinfo.University-Pal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
