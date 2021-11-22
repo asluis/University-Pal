@@ -22,6 +22,12 @@ class Controller: ObservableObject{
             return AnyView(WelcomeScreen(ctrl: self))
         case .SignUpView:
             return AnyView(SignUpView(ctrl: self))
+        case .ListingInfo:
+            return AnyView(ListingInfo(ctrl: self))
+        case .ListingUploadImage:
+            return AnyView(ListingUploadImage(ctrl: self))
+        case .profile:
+            return AnyView(profile(ctrl: self))
         }
     }
     

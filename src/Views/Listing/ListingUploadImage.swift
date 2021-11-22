@@ -9,6 +9,8 @@ import SwiftUI
 import UIKit
 
 struct ListingUploadImage: View {
+    @StateObject var ctrl:Controller
+    
     @State private var title = "great math textbook"
     @State private var Author = ""
     @State private var ISBN = 0
@@ -104,6 +106,6 @@ struct ListingUploadImage: View {
 
 struct ListingUploadImage_Previews: PreviewProvider {
     static var previews: some View {
-        ListingUploadImage()
+        ListingUploadImage(ctrl: Controller())
     }
 }

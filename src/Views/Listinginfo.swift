@@ -6,6 +6,8 @@
 import SwiftUI
 
 struct ListingInfo: View {
+    @StateObject var ctrl:Controller
+    
     @State private var title = ""
     @State private var Author = ""
     @State private var ISBN = 0
@@ -98,6 +100,6 @@ struct GradientButtonStyle: ButtonStyle{
 
 struct ListingInfo_Previews: PreviewProvider {
     static var previews: some View {
-        ListingInfo()
+        ListingInfo(ctrl: Controller())
     }
 }

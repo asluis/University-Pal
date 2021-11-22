@@ -12,4 +12,7 @@ import Foundation
 enum ViewBank{
     case WelcomeScreen
     case SignUpView
+    case ListingInfo
+    case profile
+    case ListingUploadImage
 }

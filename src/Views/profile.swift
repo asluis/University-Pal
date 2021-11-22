@@ -12,6 +12,8 @@ struct editDetail: Identifiable{
 }
 
 struct profile: View {
+    @StateObject var ctrl:Controller
+    
     @State private var selection = 5
     @State private var name = ""
     @State private var university = ""
@@ -76,7 +78,7 @@ struct profile: View {
 struct profile_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            profile()
+            profile(ctrl: Controller())
         }
     }
 }
