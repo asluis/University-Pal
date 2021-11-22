@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3159BA282743870500595699 /* profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3159BA272743870500595699 /* profile.swift */; };
 		319AF0652744AE760086B392 /* ListingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319AF0642744AE760086B392 /* ListingInfo.swift */; };
 		31DF40452745284F00030AC1 /* ListingUploadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF40442745284F00030AC1 /* ListingUploadImage.swift */; };
 		31DF40482745317E00030AC1 /* pickImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF40472745317E00030AC1 /* pickImage.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3159BA272743870500595699 /* profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profile.swift; sourceTree = "<group>"; };
 		319AF0642744AE760086B392 /* ListingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingInfo.swift; sourceTree = "<group>"; };
 		31DF40442745284F00030AC1 /* ListingUploadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingUploadImage.swift; sourceTree = "<group>"; };
 		31DF40472745317E00030AC1 /* pickImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickImage.swift; sourceTree = "<group>"; };
@@ -135,8 +137,9 @@
 			children = (
 				31DF40462745315C00030AC1 /* Listing */,
 				A0E09C72273A3C72008DFF4F /* ViewElements */,
-				AAAB81CB270AC9E700B2BA61 /* ContentView.swift */,
 				AAA856262730EC8D007948C8 /* WelcomeScreen.swift */,
+				AAAB81CB270AC9E700B2BA61 /* ContentView.swift */,
+				3159BA272743870500595699 /* profile.swift */,
 				319AF0642744AE760086B392 /* ListingInfo.swift */,
 				A0C57AB227449BCE00E98C90 /* SignUpView.swift */,
 
@@ -284,6 +287,7 @@
 				31DF40482745317E00030AC1 /* pickImage.swift in Sources */,
 				31DF40452745284F00030AC1 /* ListingUploadImage.swift in Sources */,
 				AAAB81CC270AC9E700B2BA61 /* ContentView.swift in Sources */,
+				3159BA282743870500595699 /* profile.swift in Sources */,
 				AAAB81CA270AC9E700B2BA61 /* University_PalApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
