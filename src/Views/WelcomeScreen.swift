@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct WelcomeScreen: View {
+    @StateObject var ctrl:Controller
+    
     var body: some View {
         GeometryReader{ geo in
             ZStack{
@@ -72,6 +74,7 @@ struct WelcomeScreen: View {
                     
                     Button(action: {
                         // TODO: Add action here
+                        ctrl.currView = .SignUpView
                     }, label: {
                         Text("Create Account")
                             .foregroundColor(.black)
@@ -92,6 +95,6 @@ struct WelcomeScreen: View {
 
 struct WelcomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeScreen()
+        WelcomeScreen(ctrl: Controller())
     }
 }
