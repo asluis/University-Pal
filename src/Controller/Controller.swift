@@ -19,7 +19,7 @@ class Controller: ObservableObject{
     func determineView() -> AnyView{
         switch currView{
         case .WelcomeScreen:
-            return AnyView(WelcomeScreen())
+            return AnyView(WelcomeScreen(ctrl: self))
         }
     }
     

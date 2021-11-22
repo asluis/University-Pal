@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct WelcomeScreen: View {
+    @StateObject var ctrl:Controller
+    
     var body: some View {
         GeometryReader{ geo in
             ZStack{
@@ -92,6 +94,6 @@ struct WelcomeScreen: View {
 
 struct WelcomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeScreen()
+        WelcomeScreen(ctrl: Controller())
     }
 }
