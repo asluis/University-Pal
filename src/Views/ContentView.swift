@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var ctrl = Controller() // Holds relevant data
+    
     var body: some View {
-        WelcomeScreen()
+        ctrl.determineView()
     }
 }
 
