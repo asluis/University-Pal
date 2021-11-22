@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SignUpView: View {
+    @StateObject var ctrl:Controller
     
     @State private var email = ""
     @State private var name = ""
@@ -77,6 +78,6 @@ struct SignUpView: View {
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView()
+        SignUpView(ctrl: Controller())
     }
 }
