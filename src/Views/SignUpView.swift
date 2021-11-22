@@ -47,22 +47,24 @@ struct SignUpView: View {
                         }.padding(.top, -geo.size.height * 0.07)
                     }
                 }
-                
-                Button(action: {
-                    // TODO: Handle account creation
-                }, label: {
-                    Text("Sign in")
-                        .foregroundColor(.black)
-                        .font(.system(size: 30))
-                        .bold()
-                        .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.1)
-                        .background(Color.yellow)
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                        .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
-                        .padding(.top, geo.size.height * 0.7)
-
-                })
+                VStack{
+                    Spacer()
+                    
+                    Button(action: {
+                        // TODO: Handle account creation
+                    }, label: {
+                        Text("Sign in")
+                            .foregroundColor(.black)
+                            .font(.system(size: 30))
+                            .bold()
+                            .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.1)
+                            .background(Color.yellow)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                            .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                    })
+                        .padding(.bottom, geo.size.height * 0.05)
+                }
                 LineAccent(Orientation: .Vertical, percentLength: 0.9, lineColor: .yellow, circleColor: .black, lineWidth: 5)
                     .padding(.leading, 5)
                 LineAccent(Orientation: .Horizontal, percentLength: 0.5, lineColor: .yellow, circleColor: .black, lineWidth: 5)
