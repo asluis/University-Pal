@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class Controller: ObservableObject{
     
@@ -14,5 +15,12 @@ class Controller: ObservableObject{
     // TODO: Define user and model within controller
     
     
+    // Obtains and returns the view to be displayed
+    func determineView() -> AnyView{
+        switch currView{
+        case .WelcomeScreen:
+            return AnyView(WelcomeScreen())
+        }
+    }
     
 }
