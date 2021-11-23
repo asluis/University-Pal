@@ -11,5 +11,5 @@ import Foundation
 // be defined here first.
 enum ViewBank{
     case WelcomeScreen
-    case SignUpView
+    
 }

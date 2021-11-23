@@ -74,7 +74,6 @@ struct WelcomeScreen: View {
                     
                     Button(action: {
                         // TODO: Add action here
-                        ctrl.currView = .SignUpView
                     }, label: {
                         Text("Create Account")
                             .foregroundColor(.black)
