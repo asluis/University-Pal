@@ -4,7 +4,6 @@
 //
 //  Created by Luis Alvarez Sanchez on 11/21/21.
 //
-
 import Foundation
 import SwiftUI
 
@@ -20,7 +19,8 @@ class Controller: ObservableObject{
         switch currView{
         case .WelcomeScreen:
             return AnyView(WelcomeScreen(ctrl: self))
+        case .SignUpView:
+            return AnyView(SignUpView(ctrl: self))
         }
     }
-    
 }
