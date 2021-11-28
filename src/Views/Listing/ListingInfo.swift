@@ -6,10 +6,13 @@
 import SwiftUI
 
 struct ListingInfo: View {
+    @StateObject var ctrl:Controller
+    
     @State private var title = ""
     @State private var Author = ""
     @State private var ISBN = 0
     @State private var Subject = ""
+    
     
     var body: some View {
         GeometryReader{ geo in
@@ -98,6 +101,6 @@ struct GradientButtonStyle: ButtonStyle{
 
 struct ListingInfo_Previews: PreviewProvider {
     static var previews: some View {
-        ListingInfo()
+        ListingInfo(ctrl: Controller())
     }
 }
