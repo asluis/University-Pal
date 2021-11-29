@@ -9,7 +9,7 @@ import SwiftUI
 
 class Controller: ObservableObject{
     
-    @Published var currView:ViewBank = .WelcomeScreen
+    @Published var currView:ViewBank = .profile
     
     // TODO: Define user and model within controller
     
@@ -31,6 +31,10 @@ class Controller: ObservableObject{
             return AnyView(MyListings(ctrl: self))
         case .ListingInfo:
             return AnyView(ListingInfo(ctrl: self))
+//        case .ChatView:
+//            return AnyView(ChatView(ctrl: self))
+//        case .footer:
+//            return AnyView(footer(ctrl: self))
         }
     }
 }

@@ -7,6 +7,8 @@
 import SwiftUI
 
 struct ChatView: View {
+//    @StateObject var ctrl:Controller
+    
     var chats: Array<Chat> = [Chat(name: "Alice", image: "person", lastMessage: "Bye", timestamp: Date(), chatId: "1"),
                               Chat(name: "Bob", image: "person", lastMessage: "See soon", timestamp: Date(), chatId: "2")
     ]
@@ -52,6 +54,9 @@ struct ChatView: View {
                             })
                     }
                 }.background(Color.white)
+                TabView{
+                    
+                }
             }.navigationBarTitle("Chats", displayMode: .inline)
             
 

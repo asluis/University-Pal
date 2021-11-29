@@ -33,19 +33,21 @@ struct MyListings: View {
                         //list of Listing
                         List{
                             NavigationLink(destination: Text("EditListing")){
-                                ForEach(listings){ listing in
-                                    HStack{
-                                        Image(listing.imageName)
-                                            .resizable()
-                                            .frame(width: 120, height: 180)
-                                            //.scaledToFit()
-                                            .edgesIgnoringSafeArea(.top)
-                                        
-                                        VStack(alignment: .leading){
-                                            Text(listing.title).font(.headline)
-                                            Text("by " + listing.author).font(.subheadline).foregroundColor(.gray)
-                                            Spacer().frame(height: 15)
-                                            Text("$ " + String(listing.price)).font(.title)
+                                VStack{
+                                    ForEach(listings){ listing in
+                                        HStack{
+                                            Image(listing.imageName)
+                                                .resizable()
+                                                .frame(width: 120, height: 180)
+                                                //.scaledToFit()
+                                                .edgesIgnoringSafeArea(.top)
+                                            
+                                            VStack(alignment: .leading){
+                                                Text(listing.title).font(.headline)
+                                                Text("by " + listing.author).font(.subheadline).foregroundColor(.gray)
+                                                Spacer().frame(height: 15)
+                                                Text("$ " + String(listing.price)).font(.title)
+                                            }
                                         }
                                     }
                                 }
