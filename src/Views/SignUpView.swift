@@ -40,15 +40,19 @@ struct SignUpView: View {
                         Form{
                             Section(header: Text("Name").font(.headline)){
                                 TextField("Name", text: $name)
+                                    .autocapitalization(UITextAutocapitalizationType.none)
                             }
                             Section(header: Text("Email").font(.headline)){
                                 TextField("Email", text: $email)
+                                    .autocapitalization(UITextAutocapitalizationType.none)
                             }
                             Section(header: Text("Password").font(.headline)){
                                 SecureField("Password", text: $password)
+                                    .autocapitalization(UITextAutocapitalizationType.none)
                             }
                             Section(header: Text("Confirm Password").font(.headline)){
                                 SecureField("Password", text: $confirmPassword)
+                                    .autocapitalization(UITextAutocapitalizationType.none)
                             }
                         }.padding(.top, -geo.size.height * 0.07)
                     }
