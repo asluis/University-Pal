@@ -10,7 +10,7 @@ import SwiftUI
 class Controller: ObservableObject{
     
     @Published var currView:ViewBank = .WelcomeScreen
-    
+    @Published var currUser:User = User()
     // TODO: Define user and model within controller
     
     
@@ -21,6 +21,15 @@ class Controller: ObservableObject{
             return AnyView(WelcomeScreen(ctrl: self))
         case .SignUpView:
             return AnyView(SignUpView(ctrl: self))
+        }
+    }
+    
+    func setUserValues(name:String? = nil, email:String? = nil){
+        if name != nil {
+            currUser.name = name!
+        }
+        if email != nil {
+            currUser.email = email!
         }
     }
 }
