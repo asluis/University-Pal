@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+// TODO: Define more attributes of a user
 class User{
     @Published public var name:String
     @Published public var email:String
