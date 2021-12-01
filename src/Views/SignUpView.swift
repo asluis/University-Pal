@@ -57,7 +57,7 @@ struct SignUpView: View {
                     Spacer()
                     
                     Button(action: {
-                        if !emailIsValid(email){
+                        if !isValidEmail(email){
                                                     
                         } else if email == "" || password == "" || confirmPassword == "" {
                             alertTitle = "Empty fields"
@@ -79,7 +79,7 @@ struct SignUpView: View {
                                     // Success!
                                     
                                     print("SUCCESSFUL REGISTRATION for \(email)!")
-                                    ctrl.currView = .
+                                    // TODO: ctrl.currView = .SearchView
                                 }
                             }
                         }
@@ -107,6 +107,14 @@ struct SignUpView: View {
             
         }
     }
+    
+    // Ensures email is valid format and ends in .edu
+    func isValidEmail(_ email:String) -> Bool{
+        let emailRegEx = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\\.edu$"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+    
 }
 
 struct SignUpView_Previews: PreviewProvider {
