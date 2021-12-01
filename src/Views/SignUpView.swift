@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct SignUpView: View {
     @StateObject var ctrl:Controller
@@ -14,6 +15,10 @@ struct SignUpView: View {
     @State private var name = ""
     @State private var password = ""
     @State private var confirmPassword = ""
+    
+    @State private var isShowingAlert = false
+    @State private var alertTitle = ""
+    @State private var alertMsg = ""
     
     var body: some View {
         GeometryReader{ geo in
@@ -35,15 +40,19 @@ struct SignUpView: View {
                         Form{
                             Section(header: Text("Name").font(.headline)){
                                 TextField("Name", text: $name)
+                                    .autocapitalization(UITextAutocapitalizationType.none)
                             }
                             Section(header: Text("Email").font(.headline)){
                                 TextField("Email", text: $email)
+                                    .autocapitalization(UITextAutocapitalizationType.none)
                             }
                             Section(header: Text("Password").font(.headline)){
                                 SecureField("Password", text: $password)
+                                    .autocapitalization(UITextAutocapitalizationType.none)
                             }
                             Section(header: Text("Confirm Password").font(.headline)){
                                 SecureField("Password", text: $confirmPassword)
+                                    .autocapitalization(UITextAutocapitalizationType.none)
                             }
                         }.padding(.top, -geo.size.height * 0.07)
                     }
@@ -52,7 +61,34 @@ struct SignUpView: View {
                     Spacer()
                     
                     Button(action: {
-                        // TODO: Handle account creation
+                        if !isValidEmail(email){
+                            alertTitle = "Bad email"
+                            alertMsg = "Your email isn't following conventional formats or does not end in .edu"
+                            isShowingAlert = true
+                        } else if email == "" || password == "" || confirmPassword == "" {
+                            alertTitle = "Empty fields"
+                            alertMsg = "Please fill out BOTH email and password"
+                            isShowingAlert = true
+                            
+                        }else if password != confirmPassword {
+                            alertTitle = "Confirm password"
+                            alertMsg = "Please make sure you correctly confirm your password"
+                            isShowingAlert = true
+                        }else{
+                            // action. Register here
+                            Auth.auth().createUser(withEmail: email, password: password) { Result, error in
+                                if error != nil {
+                                    alertTitle = "Error creating account"
+                                    alertMsg = error?.localizedDescription ?? "Error"
+                                    isShowingAlert = true
+                                }else{
+                                    // Success!
+                                    
+                                    print("SUCCESSFUL REGISTRATION for \(email)!")
+                                    // TODO: ctrl.currView = .SearchView
+                                }
+                            }
+                        }
                     }, label: {
                         Text("Sign in")
                             .foregroundColor(.black)
@@ -71,9 +107,20 @@ struct SignUpView: View {
                 LineAccent(Orientation: .Horizontal, percentLength: 0.5, lineColor: .yellow, circleColor: .black, lineWidth: 5)
                     .rotationEffect(Angle(degrees: 180))
             }
+            .alert(isPresented: $isShowingAlert) {
+                Alert(title: Text(alertTitle), message: Text(alertMsg), dismissButton: .default(Text("Dismiss")))
+            }
             
         }
     }
+    
+    // Ensures email is valid format and ends in .edu
+    func isValidEmail(_ email:String) -> Bool{
+        let emailRegEx = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\\.edu$"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+    
 }
 
 struct SignUpView_Previews: PreviewProvider {

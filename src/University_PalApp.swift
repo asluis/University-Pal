@@ -10,6 +10,9 @@ import Firebase
 
 @main
 struct University_PalApp: App {
+    
+    @UIApplicationDelegateAdaptor(Delegate.self) var delegate
+
     // initialize anything you need on app startup here
     var body: some Scene {
         WindowGroup {

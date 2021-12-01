@@ -11,7 +11,7 @@ class Controller: ObservableObject{
     
     @Published var currView:ViewBank = .WelcomeScreen
     @Published var currUser:User = User()
-    // TODO: Define user and model within controller
+    // TODO: Define model within controller
     
     
     // Obtains and returns the view to be displayed
