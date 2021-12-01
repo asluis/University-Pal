@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct SignUpView: View {
     @StateObject var ctrl:Controller
@@ -14,6 +15,10 @@ struct SignUpView: View {
     @State private var name = ""
     @State private var password = ""
     @State private var confirmPassword = ""
+    
+    @State private var isShowingAlert = false
+    @State private var alertTitle = ""
+    @State private var alertMsg = ""
     
     var body: some View {
         GeometryReader{ geo in
@@ -52,7 +57,32 @@ struct SignUpView: View {
                     Spacer()
                     
                     Button(action: {
-                        // TODO: Handle account creation
+                        if !emailIsValid(email){
+                                                    
+                        } else if email == "" || password == "" || confirmPassword == "" {
+                            alertTitle = "Empty fields"
+                            alertMsg = "Please fill out BOTH email and password"
+                            isShowingAlert = true
+                            
+                        }else if password != confirmPassword {
+                            alertTitle = "Confirm password"
+                            alertMsg = "Please make sure you correctly confirm your password"
+                            isShowingAlert = true
+                        }else{
+                            // action. Register here
+                            Auth.auth().createUser(withEmail: email, password: password) { Result, error in
+                                if error != nil {
+                                    alertTitle = "Error creating account"
+                                    alertMsg = error?.localizedDescription ?? "Error"
+                                    isShowingAlert = true
+                                }else{
+                                    // Success!
+                                    
+                                    print("SUCCESSFUL REGISTRATION for \(email)!")
+                                    ctrl.currView = .
+                                }
+                            }
+                        }
                     }, label: {
                         Text("Sign in")
                             .foregroundColor(.black)
@@ -70,6 +100,9 @@ struct SignUpView: View {
                     .padding(.leading, 5)
                 LineAccent(Orientation: .Horizontal, percentLength: 0.5, lineColor: .yellow, circleColor: .black, lineWidth: 5)
                     .rotationEffect(Angle(degrees: 180))
+            }
+            .alert(isPresented: $isShowingAlert) {
+                Alert(title: Text(alertTitle), message: Text(alertMsg), dismissButton: .default(Text("Dismiss")))
             }
             
         }
