@@ -62,7 +62,9 @@ struct SignUpView: View {
                     
                     Button(action: {
                         if !isValidEmail(email){
-                                                    
+                            alertTitle = "Bad email"
+                            alertMsg = "Your email isn't following conventional formats or does not end in .edu"
+                            isShowingAlert = true
                         } else if email == "" || password == "" || confirmPassword == "" {
                             alertTitle = "Empty fields"
                             alertMsg = "Please fill out BOTH email and password"
