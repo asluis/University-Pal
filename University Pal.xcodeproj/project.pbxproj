@@ -12,10 +12,11 @@
 		31DF40452745284F00030AC1 /* ListingUploadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF40442745284F00030AC1 /* ListingUploadImage.swift */; };
 		31DF40482745317E00030AC1 /* pickImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF40472745317E00030AC1 /* pickImage.swift */; };
 		4DBE464E2F75E0F5EFCD6729 /* Pods_University_Pal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3633C4547D42905A7F7DBF /* Pods_University_Pal.framework */; };
-		A0C57AB327449BCE00E98C90 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C57AB227449BCE00E98C90 /* SignUpView.swift */; };
 		A0707E98274B682200366824 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0707E97274B682200366824 /* Controller.swift */; };
 		A0707E9A274B685400366824 /* ViewBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0707E99274B685400366824 /* ViewBank.swift */; };
+		A0C57AB327449BCE00E98C90 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C57AB227449BCE00E98C90 /* SignUpView.swift */; };
 		A0E09C712738B3E8008DFF4F /* LineAccent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E09C702738B3E8008DFF4F /* LineAccent.swift */; };
+		A0F73D15275712F800790D96 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F73D14275712F800790D96 /* User.swift */; };
 		AAA856272730EC8D007948C8 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA856262730EC8D007948C8 /* WelcomeScreen.swift */; };
 		AAAB81CA270AC9E700B2BA61 /* University_PalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB81C9270AC9E700B2BA61 /* University_PalApp.swift */; };
 		AAAB81CC270AC9E700B2BA61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB81CB270AC9E700B2BA61 /* ContentView.swift */; };
@@ -32,10 +33,11 @@
 		78B8821F4F429F463CD0CE5D /* Pods-University Pal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Pal.debug.xcconfig"; path = "Target Support Files/Pods-University Pal/Pods-University Pal.debug.xcconfig"; sourceTree = "<group>"; };
 		7D7E8675BD5C516518243C03 /* Pods-University Pal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Pal.release.xcconfig"; path = "Target Support Files/Pods-University Pal/Pods-University Pal.release.xcconfig"; sourceTree = "<group>"; };
 		8F3633C4547D42905A7F7DBF /* Pods_University_Pal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_University_Pal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0C57AB227449BCE00E98C90 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		A0707E97274B682200366824 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		A0707E99274B685400366824 /* ViewBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBank.swift; sourceTree = "<group>"; };
+		A0C57AB227449BCE00E98C90 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		A0E09C702738B3E8008DFF4F /* LineAccent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineAccent.swift; sourceTree = "<group>"; };
+		A0F73D14275712F800790D96 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AAA856262730EC8D007948C8 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		AAAB81C6270AC9E700B2BA61 /* University Pal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "University Pal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAAB81C9270AC9E700B2BA61 /* University_PalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = University_PalApp.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		AAA856252730E8B9007948C8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A0F73D14275712F800790D96 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,7 +145,6 @@
 				3159BA272743870500595699 /* profile.swift */,
 				319AF0642744AE760086B392 /* ListingInfo.swift */,
 				A0C57AB227449BCE00E98C90 /* SignUpView.swift */,
-
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,6 +288,7 @@
 				A0E09C712738B3E8008DFF4F /* LineAccent.swift in Sources */,
 				31DF40482745317E00030AC1 /* pickImage.swift in Sources */,
 				31DF40452745284F00030AC1 /* ListingUploadImage.swift in Sources */,
+				A0F73D15275712F800790D96 /* User.swift in Sources */,
 				AAAB81CC270AC9E700B2BA61 /* ContentView.swift in Sources */,
 				3159BA282743870500595699 /* profile.swift in Sources */,
 				AAAB81CA270AC9E700B2BA61 /* University_PalApp.swift in Sources */,
