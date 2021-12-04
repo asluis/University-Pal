@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct LoginView: View {
     @State private var isShowingAlert = false
@@ -48,8 +49,38 @@ struct LoginView: View {
                     Spacer()
                     
                     Button(action: {
-                        //TODO: Implement button action
-                        // change view
+                        if email == "" || password == "" {
+                            alertTitle = "Error Logging in"
+                            alertMsg = "Please fill out BOTH email and password"
+                            isShowingAlert = true
+                        }else{
+                            Auth.auth().signIn(withEmail: email, password: password) {(result, error) in
+                                
+                                if error != nil {
+                                    alertTitle = "Error Loggin in"
+                                    alertMsg = error?.localizedDescription ?? "Error loggin in"
+                                
+                                    isShowingAlert = true
+                                }else{
+                                    // Successful login
+                                    email = ""
+                                    password = ""
+                                    
+                                   print("SUCCESS LOGGING IN")
+                                    // Now probe database and fetch user data
+                                    let ref = Database.database().reference()
+                                    ref.child("users").child(result!.user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                                        
+                                        let data = snapshot.value as? NSDictionary
+                                        
+                                        //TODO: Handle local user class population with DB info
+                                    
+                                        
+                                        //TODO: Change view once successful
+                                    })
+                                }
+                            }
+                        }
                     }, label: {
                         Text("Sign in")
                             .foregroundColor(.black)
