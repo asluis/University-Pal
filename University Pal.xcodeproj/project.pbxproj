@@ -23,6 +23,8 @@
 		A0707E9A274B685400366824 /* ViewBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0707E99274B685400366824 /* ViewBank.swift */; };
 		A0C57AB327449BCE00E98C90 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C57AB227449BCE00E98C90 /* SignUpView.swift */; };
 		A0E09C712738B3E8008DFF4F /* LineAccent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E09C702738B3E8008DFF4F /* LineAccent.swift */; };
+		A0F73D15275712F800790D96 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F73D14275712F800790D96 /* User.swift */; };
+		A0FA0C2A275ADF4400634BA9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FA0C29275ADF4400634BA9 /* LoginView.swift */; };
 		AAA856272730EC8D007948C8 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA856262730EC8D007948C8 /* WelcomeScreen.swift */; };
 		AAAB81CA270AC9E700B2BA61 /* University_PalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB81C9270AC9E700B2BA61 /* University_PalApp.swift */; };
 		AAAB81CC270AC9E700B2BA61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB81CB270AC9E700B2BA61 /* ContentView.swift */; };
@@ -50,6 +52,8 @@
 		A0707E99274B685400366824 /* ViewBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBank.swift; sourceTree = "<group>"; };
 		A0C57AB227449BCE00E98C90 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		A0E09C702738B3E8008DFF4F /* LineAccent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineAccent.swift; sourceTree = "<group>"; };
+		A0F73D14275712F800790D96 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A0FA0C29275ADF4400634BA9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AAA856262730EC8D007948C8 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		AAAB81C6270AC9E700B2BA61 /* University Pal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "University Pal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAAB81C9270AC9E700B2BA61 /* University_PalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = University_PalApp.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 		AAA856252730E8B9007948C8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A0F73D14275712F800790D96 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 		AAAB81BD270AC9E700B2BA61 = {
 			isa = PBXGroup;
 			children = (
+				AABD07E9270AD9D2002841CC /* GoogleService-Info.plist */,
 				AAAB81C8270AC9E700B2BA61 /* src */,
 				AAAB81C7270AC9E700B2BA61 /* Products */,
 				70B092ED938C96B6E53B34C5 /* Pods */,
@@ -159,7 +165,6 @@
 				AAA856252730E8B9007948C8 /* Model */,
 				AABD07EC270ADDAA002841CC /* Controller */,
 				AABD07EB270ADD84002841CC /* Views */,
-				AABD07E9270AD9D2002841CC /* GoogleService-Info.plist */,
 				AAAB81C9270AC9E700B2BA61 /* University_PalApp.swift */,
 				AAAB81CD270AC9E900B2BA61 /* Assets.xcassets */,
 				AAAB81D2270AC9E900B2BA61 /* Info.plist */,
@@ -187,6 +192,8 @@
 				AAAB81CB270AC9E700B2BA61 /* ContentView.swift */,
 				A0C57AB227449BCE00E98C90 /* SignUpView.swift */,
 				31CAFB4827549B1E0034868B /* footer.swift */,
+				A0FA0C29275ADF4400634BA9 /* LoginView.swift */,
+
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -335,8 +342,10 @@
 				31D6A06A274E5091004A850F /* PurchaseHistory.swift in Sources */,
 				31CAFB47275495430034868B /* ChattingView.swift in Sources */,
 				31DF40452745284F00030AC1 /* ListingUploadImage.swift in Sources */,
+				A0F73D15275712F800790D96 /* User.swift in Sources */,
 				AAAB81CC270AC9E700B2BA61 /* ContentView.swift in Sources */,
 				31553295274DE10800C0950C /* EditListing.swift in Sources */,
+				A0FA0C2A275ADF4400634BA9 /* LoginView.swift in Sources */,
 				3159BA282743870500595699 /* profile.swift in Sources */,
 				315FE960274CE74D0077F2C6 /* MyListings.swift in Sources */,
 				AAAB81CA270AC9E700B2BA61 /* University_PalApp.swift in Sources */,

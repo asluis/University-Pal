@@ -9,9 +9,10 @@ import SwiftUI
 
 class Controller: ObservableObject{
     
-    @Published var currView:ViewBank = .ListingInfo
-    
-    // TODO: Define user and model within controller
+
+    @Published var currView:ViewBank = .WelcomeScreen
+    @Published var currUser:User = User()
+    // TODO: Define model within controller
     
     
     // Obtains and returns the view to be displayed
@@ -37,6 +38,15 @@ class Controller: ObservableObject{
 //            return AnyView(ChatView(ctrl: self))
 //        case .footer:
 //            return AnyView(footer(ctrl: self))
+        }
+    }
+    
+    func setUserValues(name:String? = nil, email:String? = nil){
+        if name != nil {
+            currUser.name = name!
+        }
+        if email != nil {
+            currUser.email = email!
         }
     }
 }

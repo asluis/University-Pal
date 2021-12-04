@@ -1,24 +1,20 @@
 //
-//  SignUpView.swift
+//  LoginView.swift
 //  University Pal
 //
-//  Created by Luis Alvarez Sanchez on 11/16/21.
+//  Created by Luis Alvarez Sanchez on 12/3/21.
 //
 
 import SwiftUI
-import FirebaseAuth
+import Firebase
 
-struct SignUpView: View {
-    @StateObject var ctrl:Controller
-    
-    @State private var email = ""
-    @State private var name = ""
-    @State private var password = ""
-    @State private var confirmPassword = ""
-    
+struct LoginView: View {
     @State private var isShowingAlert = false
     @State private var alertTitle = ""
     @State private var alertMsg = ""
+    
+    @State private var email = ""
+    @State private var password = ""
     
     var body: some View {
         GeometryReader{ geo in
@@ -30,7 +26,7 @@ struct SignUpView: View {
                                 .resizable()
                                 .frame(width: geo.size.width, height: geo.size.height * 0.2)
                                 .edgesIgnoringSafeArea(.top)
-                            Text("Sign up")
+                            Text("Login")
                                 .foregroundColor(.white)
                                 .font(.system(size: 65))
                                 .bold()
@@ -38,20 +34,12 @@ struct SignUpView: View {
                         }
                     }){
                         Form{
-                            Section(header: Text("Name").font(.headline)){
-                                TextField("Name", text: $name)
-                                    .autocapitalization(UITextAutocapitalizationType.none)
-                            }
                             Section(header: Text("Email").font(.headline)){
                                 TextField("Email", text: $email)
                                     .autocapitalization(UITextAutocapitalizationType.none)
                             }
                             Section(header: Text("Password").font(.headline)){
                                 SecureField("Password", text: $password)
-                                    .autocapitalization(UITextAutocapitalizationType.none)
-                            }
-                            Section(header: Text("Confirm Password").font(.headline)){
-                                SecureField("Password", text: $confirmPassword)
                                     .autocapitalization(UITextAutocapitalizationType.none)
                             }
                         }.padding(.top, -geo.size.height * 0.07)
@@ -61,31 +49,35 @@ struct SignUpView: View {
                     Spacer()
                     
                     Button(action: {
-                        if !isValidEmail(email){
-                            alertTitle = "Bad email"
-                            alertMsg = "Your email isn't following conventional formats or does not end in .edu"
-                            isShowingAlert = true
-                        } else if email == "" || password == "" || confirmPassword == "" {
-                            alertTitle = "Empty fields"
+                        if email == "" || password == "" {
+                            alertTitle = "Error Logging in"
                             alertMsg = "Please fill out BOTH email and password"
                             isShowingAlert = true
-                            
-                        }else if password != confirmPassword {
-                            alertTitle = "Confirm password"
-                            alertMsg = "Please make sure you correctly confirm your password"
-                            isShowingAlert = true
                         }else{
-                            // action. Register here
-                            Auth.auth().createUser(withEmail: email, password: password) { Result, error in
+                            Auth.auth().signIn(withEmail: email, password: password) {(result, error) in
+                                
                                 if error != nil {
-                                    alertTitle = "Error creating account"
-                                    alertMsg = error?.localizedDescription ?? "Error"
+                                    alertTitle = "Error Loggin in"
+                                    alertMsg = error?.localizedDescription ?? "Error loggin in"
+                                
                                     isShowingAlert = true
                                 }else{
-                                    // Success!
+                                    // Successful login
+                                    email = ""
+                                    password = ""
                                     
-                                    print("SUCCESSFUL REGISTRATION for \(email)!")
-                                    // TODO: ctrl.currView = .SearchView
+                                   print("SUCCESS LOGGING IN")
+                                    // Now probe database and fetch user data
+                                    let ref = Database.database().reference()
+                                    ref.child("users").child(result!.user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                                        
+                                        let data = snapshot.value as? NSDictionary
+                                        
+                                        //TODO: Handle local user class population with DB info
+                                    
+                                        
+                                        //TODO: Change view once successful
+                                    })
                                 }
                             }
                         }
@@ -123,8 +115,8 @@ struct SignUpView: View {
     
 }
 
-struct SignUpView_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView(ctrl: Controller())
+        LoginView()
     }
 }
