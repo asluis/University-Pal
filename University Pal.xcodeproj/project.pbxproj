@@ -17,6 +17,7 @@
 		A0C57AB327449BCE00E98C90 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C57AB227449BCE00E98C90 /* SignUpView.swift */; };
 		A0E09C712738B3E8008DFF4F /* LineAccent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E09C702738B3E8008DFF4F /* LineAccent.swift */; };
 		A0F73D15275712F800790D96 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F73D14275712F800790D96 /* User.swift */; };
+		A0FA0C2A275ADF4400634BA9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FA0C29275ADF4400634BA9 /* LoginView.swift */; };
 		AAA856272730EC8D007948C8 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA856262730EC8D007948C8 /* WelcomeScreen.swift */; };
 		AAAB81CA270AC9E700B2BA61 /* University_PalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB81C9270AC9E700B2BA61 /* University_PalApp.swift */; };
 		AAAB81CC270AC9E700B2BA61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB81CB270AC9E700B2BA61 /* ContentView.swift */; };
@@ -38,6 +39,7 @@
 		A0C57AB227449BCE00E98C90 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		A0E09C702738B3E8008DFF4F /* LineAccent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineAccent.swift; sourceTree = "<group>"; };
 		A0F73D14275712F800790D96 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A0FA0C29275ADF4400634BA9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AAA856262730EC8D007948C8 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		AAAB81C6270AC9E700B2BA61 /* University Pal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "University Pal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAAB81C9270AC9E700B2BA61 /* University_PalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = University_PalApp.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				3159BA272743870500595699 /* profile.swift */,
 				319AF0642744AE760086B392 /* ListingInfo.swift */,
 				A0C57AB227449BCE00E98C90 /* SignUpView.swift */,
+				A0FA0C29275ADF4400634BA9 /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				31DF40452745284F00030AC1 /* ListingUploadImage.swift in Sources */,
 				A0F73D15275712F800790D96 /* User.swift in Sources */,
 				AAAB81CC270AC9E700B2BA61 /* ContentView.swift in Sources */,
+				A0FA0C2A275ADF4400634BA9 /* LoginView.swift in Sources */,
 				3159BA282743870500595699 /* profile.swift in Sources */,
 				AAAB81CA270AC9E700B2BA61 /* University_PalApp.swift in Sources */,
 			);
