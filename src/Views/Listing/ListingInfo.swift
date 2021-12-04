@@ -10,8 +10,12 @@ struct ListingInfo: View {
     
     @State private var title = ""
     @State private var Author = ""
-    @State private var ISBN = 0
+    @State private var ISBN = 97
     @State private var Subject = ""
+    @State private var Price = 0.0
+    
+    @State private var alertTitle = ""
+    @State private var showingAlert = false
     
     
     var body: some View {
@@ -40,10 +44,15 @@ struct ListingInfo: View {
                             }
                             Section(header: Text("ISBN").font(.headline)){
                                 TextField("ISBN", value: $ISBN, formatter: NumberFormatter())
+                                    .keyboardType(.numberPad)
                             }
                             Section(header: Text("Subject").font(.headline)){
                                 TextField("Subject", text: $Subject)
                             }
+                            Section(header: Text("Price").font(.headline)){
+                                TextField("Price", value: $Price, formatter: NumberFormatter())
+                            }
+                            
                         }.padding(.vertical, -geo.size.height * 0.07)
                     }
                 }
@@ -51,6 +60,7 @@ struct ListingInfo: View {
                     //Cancel button
                     Button(action: {
                         // TODO: Add action here
+                        ctrl.currView = .profile
                     }) {
                         HStack{
                             Image(systemName: "multiply")
@@ -62,12 +72,26 @@ struct ListingInfo: View {
                     
                     //List button
                     Button(action: {
-                        // TODO: Add action here
+                        if !(978000000000 < ISBN && ISBN < 9799999999999){
+                            alertTitle = "Invalid ISBN"
+                            self.showingAlert = true
+                        }else if (title == "" || Author == "" || Subject == ""){
+                            alertTitle = "Please input all information"
+                            self.showingAlert = true
+                        }else if !(0 <= Price && Price <= 9999){
+                            alertTitle = "Price have to be $0 - $9999"
+                            self.showingAlert = true
+                        }else{
+                            //TODO: connect with ListingUploadImage
+                            ctrl.currView = .ListingUploadImage
+                        }
                     }) {
                         HStack{
                             Image(systemName: "plus.square.fill.on.square.fill")
-                            Text("List")
+                            Text("Next")
                                 .frame(width: 70, height: 30)
+                        }.alert(isPresented: $showingAlert) {
+                            Alert(title: Text(alertTitle))
                         }
                     }.buttonStyle(GradientButtonStyle())
                     

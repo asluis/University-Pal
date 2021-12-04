@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ChattingView: View {
     @State var chats: Array<Chat> = [Chat(name: "Alice", image: "person", lastMessage: "Bye", timestamp: Date(), chatId: "1"),
