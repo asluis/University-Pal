@@ -7,11 +7,15 @@
 import SwiftUI
 import Firebase
 
+
 struct ChattingView: View {
+        
+    
     @State var chats: Array<Chat> = [Chat(name: "Alice", image: "person", lastMessage: "Bye", timestamp: Date(), chatId: "1"),
                                      Chat(name: "Bob", image: "person", lastMessage: "See soon", timestamp: Date(), chatId: "2")
     ]
     
+    @State var alertTitle = ""
     @State var writing: String = ""
     
     init() {
@@ -61,6 +65,23 @@ struct ChattingView: View {
     }
     private func endEditing() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
+    }
+    
+    func setData(){
+        
+    }
+    
+    func pushData(){
+        if let user = Auth.auth().currentUser{
+            let userChageRequest = user.createProfileChangeRequest()
+            userChageRequest.displayName = name
+            self.user.name = name
+            userChageRequest.commitChanges{ error in
+                if error != nil{
+                    alertTitle = "Error"
+                }
+            }
+        }
     }
 }
 
