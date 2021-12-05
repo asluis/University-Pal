@@ -3,7 +3,6 @@
 //  University Pal
 //
 
-
 import SwiftUI
 
 
