@@ -18,6 +18,8 @@ struct ChattingView: View {
     @State var alertTitle = ""
     @State var writing: String = ""
     
+    @State var name:String = "" // TODO: Use controller to reference user's name
+    
     init() {
         UITableView.appearance().backgroundColor = .white
     }
@@ -75,7 +77,6 @@ struct ChattingView: View {
         if let user = Auth.auth().currentUser{
             let userChageRequest = user.createProfileChangeRequest()
             userChageRequest.displayName = name
-            self.user.name = name
             userChageRequest.commitChanges{ error in
                 if error != nil{
                     alertTitle = "Error"
