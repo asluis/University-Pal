@@ -9,6 +9,8 @@ import SwiftUI
 import Firebase
 
 struct LoginView: View {
+    @StateObject var ctrl:Controller
+    
     @State private var isShowingAlert = false
     @State private var alertTitle = ""
     @State private var alertMsg = ""
@@ -117,6 +119,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(ctrl: Controller())
     }
 }

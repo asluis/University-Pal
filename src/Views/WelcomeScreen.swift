@@ -58,6 +58,7 @@ struct WelcomeScreen: View {
                     
                     Button(action: {
                         // TODO: Add action here
+                        ctrl.currView = .LoginView
                     }, label: {
                         Text("Login")
                             .foregroundColor(.black)

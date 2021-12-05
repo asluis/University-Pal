@@ -22,6 +22,8 @@ class Controller: ObservableObject{
             return AnyView(WelcomeScreen(ctrl: self))
         case .SignUpView:
             return AnyView(SignUpView(ctrl: self))
+        case .LoginView:
+            return AnyView(LoginView(ctrl: self))
         case .EditLisitng:
             return AnyView(EditListing(ctrl: self))
         case .profile:

@@ -11,6 +11,7 @@ import Foundation
 enum ViewBank{
     case WelcomeScreen
     case SignUpView
+    case LoginView
     case EditLisitng
     case profile
     case PurchaseHistory
