@@ -12,22 +12,17 @@ struct editDetail: Identifiable{
 }
 
 struct profile: View {
-    @StateObject var ctrl:Controller
-    
     @State private var selection = 5
     @State private var name = ""
     @State private var university = ""
     
-    
-    
     var body: some View {
-        NavigationView{
-            VStack{
-                Image("books-1163695_1").frame(width: UIScreen.main.nativeBounds.size.width, height: 20)
-                Text("Profile")
-                    .foregroundColor(Color.white)
-                    .font(Font.system(size: 50).bold())
-                
+        VStack{
+            Image("books-1163695_1").frame(width: UIScreen.main.nativeBounds.size.width, height: 0)
+            Text("Profile")
+                .foregroundColor(Color.white)
+                .font(Font.system(size: 50).bold())
+            NavigationView{
                 Form{
                     Section(header: Text("Basic Information")){
                         HStack{
@@ -62,39 +57,18 @@ struct profile: View {
                         }
                     }
                     List{
-                        Button(action: {
-                                ctrl.currView = .ListingInfo
-                        }, label:{
-                            Text("Add Listing")
-
-                        })
-                        Button(action: {
-                                ctrl.currView = .MyListings
-                        }, label:{
-                            Text("My Listing")
-
-                        })
-                        Button(action: {
-                            ctrl.currView = .PurchaseHistory
-                        }, label: {
-                            Text("Purchase History")
-                        })
-                        
-//                        NavigationLink(destination: ListingInfo()) {
-//                            Text("Add Listing").font(.title)
-//                        }
-//                        NavigationLink(destination: MyListings()) {
-//                            Text("My Listing").font(.title)
-//                        }
-//                        NavigationLink(destination: PurchaseHistory()) {
-//                            Text("Purchase History").font(.title)
-//                        }
+                        NavigationLink(destination: Text("Destination")) {
+                            Text("Add Listing").font(.title)
+                        }
+                        NavigationLink(destination: Text("Destination")) {
+                            Text("My Listing").font(.title)
+                        }
+                        NavigationLink(destination: Text("Destination")) {
+                            Text("Purchase History").font(.title)
+                        }
                     }
-
                 }
-            
             }
-                
         }
     }
 }
@@ -102,7 +76,7 @@ struct profile: View {
 struct profile_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            profile(ctrl: Controller())
+            profile()
         }
     }
 }

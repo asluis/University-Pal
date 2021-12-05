@@ -9,13 +9,10 @@ import SwiftUI
 import UIKit
 
 struct ListingUploadImage: View {
-    @StateObject var ctrl:Controller
-    
     @State private var title = "great math textbook"
     @State private var Author = ""
     @State private var ISBN = 0
     @State private var Subject = ""
-    @State private var Price = 0
     @State private var image: UIImage?
     @State var showingImagePicker = false
     
@@ -70,8 +67,7 @@ struct ListingUploadImage: View {
                             TextField("ISBN", value: $ISBN, formatter: NumberFormatter())
                             Text("Subject").frame(maxWidth: .infinity, alignment: .leading)
                             TextField("Subject", text: $Subject)
-                            Text("Price").frame(maxWidth: .infinity, alignment: .leading)
-                            TextField("50;05", value: $Price, formatter: NumberFormatter())
+
                         }
                     }
                 }
@@ -108,6 +104,6 @@ struct ListingUploadImage: View {
 
 struct ListingUploadImage_Previews: PreviewProvider {
     static var previews: some View {
-        ListingUploadImage(ctrl: Controller())
+        ListingUploadImage()
     }
 }
