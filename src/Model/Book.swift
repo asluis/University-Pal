@@ -14,7 +14,8 @@ class Book{
     @Published public var subject:Subject
     @Published public var price:Float
     
-    init(title:String, author:String, ISBN:String, subject:Subject, price:Float){
+    // default values assigned
+    init(title:String = "", author:String = "", ISBN:String = "", subject:Subject = .Other, price:Float = 0.0){
         self.title = title
         self.author = author
         self.ISBN = ISBN
@@ -22,7 +23,23 @@ class Book{
         self.price = price
     }
     
-    
+    func setBookValues(title:String? = nil, author:String? = nil, ISBN:String? = nil, subject:Subject? = nil, price:Float? = nil){
+        if title != nil {
+            self.title = title!
+        }
+        if author != nil {
+            self.author = author!
+        }
+        if ISBN != nil {
+            self.ISBN = ISBN!
+        }
+        if subject != nil {
+            self.subject = subject!
+        }
+        if price != nil {
+            self.price = price!
+        }
+    }
     
 }
 
@@ -43,4 +60,5 @@ enum Subject{
     case ElectricalEngineering
     case ComputerEngineering
     case Medicine
+    case Other
 }
