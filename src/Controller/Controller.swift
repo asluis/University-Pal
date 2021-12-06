@@ -43,12 +43,18 @@ class Controller: ObservableObject{
         }
     }
     
-    func setUserValues(name:String? = nil, email:String? = nil){
+    func setUserValues(name:String? = nil, email:String? = nil, purchasedBooks:[Book]? = nil, listedBooks:[Book]? = nil){
         if name != nil {
             currUser.name = name!
         }
         if email != nil {
             currUser.email = email!
+        }
+        if purchasedBooks != nil {
+            currUser.purchasedBooks = purchasedBooks!
+        }
+        if listedBooks != nil {
+            currUser.listedBooks = listedBooks!
         }
     }
 }
