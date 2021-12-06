@@ -20,4 +20,19 @@ class User{
         self.purchasedBooks = purchasedBooks
         self.listedBooks = listedBooks
     }
+    
+    func setUserValues(name:String? = nil, email:String? = nil, purchasedBooks:[Book]? = nil, listedBooks:[Book]? = nil){
+        if name != nil {
+            self.name = name!
+        }
+        if email != nil {
+            self.email = email!
+        }
+        if purchasedBooks != nil {
+            self.purchasedBooks = purchasedBooks!
+        }
+        if listedBooks != nil {
+            self.listedBooks = listedBooks!
+        }
+    }
 }
