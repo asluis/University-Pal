@@ -5,6 +5,7 @@
 //  Created by Luis Alvarez Sanchez on 11/30/21.
 //
 
+
 import Foundation
 
 // TODO: Define more attributes of a user
