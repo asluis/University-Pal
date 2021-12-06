@@ -14,7 +14,13 @@ class Book{
     @Published public var subject:Subject
     @Published public var price:Float
     
-    
+    init(title:String, author:String, ISBN:String, subject:Subject, price:Float){
+        self.title = title
+        self.author = author
+        self.ISBN = ISBN
+        self.subject = subject
+        self.price = price
+    }
     
     
     
