@@ -14,6 +14,9 @@ class Controller: ObservableObject{
     @Published var currUser:User = User()
     // TODO: Define model within controller
     
+    // Temporary book for storing a book's details between views, this book is not automatically uploaded to firebase
+    @Published var tempBook:Book = Book()
+    
     
     // Obtains and returns the view to be displayed
     func determineView() -> AnyView{
