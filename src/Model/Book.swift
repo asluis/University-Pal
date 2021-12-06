@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class Book{
     @Published public var title:String
@@ -13,17 +14,19 @@ class Book{
     @Published public var ISBN:String
     @Published public var subject:Subject
     @Published public var price:Float
+    @Published public var image:Image
     
     // default values assigned
-    init(title:String = "", author:String = "", ISBN:String = "", subject:Subject = .Other, price:Float = 0.0){
+    init(title:String = "", author:String = "", ISBN:String = "", subject:Subject = .Other, price:Float = 0.0, image:Image = Image("")){
         self.title = title
         self.author = author
         self.ISBN = ISBN
         self.subject = subject
         self.price = price
+        self.image = image
     }
     
-    func setBookValues(title:String? = nil, author:String? = nil, ISBN:String? = nil, subject:Subject? = nil, price:Float? = nil){
+    func setBookValues(title:String? = nil, author:String? = nil, ISBN:String? = nil, subject:Subject? = nil, price:Float? = nil, image:Image? = nil){
         if title != nil {
             self.title = title!
         }
@@ -38,6 +41,9 @@ class Book{
         }
         if price != nil {
             self.price = price!
+        }
+        if image != nil {
+            self.image = image!
         }
     }
     
