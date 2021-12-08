@@ -22,6 +22,8 @@
 		A0707E98274B682200366824 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0707E97274B682200366824 /* Controller.swift */; };
 		A0707E9A274B685400366824 /* ViewBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0707E99274B685400366824 /* ViewBank.swift */; };
 		A08A0BCE275DD35500677062 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08A0BCD275DD35500677062 /* Book.swift */; };
+		A08A0BD3276035DA00677062 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08A0BD2276035DA00677062 /* TabView.swift */; };
+		A08A0BD52760364700677062 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08A0BD42760364700677062 /* TabItem.swift */; };
 		A0C57AB327449BCE00E98C90 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C57AB227449BCE00E98C90 /* SignUpView.swift */; };
 		A0E09C712738B3E8008DFF4F /* LineAccent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E09C702738B3E8008DFF4F /* LineAccent.swift */; };
 		A0F73D15275712F800790D96 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F73D14275712F800790D96 /* User.swift */; };
@@ -52,6 +54,8 @@
 		A0707E97274B682200366824 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		A0707E99274B685400366824 /* ViewBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBank.swift; sourceTree = "<group>"; };
 		A08A0BCD275DD35500677062 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		A08A0BD2276035DA00677062 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		A08A0BD42760364700677062 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		A0C57AB227449BCE00E98C90 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		A0E09C702738B3E8008DFF4F /* LineAccent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineAccent.swift; sourceTree = "<group>"; };
 		A0F73D14275712F800790D96 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -126,6 +130,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A08A0BD1276035C600677062 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				A08A0BD2276035DA00677062 /* TabView.swift */,
+				A08A0BD42760364700677062 /* TabItem.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
 		A0E09C72273A3C72008DFF4F /* ViewElements */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +200,7 @@
 		AABD07EB270ADD84002841CC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A08A0BD1276035C600677062 /* Tab */,
 				31CAFB43275494020034868B /* Chatting */,
 				315FE95E274CE7150077F2C6 /* Profile */,
 				31DF40462745315C00030AC1 /* Listing */,
@@ -331,12 +345,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A08A0BD3276035DA00677062 /* TabView.swift in Sources */,
 				319AF0652744AE760086B392 /* ListingInfo.swift in Sources */,
 				A0707E98274B682200366824 /* Controller.swift in Sources */,
 				A08A0BCE275DD35500677062 /* Book.swift in Sources */,
 				31D6A067274DE720004A850F /* EditListingController.swift in Sources */,
 				AAA856272730EC8D007948C8 /* WelcomeScreen.swift in Sources */,
 				31CAFB4927549B1E0034868B /* footer.swift in Sources */,
+				A08A0BD52760364700677062 /* TabItem.swift in Sources */,
 				31CAFB45275495200034868B /* ChatView.swift in Sources */,
 				A0C57AB327449BCE00E98C90 /* SignUpView.swift in Sources */,
 				A0707E9A274B685400366824 /* ViewBank.swift in Sources */,

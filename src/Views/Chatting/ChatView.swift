@@ -54,9 +54,6 @@ struct ChatView: View {
                             })
                     }
                 }.background(Color.white)
-                TabView{
-                    
-                }
             }.navigationBarTitle("Chats", displayMode: .inline)
             
 

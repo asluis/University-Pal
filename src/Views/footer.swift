@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-
+/*
 struct footer: View {
 //    @StateObject var ctrl:Controller
     init(){
@@ -40,3 +40,4 @@ struct footer_Previews: PreviewProvider {
         footer()
     }
 }
+*/
