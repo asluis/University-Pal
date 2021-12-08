@@ -9,20 +9,23 @@ import SwiftUI
 
 struct TabView: View {
     
-    let content: AnyView
+    @StateObject var ctrl:Controller
     
     var body: some View {
         GeometryReader{ geo in
             VStack(spacing: 0){
-                content
-                HStack{
-                    TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "house", tabName: "Home", myView: .WelcomeScreen)
-                    TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "message", tabName: "Chat", myView: .WelcomeScreen)
-                    TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "person.fill", tabName: "Profile", myView: .profile)
-                    TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "waveform", tabName: "Logout", myView: .WelcomeScreen)
-                }
-                .frame(width: geo.size.width, height: geo.size.height/8)
+                ctrl.determineView()
+                if (ctrl.currView != .LoginView && ctrl.currView != .WelcomeScreen && ctrl.currView != .SignUpView) {
+                    HStack{
+                        TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "house", tabName: "Home", myView: .WelcomeScreen, ctrl: ctrl)
+                        TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "message", tabName: "Chat", myView: .WelcomeScreen, ctrl: ctrl)
+                        TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "person.fill", tabName: "Profile", myView: .profile, ctrl: ctrl)
+                        TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "waveform", tabName: "Logout", myView: .WelcomeScreen, ctrl: ctrl)
+                    }
+                    .frame(width: geo.size.width, height: geo.size.height/8)
                     .background(Color.gray.shadow(radius: 2))
+                }
+                
             }.edgesIgnoringSafeArea(.bottom)
         }
     }
@@ -30,6 +33,6 @@ struct TabView: View {
 
 struct TabView_Previews: PreviewProvider {
     static var previews: some View {
-        TabView(content: AnyView(WelcomeScreen(ctrl: Controller())))
+        TabView(ctrl: Controller())
     }
 }

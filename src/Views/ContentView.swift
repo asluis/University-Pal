@@ -11,7 +11,7 @@ struct ContentView: View {
     @StateObject var ctrl = Controller() // Holds relevant data
     
     var body: some View {
-        TabView(content: ctrl.determineView())
+        TabView(ctrl: ctrl)
     }
 }
 

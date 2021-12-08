@@ -12,6 +12,7 @@ struct TabItem: View {
     let width, height: CGFloat
     let systemIconName, tabName: String
     let myView:ViewBank
+    @StateObject var ctrl:Controller
          
     var body: some View {
         VStack {
@@ -25,11 +26,14 @@ struct TabItem: View {
             Spacer()
         }
         .padding(.horizontal, -4)
+        .onTapGesture{
+            ctrl.currView = myView
+        }
      }
 }
 
 struct TabItem_Previews: PreviewProvider {
     static var previews: some View {
-        TabItem(width: 50, height: 50, systemIconName: "homekit", tabName: "Home", myView: .WelcomeScreen)
+        TabItem(width: 50, height: 50, systemIconName: "homekit", tabName: "Home", myView: .WelcomeScreen, ctrl: Controller())
     }
 }
