@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct TabItem: View {
+    
     let width, height: CGFloat
     let systemIconName, tabName: String
-         
+    let myView:ViewBank
          
     var body: some View {
         VStack {
@@ -29,6 +30,6 @@ struct TabItem: View {
 
 struct TabItem_Previews: PreviewProvider {
     static var previews: some View {
-        TabItem(width: 50, height: 50, systemIconName: "homekit", tabName: "Home")
+        TabItem(width: 50, height: 50, systemIconName: "homekit", tabName: "Home", toView: .WelcomeScreen)
     }
 }
