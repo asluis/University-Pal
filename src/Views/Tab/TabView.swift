@@ -15,10 +15,10 @@ struct TabView: View {
                 Text("Sample")
                 Spacer()
                 HStack{
-                    TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "house", tabName: "Home")
-                    TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "message", tabName: "Chat")
-                    TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "person.fill", tabName: "Profile")
-                    TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "waveform", tabName: "Logout")
+                    TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "house", tabName: "Home", myView: .WelcomeScreen)
+                    TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "message", tabName: "Chat", myView: .WelcomeScreen)
+                    TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "person.fill", tabName: "Profile", myView: .profile)
+                    TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "waveform", tabName: "Logout", myView: .WelcomeScreen)
                 }
                     .frame(width: geo.size.width, height: geo.size.height/8)
                     .background(Color.gray.shadow(radius: 2))

@@ -30,6 +30,6 @@ struct TabItem: View {
 
 struct TabItem_Previews: PreviewProvider {
     static var previews: some View {
-        TabItem(width: 50, height: 50, systemIconName: "homekit", tabName: "Home", toView: .WelcomeScreen)
+        TabItem(width: 50, height: 50, systemIconName: "homekit", tabName: "Home", myView: .WelcomeScreen)
     }
 }
