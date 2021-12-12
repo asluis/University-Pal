@@ -10,7 +10,7 @@ import SwiftUI
 class Controller: ObservableObject{
     
 
-    @Published var currView:ViewBank = .WelcomeScreen
+    @Published var currView:ViewBank = .ListingInfo
     @Published var currUser:User = User()
     // TODO: Define model within controller
     

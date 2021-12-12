@@ -71,58 +71,56 @@ struct ListingInfo: View {
                                         Text("Medicine")
                                         Text("Other")
                                     }
-                                }
+                                }.compositingGroup()
+                                    .clipped()
                             }
                             Section(header: Text("Price").font(.headline)){
                                 TextField("Price", value: $Price, formatter: NumberFormatter())
                             }
+                            HStack{
+                                //Cancel button
+                                Button(action: {
+                                    // TODO: Add action here
+                                    ctrl.currView = .profile
+                                }) {
+                                    HStack{
+                                        Image(systemName: "multiply")
+                                        Text("Cancel")
+                                            .frame(width: 70, height: 30)
+                                    }
+                                }.buttonStyle(GradientButtonStyle(pressedColor: .red))
+                                Spacer()
+                                
+                                //List button
+                                Button(action: {
+                                    
+//                                    if !(978000000000 < ISBN && ISBN < 9799999999999){
+//                                        alertTitle = "Invalid ISBN"
+//                                        self.showingAlert = true
+                                    if (title == "" || Author == ""){
+                                        alertTitle = "Please input all information"
+                                        self.showingAlert = true
+                                    }else if !(0 <= Price && Price <= 9999){
+                                        alertTitle = "Price have to be $0 - $9999"
+                                        self.showingAlert = true
+                                    }else{
+                                        //TODO: connect with ListingUploadImage
+                                        ctrl.tempBook.setBookValues(title: title, author: Author, ISBN: ISBN, subject: subject, price: Price, image: image)
+                                        ctrl.currView = .ListingUploadImage
+                                    }
+                                }) {
+                                    HStack{
+                                        Image(systemName: "plus.square.fill.on.square.fill")
+                                        Text("Next")
+                                            .frame(width: 70, height: 30)
+                                    }.alert(isPresented: $showingAlert) {
+                                        Alert(title: Text(alertTitle))
+                                    }
+                                }.buttonStyle(GradientButtonStyle())
+                            }
                         }.padding(.vertical, -geo.size.height * 0.07)
                     }
                 }
-                HStack{
-                    //Cancel button
-                    Button(action: {
-                        // TODO: Add action here
-                        ctrl.currView = .profile
-                    }) {
-                        HStack{
-                            Image(systemName: "multiply")
-                            Text("Cancel")
-                                .frame(width: 70, height: 30)
-                        }
-                    }.buttonStyle(GradientButtonStyle(pressedColor: .red))
-                    Spacer()
-                    
-                    //List button
-                    Button(action: {
-                        
-//                        if !(978000000000 < ISBN && ISBN < 9799999999999){
-//                            alertTitle = "Invalid ISBN"
-//                            self.showingAlert = true
-                        if (title == "" || Author == ""){
-                            alertTitle = "Please input all information"
-                            self.showingAlert = true
-                        }else if !(0 <= Price && Price <= 9999){
-                            alertTitle = "Price have to be $0 - $9999"
-                            self.showingAlert = true
-                        }else{
-                            //TODO: connect with ListingUploadImage
-                            ctrl.tempBook.setBookValues(title: title, author: Author, ISBN: ISBN, subject: subject, price: Price, image: image)
-                            ctrl.currView = .ListingUploadImage
-                        }
-                    }) {
-                        HStack{
-                            Image(systemName: "plus.square.fill.on.square.fill")
-                            Text("Next")
-                                .frame(width: 70, height: 30)
-                        }.alert(isPresented: $showingAlert) {
-                            Alert(title: Text(alertTitle))
-                        }
-                    }.buttonStyle(GradientButtonStyle())
-                    
-                }.padding(.top, -geo.size.height * -0.7)
-                    .padding(.horizontal, 40)
-
             }
         }
     }
