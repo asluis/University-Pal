@@ -10,7 +10,7 @@ struct ListingInfo: View {
     
     @State private var title = ""
     @State private var Author = ""
-    @State private var ISBN = 97
+    @State private var ISBN = 0
     @State private var Subject = ""
     @State private var Price = 0.0
     
