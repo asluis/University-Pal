@@ -18,6 +18,7 @@
 		31D6A06A274E5091004A850F /* PurchaseHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D6A069274E5091004A850F /* PurchaseHistory.swift */; };
 		31DF40452745284F00030AC1 /* ListingUploadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF40442745284F00030AC1 /* ListingUploadImage.swift */; };
 		31DF40482745317E00030AC1 /* pickImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF40472745317E00030AC1 /* pickImage.swift */; };
+		31E605202766353700CA7C0D /* SubjectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E6051F2766353700CA7C0D /* SubjectList.swift */; };
 		4DBE464E2F75E0F5EFCD6729 /* Pods_University_Pal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3633C4547D42905A7F7DBF /* Pods_University_Pal.framework */; };
 		A0707E98274B682200366824 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0707E97274B682200366824 /* Controller.swift */; };
 		A0707E9A274B685400366824 /* ViewBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0707E99274B685400366824 /* ViewBank.swift */; };
@@ -48,6 +49,7 @@
 		31D6A069274E5091004A850F /* PurchaseHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistory.swift; sourceTree = "<group>"; };
 		31DF40442745284F00030AC1 /* ListingUploadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingUploadImage.swift; sourceTree = "<group>"; };
 		31DF40472745317E00030AC1 /* pickImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickImage.swift; sourceTree = "<group>"; };
+		31E6051F2766353700CA7C0D /* SubjectList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectList.swift; sourceTree = "<group>"; };
 		78B8821F4F429F463CD0CE5D /* Pods-University Pal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Pal.debug.xcconfig"; path = "Target Support Files/Pods-University Pal/Pods-University Pal.debug.xcconfig"; sourceTree = "<group>"; };
 		7D7E8675BD5C516518243C03 /* Pods-University Pal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Pal.release.xcconfig"; path = "Target Support Files/Pods-University Pal/Pods-University Pal.release.xcconfig"; sourceTree = "<group>"; };
 		8F3633C4547D42905A7F7DBF /* Pods_University_Pal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_University_Pal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +154,7 @@
 			children = (
 				A0F73D14275712F800790D96 /* User.swift */,
 				A08A0BCD275DD35500677062 /* Book.swift */,
+				31E6051F2766353700CA7C0D /* SubjectList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31E605202766353700CA7C0D /* SubjectList.swift in Sources */,
 				A08A0BD3276035DA00677062 /* TabView.swift in Sources */,
 				319AF0652744AE760086B392 /* ListingInfo.swift in Sources */,
 				A0707E98274B682200366824 /* Controller.swift in Sources */,

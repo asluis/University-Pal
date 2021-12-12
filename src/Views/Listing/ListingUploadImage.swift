@@ -14,14 +14,24 @@ struct ListingUploadImage: View {
     @State private var title:String = ""
     @State private var Author:String = ""
     @State private var ISBN:String = ""
-    @State private var Subject:Subject = .Other
+    @State private var Subject:String = ""
     @State private var Price:Float = 0.0
     @State private var image:UIImage?
 //    @State private var image:Image = Image(uiImage: UIImage)
     @State private var alertTitle = ""
     @State private var showingAlert = false
     @State private var showingImagePicker = false
+    @State private var selection = ""
     
+    func setInfo(){
+        title = ctrl.tempBook.title
+        Author = ctrl.tempBook.author
+        ISBN = ctrl.tempBook.ISBN
+        Subject = ctrl.tempBook.subject
+        Price = ctrl.tempBook.price
+        image = ctrl.tempBook.image
+    }
+
     var body: some View {
         
         
@@ -67,38 +77,11 @@ struct ListingUploadImage: View {
                             ImagePicker(sourceType: .photoLibrary, selectedImage: $image)
                         }
                         VStack{
-                            Text("Title").frame(maxWidth: .infinity, alignment: .leading)
-                            TextField("Title", text: $title)
-                            Text("Author").frame(maxWidth: .infinity, alignment: .leading)
-                            TextField("Author", text: $Author)
-                            Text("ISBN").frame(maxWidth: .infinity, alignment: .leading)
-                            TextField("ISBN", value: $ISBN, formatter: NumberFormatter())
-                            Section(header: Text("Subject").font(.headline)){
-                                Picker("Chose subject", selection: $Subject){
-                                    Group{
-                                        Text("Mathematics")
-                                        Text("Business")
-                                        Text("ComputerScience")
-                                        Text("Education")
-                                        Text("Engineering")
-                                        Text("Humanities")
-                                        Text("Law")
-                                        Text("Social Sciences")
-                                        Text("Physics")
-                                        Text("Chemistry")
-                                    }
-                                    Group{
-                                        Text("Biology")
-                                        Text("MechanicalEngineering")
-                                        Text("ElectricalEngineering")
-                                        Text("ComputerEngineering")
-                                        Text("Medicine")
-                                        Text("Other")
-                                    }
-                                }
-                            }
-                            Text("Price").frame(maxWidth: .infinity, alignment: .leading)
-                            TextField("50;05", value: $Price, formatter: NumberFormatter())
+                            Text("Title: \(ctrl.tempBook.title)").frame(maxWidth: .infinity, alignment: .leading).padding()
+                            Text("Author: \(ctrl.tempBook.author)").frame(maxWidth: .infinity, alignment: .leading).padding()
+                            Text("ISBN: \(ctrl.tempBook.ISBN)").frame(maxWidth: .infinity, alignment: .leading).padding()
+                            Text("Subject: \(ctrl.tempBook.subject)").frame(maxWidth: .infinity, alignment: .leading).padding()
+                            Text("Price: \(ctrl.tempBook.price)").frame(maxWidth: .infinity, alignment: .leading).padding()
                         }
                     }
                 }
@@ -107,9 +90,10 @@ struct ListingUploadImage: View {
                 Divider()
                 Spacer()
                     .frame(height: 20)
-                //Cancel button
+                //Edit button
                 Button(action: {
                     // TODO: Add action here
+                    ctrl.currView = .ListingInfo
                 }) {
                     Text("Edit")
                         .frame(width: 70, height: 30)
@@ -119,26 +103,14 @@ struct ListingUploadImage: View {
                 
                 //List button
                 Button(action: {
-                    
-//                if !(978000000000 < ISBN && ISBN < 9799999999999){
-//                    alertTitle = "Invalid ISBN"
-//                    self.showingAlert = true
-                if (title == "" || Author == ""){
-                    alertTitle = "Please input all information"
-                    self.showingAlert = true
-                }else if !(0 <= Price && Price <= 9999){
-                    alertTitle = "Price have to be $0 - $9999"
-                    self.showingAlert = true
-                }else{
-                    //TODO: connect with ListingUploadImage
-                    ctrl.tempBook.setBookValues(title: title, author: Author, ISBN: ISBN, subject: Subject, price: Price, image: image)
-                    ctrl.currView = .ListingUploadImage
-                }
+                //TODO: connect with ListingUploadImage
+                ctrl.tempBook.setBookValues(title: title, author: Author, ISBN: ISBN, subject: Subject, price: Price, image: image)
+                ctrl.currView = .profile
             }) {
                 HStack{
                     Image(systemName: "plus.square.fill.on.square.fill")
                     Text("Yes, continue listing")
-                        .frame(width: 70, height: 30)
+                        .frame(width: 170, height: 30)
                 }.alert(isPresented: $showingAlert) {
                     Alert(title: Text(alertTitle))
                 }
@@ -148,15 +120,6 @@ struct ListingUploadImage: View {
                 .padding(.horizontal, 40)
 
         }
-    }
-    
-    func setInfo(){
-        title = ctrl.tempBook.title
-        Author = ctrl.tempBook.author
-        ISBN = ctrl.tempBook.ISBN
-        Subject = ctrl.tempBook.subject
-        Price = ctrl.tempBook.price
-        image = ctrl.tempBook.image
     }
 }
 

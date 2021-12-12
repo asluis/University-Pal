@@ -12,13 +12,15 @@ struct ListingInfo: View {
     @State public var title:String = ""
     @State public var Author:String = ""
     @State public var ISBN:String = ""
-    @State public var subject:Subject = .Other
+    @State public var subject:String = ""
     @State public var Price:Float = 0.0
     @State public var image:UIImage?
     
     @State private var alertTitle = ""
     @State private var showingAlert = false
     
+    @State private var selection = Book.SubjectList.Mathematics
+//    let subjectList = ["Mathmetacs", "Business", "ComputerScience", "Education", "Engineering", "Humanities", "Law", "Social Sciences", "Physics", "Chemistry", "Biology", "MechanicalEngineering", "ElectricalEngineering", "ComputerEngineering", "Medicine", "Other"]
     
     
     var body: some View {
@@ -46,36 +48,38 @@ struct ListingInfo: View {
                                 TextField("Author", text: $Author)
                             }
                             Section(header: Text("ISBN").font(.headline)){
-                                TextField("ISBN", value: $ISBN, formatter: NumberFormatter())
+                                TextField("ISBN", text: $ISBN)
                                     .keyboardType(.numberPad)
                             }
                             Section(header: Text("Subject").font(.headline)){
-                                Picker("Chose subject", selection: $subject){
+                                Picker("Chose subject", selection: $selection){
                                     Group{
-                                        Text("Mathematics")
-                                        Text("Business")
-                                        Text("ComputerScience")
-                                        Text("Education")
-                                        Text("Engineering")
-                                        Text("Humanities")
-                                        Text("Law")
-                                        Text("Social Sciences")
-                                        Text("Physics")
-                                        Text("Chemistry")
+                                        Text("Mathematics").tag(Book.SubjectList.Mathematics)
+                                        Text("Business").tag(Book.SubjectList.Business)
+                                        Text("ComputerScience").tag(Book.SubjectList.ComputerScience)
+                                        Text("Education").tag(Book.SubjectList.Education)
+                                        Text("Engineering").tag(Book.SubjectList.Engineering)
+                                        Text("Humanities").tag(Book.SubjectList.Humanities)
+                                        Text("Law").tag(Book.SubjectList.Law)
+                                        Text("Social Sciences").tag(Book.SubjectList.SocialSciences)
+                                        Text("Physics").tag(Book.SubjectList.Physics)
+                                        Text("Chemistry").tag(Book.SubjectList.Chemistry)
                                     }
                                     Group{
-                                        Text("Biology")
-                                        Text("MechanicalEngineering")
-                                        Text("ElectricalEngineering")
-                                        Text("ComputerEngineering")
-                                        Text("Medicine")
-                                        Text("Other")
+                                        Text("Biology").tag(Book.SubjectList.Biology)
+                                        Text("MechanicalEngineering").tag(Book.SubjectList.MechanicalEngineering)
+                                        Text("ElectricalEngineering").tag(Book.SubjectList.ElectricalEngineering)
+                                        Text("ComputerEngineering").tag(Book.SubjectList.ComputerEngineering)
+                                        Text("Medicine").tag(Book.SubjectList.Medicine)
+                                        Text("Other").tag(Book.SubjectList.Other)
                                     }
-                                }.compositingGroup()
-                                    .clipped()
+                                }.pickerStyle(WheelPickerStyle())
+                                    .frame(height: 100)
+                                Text("Selected: \(selection.rawValue)")
                             }
                             Section(header: Text("Price").font(.headline)){
                                 TextField("Price", value: $Price, formatter: NumberFormatter())
+                                    .keyboardType(.numbersAndPunctuation)
                             }
                             HStack{
                                 //Cancel button
@@ -105,6 +109,7 @@ struct ListingInfo: View {
                                         self.showingAlert = true
                                     }else{
                                         //TODO: connect with ListingUploadImage
+                                        subject = selection.rawValue
                                         ctrl.tempBook.setBookValues(title: title, author: Author, ISBN: ISBN, subject: subject, price: Price, image: image)
                                         ctrl.currView = .ListingUploadImage
                                     }
