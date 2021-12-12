@@ -12,14 +12,15 @@ struct ListingInfo: View {
     @State public var title:String = ""
     @State public var Author:String = ""
     @State public var ISBN:String = ""
-    @State public var subject:String = ""
+//    @State public var subject:String = ""
+    @State public var subject:Book.Subject = .Other
     @State public var Price:Float = 0.0
     @State public var image:UIImage?
     
     @State private var alertTitle = ""
     @State private var showingAlert = false
     
-    @State private var selection = Book.SubjectList.Mathematics
+    @State private var selection = Book.Subject.Mathematics
 //    let subjectList = ["Mathmetacs", "Business", "ComputerScience", "Education", "Engineering", "Humanities", "Law", "Social Sciences", "Physics", "Chemistry", "Biology", "MechanicalEngineering", "ElectricalEngineering", "ComputerEngineering", "Medicine", "Other"]
     
     
@@ -54,24 +55,24 @@ struct ListingInfo: View {
                             Section(header: Text("Subject").font(.headline)){
                                 Picker("Chose subject", selection: $selection){
                                     Group{
-                                        Text("Mathematics").tag(Book.SubjectList.Mathematics)
-                                        Text("Business").tag(Book.SubjectList.Business)
-                                        Text("ComputerScience").tag(Book.SubjectList.ComputerScience)
-                                        Text("Education").tag(Book.SubjectList.Education)
-                                        Text("Engineering").tag(Book.SubjectList.Engineering)
-                                        Text("Humanities").tag(Book.SubjectList.Humanities)
-                                        Text("Law").tag(Book.SubjectList.Law)
-                                        Text("Social Sciences").tag(Book.SubjectList.SocialSciences)
-                                        Text("Physics").tag(Book.SubjectList.Physics)
-                                        Text("Chemistry").tag(Book.SubjectList.Chemistry)
+                                        Text("Mathematics").tag(Book.Subject.Mathematics)
+                                        Text("Business").tag(Book.Subject.Business)
+                                        Text("ComputerScience").tag(Book.Subject.ComputerScience)
+                                        Text("Education").tag(Book.Subject.Education)
+                                        Text("Engineering").tag(Book.Subject.Engineering)
+                                        Text("Humanities").tag(Book.Subject.Humanities)
+                                        Text("Law").tag(Book.Subject.Law)
+                                        Text("Social Sciences").tag(Book.Subject.SocialSciences)
+                                        Text("Physics").tag(Book.Subject.Physics)
+                                        Text("Chemistry").tag(Book.Subject.Chemistry)
                                     }
                                     Group{
-                                        Text("Biology").tag(Book.SubjectList.Biology)
-                                        Text("MechanicalEngineering").tag(Book.SubjectList.MechanicalEngineering)
-                                        Text("ElectricalEngineering").tag(Book.SubjectList.ElectricalEngineering)
-                                        Text("ComputerEngineering").tag(Book.SubjectList.ComputerEngineering)
-                                        Text("Medicine").tag(Book.SubjectList.Medicine)
-                                        Text("Other").tag(Book.SubjectList.Other)
+                                        Text("Biology").tag(Book.Subject.Biology)
+                                        Text("MechanicalEngineering").tag(Book.Subject.MechanicalEngineering)
+                                        Text("ElectricalEngineering").tag(Book.Subject.ElectricalEngineering)
+                                        Text("ComputerEngineering").tag(Book.Subject.ComputerEngineering)
+                                        Text("Medicine").tag(Book.Subject.Medicine)
+                                        Text("Other").tag(Book.Subject.Other)
                                     }
                                 }.pickerStyle(WheelPickerStyle())
                                     .frame(height: 100)
@@ -109,7 +110,7 @@ struct ListingInfo: View {
                                         self.showingAlert = true
                                     }else{
                                         //TODO: connect with ListingUploadImage
-                                        subject = selection.rawValue
+                                        subject = selection
                                         ctrl.tempBook.setBookValues(title: title, author: Author, ISBN: ISBN, subject: subject, price: Price, image: image)
                                         ctrl.currView = .ListingUploadImage
                                     }

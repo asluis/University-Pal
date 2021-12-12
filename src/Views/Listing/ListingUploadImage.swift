@@ -14,7 +14,8 @@ struct ListingUploadImage: View {
     @State private var title:String = ""
     @State private var Author:String = ""
     @State private var ISBN:String = ""
-    @State private var Subject:String = ""
+//    @State private var Subject:String = ""
+    @State private var subject:Book.Subject = .Other
     @State private var Price:Float = 0.0
     @State private var image:UIImage?
 //    @State private var image:Image = Image(uiImage: UIImage)
@@ -27,7 +28,7 @@ struct ListingUploadImage: View {
         title = ctrl.tempBook.title
         Author = ctrl.tempBook.author
         ISBN = ctrl.tempBook.ISBN
-        Subject = ctrl.tempBook.subject
+        subject = ctrl.tempBook.subject
         Price = ctrl.tempBook.price
         image = ctrl.tempBook.image
     }
@@ -66,6 +67,7 @@ struct ListingUploadImage: View {
                                     .resizable()
                                     .frame(width: 200, height: 200)
                                     .clipShape(Circle())
+                                
                             }
                             Button(action: {
                                 showingImagePicker = true
@@ -80,7 +82,7 @@ struct ListingUploadImage: View {
                             Text("Title: \(ctrl.tempBook.title)").frame(maxWidth: .infinity, alignment: .leading).padding()
                             Text("Author: \(ctrl.tempBook.author)").frame(maxWidth: .infinity, alignment: .leading).padding()
                             Text("ISBN: \(ctrl.tempBook.ISBN)").frame(maxWidth: .infinity, alignment: .leading).padding()
-                            Text("Subject: \(ctrl.tempBook.subject)").frame(maxWidth: .infinity, alignment: .leading).padding()
+                            Text("Subject: \(ctrl.tempBook.subject.rawValue)").frame(maxWidth: .infinity, alignment: .leading).padding()
                             Text("Price: \(ctrl.tempBook.price)").frame(maxWidth: .infinity, alignment: .leading).padding()
                         }
                     }
@@ -104,7 +106,7 @@ struct ListingUploadImage: View {
                 //List button
                 Button(action: {
                 //TODO: connect with ListingUploadImage
-                ctrl.tempBook.setBookValues(title: title, author: Author, ISBN: ISBN, subject: Subject, price: Price, image: image)
+                ctrl.tempBook.setBookValues(title: title, author: Author, ISBN: ISBN, subject: subject, price: Price, image: image)
                 ctrl.currView = .profile
             }) {
                 HStack{
