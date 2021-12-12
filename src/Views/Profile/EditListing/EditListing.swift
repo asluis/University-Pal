@@ -2,7 +2,7 @@
 //  EditListing.swift
 //  University Pal
 //
-//  Created by 矢野敦也 on 2021/11/23.
+//  Created by Atsuya Yano on 2021/11/23.
 //
 
 import SwiftUI

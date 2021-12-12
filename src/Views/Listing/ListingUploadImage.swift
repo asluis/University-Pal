@@ -2,7 +2,7 @@
 //  ListingUploadImage.swift
 //  University Pal
 //
-//  Created by 矢野敦也 on 2021/11/17.
+//  Created by Atsuya Yano on 2021/11/17.
 //
 
 import SwiftUI

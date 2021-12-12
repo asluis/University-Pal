@@ -2,20 +2,33 @@
 //  ListingImage.swift
 //  University Pal
 //
+//
+//  Created by Atsuya Yano
 
 import SwiftUI
 
 struct ListingInfo: View {
     @StateObject var ctrl:Controller
-    
-    @State private var title = ""
-    @State private var Author = ""
-    @State private var ISBN = 97
-    @State private var Subject = ""
-    @State private var Price = 0.0
+        
+    @State private var title:String
+    @State private var Author:String
+    @State private var ISBN:String
+    @State private var subject:Subject
+    @State private var Price:Float
+    @State private var image:Image
     
     @State private var alertTitle = ""
     @State private var showingAlert = false
+    
+    // default values assigned
+    init(title:String = "", author:String = "", ISBN:String = "", subject:Subject = .Other, price:Float = 0.0, image:Image = Image("")){
+        self.title = title
+        self.Author = author
+        self.ISBN = ISBN
+        self.subject = subject
+        self.Price = price
+        self.image = image
+    }
     
     
     var body: some View {
@@ -43,11 +56,21 @@ struct ListingInfo: View {
                                 TextField("Author", text: $Author)
                             }
                             Section(header: Text("ISBN").font(.headline)){
-                                TextField("ISBN", value: $ISBN, formatter: NumberFormatter())
+                                TextField("ISBN", text: $ISBN)
                                     .keyboardType(.numberPad)
                             }
                             Section(header: Text("Subject").font(.headline)){
-                                TextField("Subject", text: $Subject)
+                                Picker("Chose subject", selection: $subject){
+                                    Text("Accounting & Finance")
+                                    Text("Arts & Humanities")
+                                    Text("Business & Management")
+                                    Text("Computer Science")
+                                    Text("Economics")
+                                    Text("Engineering")
+                                    Text("Law")
+                                    Text("Social Sciences")
+                                    Text("Other")
+                                }
                             }
                             Section(header: Text("Price").font(.headline)){
                                 TextField("Price", value: $Price, formatter: NumberFormatter())
@@ -72,10 +95,11 @@ struct ListingInfo: View {
                     
                     //List button
                     Button(action: {
-                        if !(978000000000 < ISBN && ISBN < 9799999999999){
-                            alertTitle = "Invalid ISBN"
-                            self.showingAlert = true
-                        }else if (title == "" || Author == "" || Subject == ""){
+                        
+//                        if !(978000000000 < ISBN && ISBN < 9799999999999){
+//                            alertTitle = "Invalid ISBN"
+//                            self.showingAlert = true
+                        if (title == "" || Author == ""){
                             alertTitle = "Please input all information"
                             self.showingAlert = true
                         }else if !(0 <= Price && Price <= 9999){
@@ -83,6 +107,7 @@ struct ListingInfo: View {
                             self.showingAlert = true
                         }else{
                             //TODO: connect with ListingUploadImage
+                            ctrl.tempBook.setBookValues(title: title, author: Author, ISBN: ISBN, subject: subject, price: Price, image: image)
                             ctrl.currView = .ListingUploadImage
                         }
                     }) {
