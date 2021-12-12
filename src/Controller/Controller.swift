@@ -6,6 +6,7 @@
 //
 import Foundation
 import SwiftUI
+import Firebase
 
 class Controller: ObservableObject{
     
@@ -14,9 +15,37 @@ class Controller: ObservableObject{
     @Published var currUser:User = User()
     // TODO: Define model within controller
     
-    // Temporary book for storing a book's details between views, this book is not automatically uploaded to firebase
+    // Temporary book for storing a book's details between views, this book is automatically uploaded to firebase upon calling FireBasePush
     @Published var tempBook:Book = Book()
     
+    // book: title, author, ISBN, subject, price, image
+    func FirebasePush(book:Book? = nil){
+        
+        if book != nil {
+            tempBook = book!
+        }
+        
+        if let userID = Auth.auth().currentUser?.uid {
+            
+            let bookData: [String : Any] = [
+                "author": tempBook.author as String,
+                "title": tempBook.title as String,
+                "ISBN": tempBook.ISBN as String,
+                "subject": tempBook.subject.rawValue as String,
+                "price": tempBook.price as Float,
+                //"image": book.image as Image TODO: Find a way to store images in firebase
+            ]
+            
+            let ref = Database.database().reference()
+            let key = ref.child("Books").childByAutoId().key
+            ref.child("Books").child(key!).setValue(bookData) // pushing new book
+            ref.child("ListingIndexes").child(userID).child(key!).setValue(true) // pushing book to user's list of pushed books
+            
+            
+        } else{
+            fatalError() // crash if error
+        }
+    }
     
     // Obtains and returns the view to be displayed
     func determineView() -> AnyView{
