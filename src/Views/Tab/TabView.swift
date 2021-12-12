@@ -17,7 +17,7 @@ struct TabView: View {
                 ctrl.determineView()
                 if (ctrl.currView != .LoginView && ctrl.currView != .WelcomeScreen && ctrl.currView != .SignUpView) {
                     HStack{
-                        TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "house", tabName: "Home", myView: .WelcomeScreen, ctrl: ctrl)
+                        TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "house", tabName: "Home", myView: .SearchForm, ctrl: ctrl)
                         TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "message", tabName: "Chat", myView: .WelcomeScreen, ctrl: ctrl)
                         TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "person.fill", tabName: "Profile", myView: .profile, ctrl: ctrl)
                         TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "waveform", tabName: "Logout", myView: .WelcomeScreen, ctrl: ctrl)
