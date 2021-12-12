@@ -16,17 +16,12 @@ struct ListingUploadImage: View {
     @State private var ISBN:String = ""
     @State private var Subject:Subject = .Other
     @State private var Price:Float = 0.0
-    @State private var uiimage:UIImage?
+    @State private var image:UIImage?
 //    @State private var image:Image = Image(uiImage: UIImage)
     @State var showingImagePicker = false
     
     var body: some View {
-//        title = ctrl.tempBook.title
-//        Author = ctrl.tempBook.author
-//        ISBN = ctrl.tempBook.ISBN
-//        Subject = ctrl.tempBook.subject
-//        Price = ctrl.tempBook.price
-//        uiimage = ctrl.tempBook.image
+        
         
         GeometryReader{ geo in
             VStack{
@@ -49,7 +44,7 @@ struct ListingUploadImage: View {
                     
                     HStack{
                         VStack{
-                            if let uiImage = uiimage {
+                            if let uiImage = image {
                                 Image(uiImage: uiImage)
                                     .resizable()
                                     .frame(width: 200, height: 200)
@@ -67,7 +62,7 @@ struct ListingUploadImage: View {
                             }
                         }
                         .sheet(isPresented: $showingImagePicker){
-                            ImagePicker(sourceType: .photoLibrary, selectedImage: $uiimage)
+                            ImagePicker(sourceType: .photoLibrary, selectedImage: $image)
                         }
                         VStack{
                             Text("Title").frame(maxWidth: .infinity, alignment: .leading)
@@ -132,6 +127,15 @@ struct ListingUploadImage: View {
                 .padding(.horizontal, 40)
 
         }
+    }
+    
+    func setInfo(){
+        title = ctrl.tempBook.title
+        Author = ctrl.tempBook.author
+        ISBN = ctrl.tempBook.ISBN
+        Subject = ctrl.tempBook.subject
+        Price = ctrl.tempBook.price
+        image = ctrl.tempBook.image
     }
 }
 

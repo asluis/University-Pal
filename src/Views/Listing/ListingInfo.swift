@@ -14,7 +14,7 @@ struct ListingInfo: View {
     @State public var ISBN:String = ""
     @State public var subject:Subject = .Other
     @State public var Price:Float = 0.0
-    @State public var image:Image = Image("")
+    @State public var image:UIImage?
     
     @State private var alertTitle = ""
     @State private var showingAlert = false
