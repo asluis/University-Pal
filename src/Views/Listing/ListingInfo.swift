@@ -51,15 +51,26 @@ struct ListingInfo: View {
                             }
                             Section(header: Text("Subject").font(.headline)){
                                 Picker("Chose subject", selection: $subject){
-                                    Text("Accounting & Finance")
-                                    Text("Arts & Humanities")
-                                    Text("Business & Management")
-                                    Text("Computer Science")
-                                    Text("Economics")
-                                    Text("Engineering")
-                                    Text("Law")
-                                    Text("Social Sciences")
-                                    Text("Other")
+                                    Group{
+                                        Text("Mathematics")
+                                        Text("Business")
+                                        Text("ComputerScience")
+                                        Text("Education")
+                                        Text("Engineering")
+                                        Text("Humanities")
+                                        Text("Law")
+                                        Text("Social Sciences")
+                                        Text("Physics")
+                                        Text("Chemistry")
+                                    }
+                                    Group{
+                                        Text("Biology")
+                                        Text("MechanicalEngineering")
+                                        Text("ElectricalEngineering")
+                                        Text("ComputerEngineering")
+                                        Text("Medicine")
+                                        Text("Other")
+                                    }
                                 }
                             }
                             Section(header: Text("Price").font(.headline)){
