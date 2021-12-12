@@ -79,6 +79,7 @@ struct LoginView: View {
                                     
                                         
                                         //TODO: Change view once successful
+                                        ctrl.currView = .profile
                                     })
                                 }
                             }
