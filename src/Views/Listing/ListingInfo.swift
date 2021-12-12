@@ -2,33 +2,23 @@
 //  ListingImage.swift
 //  University Pal
 //
-//
-//  Created by Atsuya Yano
+// Created by Atsuya Yano
 
 import SwiftUI
 
 struct ListingInfo: View {
     @StateObject var ctrl:Controller
-        
-    @State private var title:String
-    @State private var Author:String
-    @State private var ISBN:String
-    @State private var subject:Subject
-    @State private var Price:Float
-    @State private var image:Image
+    
+    @State public var title:String = ""
+    @State public var Author:String = ""
+    @State public var ISBN:String = ""
+    @State public var subject:Subject
+    @State public var Price:Float = 0.0
+    @State public var image:Image
     
     @State private var alertTitle = ""
     @State private var showingAlert = false
     
-    // default values assigned
-    init(title:String = "", author:String = "", ISBN:String = "", subject:Subject = .Other, price:Float = 0.0, image:Image = Image("")){
-        self.title = title
-        self.Author = author
-        self.ISBN = ISBN
-        self.subject = subject
-        self.Price = price
-        self.image = image
-    }
     
     
     var body: some View {
@@ -56,7 +46,7 @@ struct ListingInfo: View {
                                 TextField("Author", text: $Author)
                             }
                             Section(header: Text("ISBN").font(.headline)){
-                                TextField("ISBN", text: $ISBN)
+                                TextField("ISBN", value: $ISBN, formatter: NumberFormatter())
                                     .keyboardType(.numberPad)
                             }
                             Section(header: Text("Subject").font(.headline)){
