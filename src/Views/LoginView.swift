@@ -76,8 +76,7 @@ struct LoginView: View {
                                         let data = snapshot.value as? NSDictionary
                                         
                                         //TODO: Handle local user class population with DB info
-                                    
-                                        
+
                                         ctrl.currView = .SearchForm // changing view
                                     })
                                 }
