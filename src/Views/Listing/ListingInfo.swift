@@ -76,7 +76,6 @@ struct ListingInfo: View {
                             Section(header: Text("Price").font(.headline)){
                                 TextField("Price", value: $Price, formatter: NumberFormatter())
                             }
-                            
                         }.padding(.vertical, -geo.size.height * 0.07)
                     }
                 }

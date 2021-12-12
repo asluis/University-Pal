@@ -15,13 +15,21 @@ struct editDetail: Identifiable{
 struct profile: View {
     @StateObject var ctrl:Controller
     
+    // for list of year
     @State private var selection = 5
-    @State private var name = ""
-    @State private var university = ""
+    
+    @State public var name:String = ""
+    @State public var email:String = ""
+    @State public var listedIndexes:[Int] = []
+    @State public var purchasedIndexes:[Int] = []
+    @State public var listedBooks:[Book] = []
+    @State public var purchasedBooks:[Book] = []
+//    @State private var university = ""
     
     
     
     var body: some View {
+        
         NavigationView{
             VStack{
                 Image("books-1163695_1").frame(width: UIScreen.main.nativeBounds.size.width, height: 20)
@@ -44,10 +52,10 @@ struct profile: View {
                                 Text("Name").frame(maxWidth: .infinity, alignment: .leading)
                                 TextField("Name", text: $name)
                             
-                                //University name field
-                                Divider()
-                                Text("University").frame(maxWidth: .infinity, alignment: .leading)
-                                TextField("University", text: $university)
+//                                //University name field
+//                                Divider()
+//                                Text("University").frame(maxWidth: .infinity, alignment: .leading)
+//                                TextField("University", text: $university)
                                 
                                 //Year field
                                 Divider()
@@ -61,7 +69,16 @@ struct profile: View {
                                 }
                             }
                         }
+                        Button(action: {
+                            ctrl.currUser.setUserValues(name: name, email: email, purchasedBooks: purchasedBooks, listedBooks: listedBooks, listedIndexes: listedIndexes, purchasedIndexes: purchasedIndexes)
+                        }) {
+                            HStack{
+                                Text("Save")
+                                    .frame(width: 70, height: 30)
+                            }
+                        }.buttonStyle(GradientButtonStyle(pressedColor: .red))
                     }
+                    
                     List{
                         Button(action: {
                                 ctrl.currView = .ListingInfo
@@ -97,6 +114,15 @@ struct profile: View {
             }
                 
         }
+    }
+    
+    func setInfo(){
+        name = ctrl.currUser.name
+        email = ctrl.currUser.email
+        listedIndexes = ctrl.currUser.listedIndexes
+        purchasedIndexes = ctrl.currUser.purchasedIndexes
+        listedBooks = ctrl.currUser.listedBooks
+        purchasedBooks = ctrl.currUser.purchasedBooks
     }
 }
 

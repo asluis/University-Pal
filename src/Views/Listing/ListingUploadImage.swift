@@ -11,15 +11,23 @@ import UIKit
 struct ListingUploadImage: View {
     @StateObject var ctrl:Controller
     
-    @State private var title = "great math textbook"
-    @State private var Author = ""
-    @State private var ISBN = 0
-    @State private var Subject = ""
-    @State private var Price = 0
-    @State private var image: UIImage?
+    @State private var title:String = ""
+    @State private var Author:String = ""
+    @State private var ISBN:String = ""
+    @State private var Subject:Subject = .Other
+    @State private var Price:Float = 0.0
+    @State private var uiimage:UIImage?
+//    @State private var image:Image = Image(uiImage: UIImage)
     @State var showingImagePicker = false
     
     var body: some View {
+//        title = ctrl.tempBook.title
+//        Author = ctrl.tempBook.author
+//        ISBN = ctrl.tempBook.ISBN
+//        Subject = ctrl.tempBook.subject
+//        Price = ctrl.tempBook.price
+//        uiimage = ctrl.tempBook.image
+        
         GeometryReader{ geo in
             VStack{
                 Section(header: Group{
@@ -41,12 +49,12 @@ struct ListingUploadImage: View {
                     
                     HStack{
                         VStack{
-                            if let uiImage = image {
+                            if let uiImage = uiimage {
                                 Image(uiImage: uiImage)
                                     .resizable()
                                     .frame(width: 200, height: 200)
                                     .clipShape(Circle())
-                            } else {
+                            }  else {
                                 Image("noimage")
                                     .resizable()
                                     .frame(width: 200, height: 200)
@@ -59,7 +67,7 @@ struct ListingUploadImage: View {
                             }
                         }
                         .sheet(isPresented: $showingImagePicker){
-                            ImagePicker(sourceType: .photoLibrary, selectedImage: $image)
+                            ImagePicker(sourceType: .photoLibrary, selectedImage: $uiimage)
                         }
                         VStack{
                             Text("Title").frame(maxWidth: .infinity, alignment: .leading)
@@ -68,8 +76,30 @@ struct ListingUploadImage: View {
                             TextField("Author", text: $Author)
                             Text("ISBN").frame(maxWidth: .infinity, alignment: .leading)
                             TextField("ISBN", value: $ISBN, formatter: NumberFormatter())
-                            Text("Subject").frame(maxWidth: .infinity, alignment: .leading)
-                            TextField("Subject", text: $Subject)
+                            Section(header: Text("Subject").font(.headline)){
+                                Picker("Chose subject", selection: $Subject){
+                                    Group{
+                                        Text("Mathematics")
+                                        Text("Business")
+                                        Text("ComputerScience")
+                                        Text("Education")
+                                        Text("Engineering")
+                                        Text("Humanities")
+                                        Text("Law")
+                                        Text("Social Sciences")
+                                        Text("Physics")
+                                        Text("Chemistry")
+                                    }
+                                    Group{
+                                        Text("Biology")
+                                        Text("MechanicalEngineering")
+                                        Text("ElectricalEngineering")
+                                        Text("ComputerEngineering")
+                                        Text("Medicine")
+                                        Text("Other")
+                                    }
+                                }
+                            }
                             Text("Price").frame(maxWidth: .infinity, alignment: .leading)
                             TextField("50;05", value: $Price, formatter: NumberFormatter())
                         }
