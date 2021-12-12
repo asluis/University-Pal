@@ -12,9 +12,9 @@ struct ListingInfo: View {
     @State public var title:String = ""
     @State public var Author:String = ""
     @State public var ISBN:String = ""
-    @State public var subject:Subject
+    @State public var subject:Subject = .Other
     @State public var Price:Float = 0.0
-    @State public var image:Image
+    @State public var image:Image = Image("")
     
     @State private var alertTitle = ""
     @State private var showingAlert = false
