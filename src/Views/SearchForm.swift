@@ -47,7 +47,7 @@ struct SearchForm: View {
                                     .autocapitalization(UITextAutocapitalizationType.none)
                             }
                             Section(header: Text("ISBN").font(.headline)){
-                                SecureField("ISBN", text: $isbn)
+                                TextField("ISBN", text: $isbn)
                                     .autocapitalization(UITextAutocapitalizationType.none)
                             }
                         }.padding(.top, -geo.size.height * 0.07)
