@@ -50,7 +50,7 @@ class Book{
 }
 
 
-enum Subject{
+enum Subject: String{
     case Mathematics
     case Business
     case ComputerScience
