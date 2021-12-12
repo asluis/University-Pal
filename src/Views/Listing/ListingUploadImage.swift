@@ -18,7 +18,9 @@ struct ListingUploadImage: View {
     @State private var Price:Float = 0.0
     @State private var image:UIImage?
 //    @State private var image:Image = Image(uiImage: UIImage)
-    @State var showingImagePicker = false
+    @State private var alertTitle = ""
+    @State private var showingAlert = false
+    @State private var showingImagePicker = false
     
     var body: some View {
         
@@ -117,11 +119,30 @@ struct ListingUploadImage: View {
                 
                 //List button
                 Button(action: {
-                    // TODO: Add action here
-                }) {
-                    Text("Yes, continute listing")
-                        .frame(width: 170, height: 30)
-                }.buttonStyle(GradientButtonStyle())
+                    
+//                if !(978000000000 < ISBN && ISBN < 9799999999999){
+//                    alertTitle = "Invalid ISBN"
+//                    self.showingAlert = true
+                if (title == "" || Author == ""){
+                    alertTitle = "Please input all information"
+                    self.showingAlert = true
+                }else if !(0 <= Price && Price <= 9999){
+                    alertTitle = "Price have to be $0 - $9999"
+                    self.showingAlert = true
+                }else{
+                    //TODO: connect with ListingUploadImage
+                    ctrl.tempBook.setBookValues(title: title, author: Author, ISBN: ISBN, subject: Subject, price: Price, image: image)
+                    ctrl.currView = .ListingUploadImage
+                }
+            }) {
+                HStack{
+                    Image(systemName: "plus.square.fill.on.square.fill")
+                    Text("Yes, continue listing")
+                        .frame(width: 70, height: 30)
+                }.alert(isPresented: $showingAlert) {
+                    Alert(title: Text(alertTitle))
+                }
+            }.buttonStyle(GradientButtonStyle())
                 
             }.padding(.top, -geo.size.height * -0.7)
                 .padding(.horizontal, 40)
