@@ -39,6 +39,8 @@ class Controller: ObservableObject{
             return AnyView(ListingInfo(ctrl: self))
         case .ListingUploadImage:
             return AnyView(ListingUploadImage(ctrl: self))
+        case .SearchForm:
+            return AnyView(SearchForm(ctrl: self))
 //        case .ChatView:
 //            return AnyView(ChatView(ctrl: self))
 //        case .footer:

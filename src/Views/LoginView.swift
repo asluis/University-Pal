@@ -78,7 +78,7 @@ struct LoginView: View {
                                         //TODO: Handle local user class population with DB info
                                     
                                         
-                                        //TODO: Change view once successful
+                                        ctrl.currView = .SearchForm // changing view
                                     })
                                 }
                             }
