@@ -1,22 +1,24 @@
 //
-//  LoginView.swift
+//  SearchForm.swift
 //  University Pal
 //
-//  Created by Luis Alvarez Sanchez on 12/3/21.
+//  Created by Nguyen Kim Khanh on 12/11/21.
 //
 
 import SwiftUI
-import Firebase
+import FirebaseAuth
 
-struct LoginView: View {
+struct SearchForm: View {
     @StateObject var ctrl:Controller
+    
+    @State private var title = ""
+    @State private var author = ""
+    @State private var isbn = ""
+    @State private var confirmPassword = ""
     
     @State private var isShowingAlert = false
     @State private var alertTitle = ""
     @State private var alertMsg = ""
-    
-    @State private var email = ""
-    @State private var password = ""
     
     var body: some View {
         GeometryReader{ geo in
@@ -28,7 +30,7 @@ struct LoginView: View {
                                 .resizable()
                                 .frame(width: geo.size.width, height: geo.size.height * 0.2)
                                 .edgesIgnoringSafeArea(.top)
-                            Text("Login")
+                            Text("Search")
                                 .foregroundColor(.white)
                                 .font(.system(size: 65))
                                 .bold()
@@ -36,12 +38,16 @@ struct LoginView: View {
                         }
                     }){
                         Form{
-                            Section(header: Text("Email").font(.headline)){
-                                TextField("Email", text: $email)
+                            Section(header: Text("Title").font(.headline)){
+                                TextField("Title", text: $title)
                                     .autocapitalization(UITextAutocapitalizationType.none)
                             }
-                            Section(header: Text("Password").font(.headline)){
-                                SecureField("Password", text: $password)
+                            Section(header: Text("Author").font(.headline)){
+                                TextField("Author", text: $author)
+                                    .autocapitalization(UITextAutocapitalizationType.none)
+                            }
+                            Section(header: Text("ISBN").font(.headline)){
+                                TextField("ISBN", text: $isbn)
                                     .autocapitalization(UITextAutocapitalizationType.none)
                             }
                         }.padding(.top, -geo.size.height * 0.07)
@@ -51,39 +57,17 @@ struct LoginView: View {
                     Spacer()
                     
                     Button(action: {
-                        if email == "" || password == "" {
-                            alertTitle = "Error Logging in"
-                            alertMsg = "Please fill out BOTH email and password"
+                        if !isValidTitle(title) || !isValidISBN(isbn) || !isValidAuthor(author){
+                            alertTitle = "Bad information"
+                            alertMsg = "Please enter the correct information"
                             isShowingAlert = true
-                        }else{
-                            Auth.auth().signIn(withEmail: email, password: password) {(result, error) in
-                                
-                                if error != nil {
-                                    alertTitle = "Error Loggin in"
-                                    alertMsg = error?.localizedDescription ?? "Error loggin in"
-                                
-                                    isShowingAlert = true
-                                }else{
-                                    // Successful login
-                                    email = ""
-                                    password = ""
-                                    
-                                   print("SUCCESS LOGGING IN")
-                                    // Now probe database and fetch user data
-                                    let ref = Database.database().reference()
-                                    ref.child("users").child(result!.user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                                        
-                                        let data = snapshot.value as? NSDictionary
-                                        
-                                        //TODO: Handle local user class population with DB info
-
-                                        ctrl.currView = .SearchForm // changing view
-                                    })
-                                }
-                            }
+                        } else if title == "" && isbn == "" && author == ""{
+                            alertTitle = "Empty fields"
+                            alertMsg = "Please enter at least one information"
+                            isShowingAlert = true
                         }
                     }, label: {
-                        Text("Sign in")
+                        Text("Search")
                             .foregroundColor(.black)
                             .font(.system(size: 30))
                             .bold()
@@ -107,17 +91,26 @@ struct LoginView: View {
         }
     }
     
-    // Ensures email is valid format and ends in .edu
-    func isValidEmail(_ email:String) -> Bool{
-        let emailRegEx = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\\.edu$"
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
+    func isValidTitle(_ title:String) -> Bool{
+        let authorRegEx = "abcd1234-=+-&%$!"
+        let authorPred = NSPredicate(format:"SELF MATCHES %@", authorRegEx)
+        return authorPred.evaluate(with: author)
     }
+    func isValidAuthor(_ author:String) -> Bool{
+        let authorRegEx = "abcd"
+        let authorPred = NSPredicate(format:"SELF MATCHES %@", authorRegEx)
+        return authorPred.evaluate(with: author)
+    }
+    func isValidISBN(_ isbn:String) -> Bool{
+        let authorRegEx = "12345"
+        let authorPred = NSPredicate(format:"SELF MATCHES %@", authorRegEx)
+        return authorPred.evaluate(with: author)
     
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct SearchForm_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(ctrl: Controller())
+        SearchForm(ctrl: Controller())
     }
+}
 }
