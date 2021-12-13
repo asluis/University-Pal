@@ -20,7 +20,7 @@ struct TabView: View {
                         TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "house", tabName: "Home", myView: .SearchForm, ctrl: ctrl)
                         TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "message", tabName: "Chat", myView: .WelcomeScreen, ctrl: ctrl)
                         TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "person.fill", tabName: "Profile", myView: .profile, ctrl: ctrl)
-                        TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "waveform", tabName: "Logout", myView: .WelcomeScreen, ctrl: ctrl)
+                        TabItem(width: geo.size.width/5, height: geo.size.height/28, systemIconName: "waveform", tabName: "Logout", myView: .LogoutView, ctrl: ctrl)
                     }
                     .frame(width: geo.size.width, height: geo.size.height/8)
                     .background(Color.gray.shadow(radius: 2))
