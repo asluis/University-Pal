@@ -40,17 +40,17 @@ struct profile: View {
                 Form{
                     Section(header: Text("Basic Information")){
                         HStack{
-                            Image("guy-character")
-                                .resizable()
-                                .clipped()
-                                .frame(width: 100, height: 100, alignment: .center)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(Color.blue, lineWidth: 2.0))
+//                            Image("guy-character")
+//                                .resizable()
+//                                .clipped()
+//                                .frame(width: 100, height: 100, alignment: .center)
+//                                .clipShape(Circle())
+//                                .overlay(Circle().stroke(Color.blue, lineWidth: 2.0))
                             
                             VStack{
                                 //Name field
-                                Text("Name").frame(maxWidth: .infinity, alignment: .leading)
-                                TextField("Name", text: $name)
+                                Text("Name: \(ctrl.currUser.name)").frame(maxWidth: .infinity, alignment: .leading).padding()
+                                Text("e-mail: \(ctrl.currUser.email)").frame(maxWidth: .infinity, alignment: .leading).padding()
                             
 //                                //University name field
 //                                Divider()
@@ -58,25 +58,25 @@ struct profile: View {
 //                                TextField("University", text: $university)
                                 
                                 //Year field
-                                Divider()
-                                Text("Year").frame(maxWidth: .infinity, alignment: .leading)
-                                Picker(selection: $selection, label: Text("")){
-                                    Text("Freshman").tag(1)
-                                    Text("Sophomore").tag(2)
-                                    Text("Junior").tag(3)
-                                    Text("Senior").tag(4)
-                                    Text("Graduated").tag(5)
-                                }
+//                                Divider()
+//                                Text("Year").frame(maxWidth: .infinity, alignment: .leading)
+//                                Picker(selection: $selection, label: Text("")){
+//                                    Text("Freshman").tag(1)
+//                                    Text("Sophomore").tag(2)
+//                                    Text("Junior").tag(3)
+//                                    Text("Senior").tag(4)
+//                                    Text("Graduated").tag(5)
+//                                }
                             }
                         }
-                        Button(action: {
-                            ctrl.currUser.setUserValues(name: name, email: email, purchasedBooks: purchasedBooks, listedBooks: listedBooks, listedIndexes: listedIndexes, purchasedIndexes: purchasedIndexes)
-                        }) {
-                            HStack{
-                                Text("Save")
-                                    .frame(width: 70, height: 30)
-                            }
-                        }.buttonStyle(GradientButtonStyle(pressedColor: .red))
+//                        Button(action: {
+//                            ctrl.currUser.setUserValues(name: name, email: email, purchasedBooks: purchasedBooks, listedBooks: listedBooks, listedIndexes: listedIndexes, purchasedIndexes: purchasedIndexes)
+//                        }) {
+//                            HStack{
+//                                Text("Save")
+//                                    .frame(width: 70, height: 30)
+//                            }
+//                        }.buttonStyle(GradientButtonStyle(pressedColor: .red))
                     }
                     
                     List{
@@ -97,16 +97,6 @@ struct profile: View {
                         }, label: {
                             Text("Purchase History")
                         })
-                        
-//                        NavigationLink(destination: ListingInfo()) {
-//                            Text("Add Listing").font(.title)
-//                        }
-//                        NavigationLink(destination: MyListings()) {
-//                            Text("My Listing").font(.title)
-//                        }
-//                        NavigationLink(destination: PurchaseHistory()) {
-//                            Text("Purchase History").font(.title)
-//                        }
                     }
 
                 }

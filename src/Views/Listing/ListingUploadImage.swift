@@ -83,7 +83,7 @@ struct ListingUploadImage: View {
                             Text("Author: \(ctrl.tempBook.author)").frame(maxWidth: .infinity, alignment: .leading).padding()
                             Text("ISBN: \(ctrl.tempBook.ISBN)").frame(maxWidth: .infinity, alignment: .leading).padding()
                             Text("Subject: \(ctrl.tempBook.subject.rawValue)").frame(maxWidth: .infinity, alignment: .leading).padding()
-                            Text("Price: \(ctrl.tempBook.price)").frame(maxWidth: .infinity, alignment: .leading).padding()
+                            Text("Price: \(ctrl.tempBook.price, specifier: "%.2f")").frame(maxWidth: .infinity, alignment: .leading).padding()
                         }
                     }
                 }
