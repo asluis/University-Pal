@@ -47,12 +47,6 @@ class Book{
         if image != nil {
             self.image = image!
         }
-        print(title)
-        print(author)
-        print(ISBN)
-        print(subject)
-        print(price)
-        print(image)
     }
     
     enum Subject : String, CaseIterable, Identifiable{
