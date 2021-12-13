@@ -17,6 +17,8 @@ struct LoginView: View {
     
     @State private var email = ""
     @State private var password = ""
+    @State private var university = ""
+    @State private var year = ""
     
     var body: some View {
         GeometryReader{ geo in
@@ -38,6 +40,14 @@ struct LoginView: View {
                         Form{
                             Section(header: Text("Email").font(.headline)){
                                 TextField("Email", text: $email)
+                                    .autocapitalization(UITextAutocapitalizationType.none)
+                            }
+                            Section(header: Text("Year").font(.headline)){
+                                TextField("Year", text: $year)
+                                    .autocapitalization(UITextAutocapitalizationType.none)
+                            }
+                            Section(header: Text("University").font(.headline)){
+                                TextField("University", text: $university)
                                     .autocapitalization(UITextAutocapitalizationType.none)
                             }
                             Section(header: Text("Password").font(.headline)){
@@ -77,8 +87,10 @@ struct LoginView: View {
                                         let data = snapshot.value as? NSDictionary
                                         let name = data?["name"] as? String ?? "ERR"
                                         let email = data?["email"] as? String ?? "ERR"
+                                        let univ = data?["university"] as? String ?? "ERR"
+                                        let yr = data?["year"] as? String ?? "ERR"
                                         
-                                        ctrl.currUser.setUserValues(name: name, email: email)
+                                        ctrl.currUser.setUserValues(name: name, email: email, year: yr, university: univ)
                                         print("Name and email is: \(ctrl.currUser.name) \(ctrl.currUser.email)")
                                         ctrl.currView = .SearchForm // changing view
                                     })
