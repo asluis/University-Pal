@@ -37,16 +37,17 @@ struct profile: View {
                     .foregroundColor(Color.white)
                     .font(Font.system(size: 50).bold())
                 
+                
                 Form{
+                    
                     Section(header: Text("Basic Information")){
                         HStack{
-//                            Image("guy-character")
-//                                .resizable()
-//                                .clipped()
-//                                .frame(width: 100, height: 100, alignment: .center)
-//                                .clipShape(Circle())
-//                                .overlay(Circle().stroke(Color.blue, lineWidth: 2.0))
-                            
+                            Image("guy-character")
+                                .resizable()
+                                .clipped()
+                                .frame(width: 100, height: 100, alignment: .center)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.blue, lineWidth: 2.0))
                             VStack{
                                 //Name field
                                 Text("Name: \(ctrl.currUser.name)").frame(maxWidth: .infinity, alignment: .leading).padding()
