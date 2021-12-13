@@ -70,6 +70,8 @@ class Controller: ObservableObject{
             return AnyView(ListingUploadImage(ctrl: self))
         case .SearchForm:
             return AnyView(SearchForm(ctrl: self))
+        case .LogoutView:
+            return AnyView(LogoutView(ctrl: self))
 //        case .ChatView:
 //            return AnyView(ChatView(ctrl: self))
 //        case .footer:
