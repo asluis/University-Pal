@@ -30,35 +30,36 @@ struct profile: View {
     
     var body: some View {
         
-        VStack{
-            Image("books-1163695_1").frame(width: UIScreen.main.nativeBounds.size.width, height: 0)
-            Text("Profile")
-                .foregroundColor(Color.white)
-                .font(Font.system(size: 50).bold())
-            
-            Form{
-                Section(header: Text("Basic Information")){
-                    HStack{
+        NavigationView{
+            VStack{
+                Image("books-1163695_1").frame(width: UIScreen.main.nativeBounds.size.width, height: 0)
+                Text("Profile")
+                    .foregroundColor(Color.white)
+                    .font(Font.system(size: 50).bold())
+                
+                Form{
+                    Section(header: Text("Basic Information")){
+                        HStack{
 //                            Image("guy-character")
 //                                .resizable()
 //                                .clipped()
 //                                .frame(width: 100, height: 100, alignment: .center)
 //                                .clipShape(Circle())
 //                                .overlay(Circle().stroke(Color.blue, lineWidth: 2.0))
-                        
-                        VStack{
-                            //Name field
-                            Text("Name: \(ctrl.currUser.name)").frame(maxWidth: .infinity, alignment: .leading).padding()
-                            Text("e-mail: \(ctrl.currUser.email)").frame(maxWidth: .infinity, alignment: .leading).padding()
-                            Text("University: \(ctrl.currUser.university)").frame(maxWidth: .infinity, alignment: .leading).padding()
-                            Text("Year: \(ctrl.currUser.year)").frame(maxWidth: .infinity, alignment: .leading).padding()
-                        
+                            
+                            VStack{
+                                //Name field
+                                Text("Name: \(ctrl.currUser.name)").frame(maxWidth: .infinity, alignment: .leading).padding()
+                                Text("e-mail: \(ctrl.currUser.email)").frame(maxWidth: .infinity, alignment: .leading).padding()
+                                Text("University: \(ctrl.currUser.university)").frame(maxWidth: .infinity, alignment: .leading).padding()
+                                Text("Year: \(ctrl.currUser.year)").frame(maxWidth: .infinity, alignment: .leading).padding()
+                            
 //                                //University name field
 //                                Divider()
 //                                Text("University").frame(maxWidth: .infinity, alignment: .leading)
 //                                TextField("University", text: $university)
-                            
-                            //Year field
+                                
+                                //Year field
 //                                Divider()
 //                                Text("Year").frame(maxWidth: .infinity, alignment: .leading)
 //                                Picker(selection: $selection, label: Text("")){
@@ -68,8 +69,8 @@ struct profile: View {
 //                                    Text("Senior").tag(4)
 //                                    Text("Graduated").tag(5)
 //                                }
+                            }
                         }
-                    }
 //                        Button(action: {
 //                            ctrl.currUser.setUserValues(name: name, email: email, purchasedBooks: purchasedBooks, listedBooks: listedBooks, listedIndexes: listedIndexes, purchasedIndexes: purchasedIndexes)
 //                        }) {
@@ -78,32 +79,33 @@ struct profile: View {
 //                                    .frame(width: 70, height: 30)
 //                            }
 //                        }.buttonStyle(GradientButtonStyle(pressedColor: .red))
+                    }
+                    
+                    List{
+                        Button(action: {
+                                ctrl.currView = .ListingInfo
+                        }, label:{
+                            Text("Add Listing")
+
+                        })
+                        Button(action: {
+                                ctrl.currView = .MyListings
+                        }, label:{
+                            Text("My Listing")
+
+                        })
+                        Button(action: {
+                            ctrl.currView = .PurchaseHistory
+                        }, label: {
+                            Text("Purchase History")
+                        })
+                    }
+
                 }
-                
-                List{
-                    Button(action: {
-                            ctrl.currView = .ListingInfo
-                    }, label:{
-                        Text("Add Listing")
-
-                    })
-                    Button(action: {
-                            ctrl.currView = .MyListings
-                    }, label:{
-                        Text("My Listing")
-
-                    })
-                    Button(action: {
-                        ctrl.currView = .PurchaseHistory
-                    }, label: {
-                        Text("Purchase History")
-                    })
-                }
-
+            
             }
-        
+                
         }
-
     }
     
     func setInfo(){
