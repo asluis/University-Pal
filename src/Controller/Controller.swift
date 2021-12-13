@@ -11,7 +11,7 @@ import Firebase
 class Controller: ObservableObject{
     
 
-    @Published var currView:ViewBank = .ListingInfo
+    @Published var currView:ViewBank = .WelcomeScreen
     @Published var currUser:User = User()
     // TODO: Define model within controller
     
