@@ -33,10 +33,10 @@ struct MyListings: View {
                         }
                     }){
                         //list of Listing
-                        List{
-                            NavigationLink(destination: Text("EditListing")){
-                                VStack{
-                                    ForEach(listings){ listing in
+                        NavigationView{
+                            List{
+                                ForEach(listings){ listing in
+                                    NavigationLink(destination: EditListing()){
                                         HStack{
                                             Image(listing.imageName)
                                                 .resizable()
