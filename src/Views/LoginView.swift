@@ -70,13 +70,16 @@ struct LoginView: View {
                                     
                                    print("SUCCESS LOGGING IN")
                                     // Now probe database and fetch user data
+                                    // TODO: Make fetch function in controller
                                     let ref = Database.database().reference()
-                                    ref.child("users").child(result!.user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                                    ref.child("Users").child(result!.user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                                         
                                         let data = snapshot.value as? NSDictionary
+                                        let name = data?["name"] as? String ?? "ERR"
+                                        let email = data?["email"] as? String ?? "ERR"
                                         
-                                        //TODO: Handle local user class population with DB info
-
+                                        ctrl.currUser.setUserValues(name: name, email: email)
+                                        print("Name and email is: \(ctrl.currUser.name) \(ctrl.currUser.email)")
                                         ctrl.currView = .SearchForm // changing view
                                     })
                                 }
