@@ -16,12 +16,12 @@ struct ListingInfo: View {
     @State public var subject:Book.Subject = .Other
     @State public var Price:Float = 0.0
     @State public var image:UIImage?
+
     
     @State private var alertTitle = ""
     @State private var showingAlert = false
     
     @State private var selection = Book.Subject.Mathematics
-//    let subjectList = ["Mathmetacs", "Business", "ComputerScience", "Education", "Engineering", "Humanities", "Law", "Social Sciences", "Physics", "Chemistry", "Biology", "MechanicalEngineering", "ElectricalEngineering", "ComputerEngineering", "Medicine", "Other"]
     
     
     var body: some View {
