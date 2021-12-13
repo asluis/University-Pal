@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseAuth
+import Firebase
 
 struct SignUpView: View {
     @StateObject var ctrl:Controller
@@ -83,9 +84,18 @@ struct SignUpView: View {
                                     isShowingAlert = true
                                 }else{
                                     // Success!
+                                    if let userID = Auth.auth().currentUser?.uid {
+                                        // TODO: Make a fetch function in controller
+                                        let ref = Database.database().reference()
+                                        ref.child("Users").child(userID).setValue(["name" : name, "email" : email])
+                                        
+                                        
+                                        print("SUCCESSFUL REGISTRATION for \(email)!")
+                                        ctrl.currUser.setUserValues(name: name, email: email)
+                                        ctrl.currView = .SearchForm
+                                    }
                                     
-                                    print("SUCCESSFUL REGISTRATION for \(email)!")
-                                    // TODO: ctrl.currView = .SearchView
+                                    
                                 }
                             }
                         }
