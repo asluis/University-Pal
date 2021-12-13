@@ -56,8 +56,6 @@ class Controller: ObservableObject{
             return AnyView(SignUpView(ctrl: self))
         case .LoginView:
             return AnyView(LoginView(ctrl: self))
-        case .EditLisitng:
-            return AnyView(EditListing(ctrl: self))
         case .profile:
             return AnyView(profile(ctrl: self))
         case .PurchaseHistory:
@@ -70,6 +68,8 @@ class Controller: ObservableObject{
             return AnyView(ListingUploadImage(ctrl: self))
         case .SearchForm:
             return AnyView(SearchForm(ctrl: self))
+//        case .EditLisitng:
+//            return AnyView(EditListing(ctrl: self))
 //        case .ChatView:
 //            return AnyView(ChatView(ctrl: self))
 //        case .footer:
