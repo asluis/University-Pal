@@ -17,8 +17,6 @@ struct LoginView: View {
     
     @State private var email = ""
     @State private var password = ""
-    @State private var university = ""
-    @State private var year = ""
     
     var body: some View {
         GeometryReader{ geo in
@@ -40,14 +38,6 @@ struct LoginView: View {
                         Form{
                             Section(header: Text("Email").font(.headline)){
                                 TextField("Email", text: $email)
-                                    .autocapitalization(UITextAutocapitalizationType.none)
-                            }
-                            Section(header: Text("Year").font(.headline)){
-                                TextField("Year", text: $year)
-                                    .autocapitalization(UITextAutocapitalizationType.none)
-                            }
-                            Section(header: Text("University").font(.headline)){
-                                TextField("University", text: $university)
                                     .autocapitalization(UITextAutocapitalizationType.none)
                             }
                             Section(header: Text("Password").font(.headline)){

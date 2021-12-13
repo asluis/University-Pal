@@ -16,6 +16,8 @@ struct SignUpView: View {
     @State private var name = ""
     @State private var password = ""
     @State private var confirmPassword = ""
+    @State private var university = ""
+    @State private var year = ""
     
     @State private var isShowingAlert = false
     @State private var alertTitle = ""
@@ -45,6 +47,14 @@ struct SignUpView: View {
                             }
                             Section(header: Text("Email").font(.headline)){
                                 TextField("Email", text: $email)
+                                    .autocapitalization(UITextAutocapitalizationType.none)
+                            }
+                            Section(header: Text("University").font(.headline)){
+                                TextField("University", text: $university)
+                                    .autocapitalization(UITextAutocapitalizationType.none)
+                            }
+                            Section(header: Text("Year").font(.headline)){
+                                TextField("Year", text: $year)
                                     .autocapitalization(UITextAutocapitalizationType.none)
                             }
                             Section(header: Text("Password").font(.headline)){
@@ -87,11 +97,11 @@ struct SignUpView: View {
                                     if let userID = Auth.auth().currentUser?.uid {
                                         // TODO: Make a fetch function in controller
                                         let ref = Database.database().reference()
-                                        ref.child("Users").child(userID).setValue(["name" : name, "email" : email])
+                                        ref.child("Users").child(userID).setValue(["name" : name, "email" : email, "university" : university, "year" : year])
                                         
                                         
                                         print("SUCCESSFUL REGISTRATION for \(email)!")
-                                        ctrl.currUser.setUserValues(name: name, email: email)
+                                        ctrl.currUser.setUserValues(name: name, email: email, year: year, university: university)
                                         ctrl.currView = .SearchForm
                                     }
                                     
