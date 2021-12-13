@@ -2,6 +2,8 @@
 //  MyListings.swift
 //  University Pal
 //
+//
+//  Created by Atsuya Yano
 
 
 import SwiftUI

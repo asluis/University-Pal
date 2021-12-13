@@ -2,7 +2,7 @@
 //  ListingUploadImage.swift
 //  University Pal
 //
-//  Created by 矢野敦也 on 2021/11/17.
+//  Created by Atsuya Yano on 2021/11/17.
 //
 
 import SwiftUI
@@ -11,15 +11,31 @@ import UIKit
 struct ListingUploadImage: View {
     @StateObject var ctrl:Controller
     
-    @State private var title = "great math textbook"
-    @State private var Author = ""
-    @State private var ISBN = 0
-    @State private var Subject = ""
-    @State private var Price = 0
-    @State private var image: UIImage?
-    @State var showingImagePicker = false
+    @State private var title:String = ""
+    @State private var Author:String = ""
+    @State private var ISBN:String = ""
+//    @State private var Subject:String = ""
+    @State private var subject:Book.Subject = .Other
+    @State private var Price:Float = 0.0
+    @State private var image:UIImage?
+//    @State private var image:Image = Image(uiImage: UIImage)
+    @State private var alertTitle = ""
+    @State private var showingAlert = false
+    @State private var showingImagePicker = false
+    @State private var selection = ""
     
+    func setInfo(){
+        title = ctrl.tempBook.title
+        Author = ctrl.tempBook.author
+        ISBN = ctrl.tempBook.ISBN
+        subject = ctrl.tempBook.subject
+        Price = ctrl.tempBook.price
+        image = ctrl.tempBook.image
+    }
+
     var body: some View {
+        
+        
         GeometryReader{ geo in
             VStack{
                 Section(header: Group{
@@ -46,11 +62,12 @@ struct ListingUploadImage: View {
                                     .resizable()
                                     .frame(width: 200, height: 200)
                                     .clipShape(Circle())
-                            } else {
+                            }  else {
                                 Image("noimage")
                                     .resizable()
                                     .frame(width: 200, height: 200)
                                     .clipShape(Circle())
+                                
                             }
                             Button(action: {
                                 showingImagePicker = true
@@ -62,16 +79,11 @@ struct ListingUploadImage: View {
                             ImagePicker(sourceType: .photoLibrary, selectedImage: $image)
                         }
                         VStack{
-                            Text("Title").frame(maxWidth: .infinity, alignment: .leading)
-                            TextField("Title", text: $title)
-                            Text("Author").frame(maxWidth: .infinity, alignment: .leading)
-                            TextField("Author", text: $Author)
-                            Text("ISBN").frame(maxWidth: .infinity, alignment: .leading)
-                            TextField("ISBN", value: $ISBN, formatter: NumberFormatter())
-                            Text("Subject").frame(maxWidth: .infinity, alignment: .leading)
-                            TextField("Subject", text: $Subject)
-                            Text("Price").frame(maxWidth: .infinity, alignment: .leading)
-                            TextField("50;05", value: $Price, formatter: NumberFormatter())
+                            Text("Title: \(ctrl.tempBook.title)").frame(maxWidth: .infinity, alignment: .leading).padding()
+                            Text("Author: \(ctrl.tempBook.author)").frame(maxWidth: .infinity, alignment: .leading).padding()
+                            Text("ISBN: \(ctrl.tempBook.ISBN)").frame(maxWidth: .infinity, alignment: .leading).padding()
+                            Text("Subject: \(ctrl.tempBook.subject.rawValue)").frame(maxWidth: .infinity, alignment: .leading).padding()
+                            Text("Price: \(ctrl.tempBook.price, specifier: "%.2f")").frame(maxWidth: .infinity, alignment: .leading).padding()
                         }
                     }
                 }
@@ -80,9 +92,10 @@ struct ListingUploadImage: View {
                 Divider()
                 Spacer()
                     .frame(height: 20)
-                //Cancel button
+                //Edit button
                 Button(action: {
                     // TODO: Add action here
+                    ctrl.currView = .ListingInfo
                 }) {
                     Text("Edit")
                         .frame(width: 70, height: 30)
@@ -92,11 +105,18 @@ struct ListingUploadImage: View {
                 
                 //List button
                 Button(action: {
-                    // TODO: Add action here
-                }) {
-                    Text("Yes, continute listing")
+                //TODO: connect with ListingUploadImage
+                ctrl.tempBook.setBookValues(title: title, author: Author, ISBN: ISBN, subject: subject, price: Price, image: image)
+                ctrl.currView = .profile
+            }) {
+                HStack{
+                    Image(systemName: "plus.square.fill.on.square.fill")
+                    Text("Yes, continue listing")
                         .frame(width: 170, height: 30)
-                }.buttonStyle(GradientButtonStyle())
+                }.alert(isPresented: $showingAlert) {
+                    Alert(title: Text(alertTitle))
+                }
+            }.buttonStyle(GradientButtonStyle())
                 
             }.padding(.top, -geo.size.height * -0.7)
                 .padding(.horizontal, 40)

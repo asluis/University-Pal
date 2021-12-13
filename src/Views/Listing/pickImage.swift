@@ -1,3 +1,10 @@
+//
+//  pickImage.swift
+//  University Pal
+//
+//
+//  Created by Atsuya Yano
+
 import UIKit
 import SwiftUI
 

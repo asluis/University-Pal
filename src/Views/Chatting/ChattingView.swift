@@ -3,6 +3,7 @@
 //  University Pal
 //
 //
+//  Created by Atsuya Yano
 
 import SwiftUI
 import Firebase
