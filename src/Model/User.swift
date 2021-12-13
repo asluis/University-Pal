@@ -12,6 +12,8 @@ import Foundation
 class User{
     @Published public var name:String
     @Published public var email:String
+    @Published public var year:String
+    @Published public var university:String
     
     // The indexes tell us which books to get from the Books section of the DB
     @Published public var listedIndexes:[Int] // push to firebase if changed
@@ -20,16 +22,18 @@ class User{
     @Published public var listedBooks:[Book] // this is not pushed to firebase
     @Published public var purchasedBooks:[Book] // this is not pushed to firebase
     
-    init(name:String = "", email:String = "", listedBooks:[Book] = [Book](), purchasedBooks:[Book] = [Book](), listedIndexes:[Int] = [Int](), purchasedIndexes:[Int] = [Int]()){
+    init(name:String = "", email:String = "", listedBooks:[Book] = [Book](), purchasedBooks:[Book] = [Book](), listedIndexes:[Int] = [Int](), purchasedIndexes:[Int] = [Int](), university:String = "", year:String = ""){
         self.name = name
         self.email = email
         self.purchasedBooks = purchasedBooks
         self.listedBooks = listedBooks
         self.purchasedIndexes = purchasedIndexes
         self.listedIndexes = listedIndexes
+        self.university = university
+        self.year = year
     }
     
-    func setUserValues(name:String? = nil, email:String? = nil, purchasedBooks:[Book]? = nil, listedBooks:[Book]? = nil, listedIndexes:[Int]? = nil, purchasedIndexes:[Int]? = nil){
+    func setUserValues(name:String? = nil, email:String? = nil, purchasedBooks:[Book]? = nil, listedBooks:[Book]? = nil, listedIndexes:[Int]? = nil, purchasedIndexes:[Int]? = nil, year:String? = nil, university:String? = nil){
         if name != nil {
             self.name = name!
         }
@@ -50,6 +54,12 @@ class User{
         }
         if purchasedIndexes != nil {
             self.purchasedIndexes = purchasedIndexes!
+        }
+        if year != nil {
+            self.year = year!
+        }
+        if university != nil {
+            self.university = university!
         }
     }
 }
