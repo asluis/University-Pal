@@ -71,7 +71,6 @@ struct LoginView: View {
                                    print("SUCCESS LOGGING IN")
                                     // Now probe database and fetch user data
                                     ctrl.fetchUser()
-                                    print("Name and email is: \(ctrl.currUser.name) \(ctrl.currUser.email)")
                                     ctrl.currView = .SearchForm // changing view
                                     
                                 }
