@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EditListing: View {
-//    @StateObject var ctrl:Controller
+    @StateObject var ctrl:Controller
     
     @State private var price = 50.50
     @State private var title = "great math textbook"
@@ -66,7 +66,7 @@ struct EditListing: View {
                 trailing: 20
             ))
             
-            //List button
+            //Delete button
             Button(action: {
                 // TODO: Add action here
             }) {
@@ -80,6 +80,6 @@ struct EditListing: View {
 
 struct EditListing_Previews: PreviewProvider {
     static var previews: some View {
-        EditListing()
+        EditListing(ctrl: Controller())
     }
 }

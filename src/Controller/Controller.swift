@@ -11,7 +11,7 @@ import Firebase
 class Controller: ObservableObject{
     
 
-    @Published var currView:ViewBank = .WelcomeScreen
+    @Published var currView:ViewBank = .MyListings
     @Published var currUser:User = User()
     // TODO: Define model within controller
     
@@ -68,8 +68,8 @@ class Controller: ObservableObject{
             return AnyView(ListingUploadImage(ctrl: self))
         case .SearchForm:
             return AnyView(SearchForm(ctrl: self))
-//        case .EditLisitng:
-//            return AnyView(EditListing(ctrl: self))
+        case .EditLisitng:
+            return AnyView(EditListing(ctrl: self))
 //        case .ChatView:
 //            return AnyView(ChatView(ctrl: self))
 //        case .footer:

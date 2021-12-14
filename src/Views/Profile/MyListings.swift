@@ -33,28 +33,33 @@ struct MyListings: View {
                         }
                     }){
                         //list of Listing
-                        NavigationView{
-                            List{
-                                ForEach(listings){ listing in
-                                    NavigationLink(destination: EditListing()){
-                                        HStack{
-                                            Image(listing.imageName)
-                                                .resizable()
-                                                .frame(width: 120, height: 180)
-                                                //.scaledToFit()
-                                                .edgesIgnoringSafeArea(.top)
-                                            
-                                            VStack(alignment: .leading){
-                                                Text(listing.title).font(.headline)
-                                                Text("by " + listing.author).font(.subheadline).foregroundColor(.gray)
-                                                Spacer().frame(height: 15)
-                                                Text("$ " + String(listing.price)).font(.title)
-                                            }
-                                        }
+                        List{
+                            ForEach(listings){ listing in
+                                HStack{
+                                    Image(listing.imageName)
+                                        .resizable()
+                                        .frame(width: 120, height: 180)
+                                        //.scaledToFit()
+                                        .edgesIgnoringSafeArea(.top)
+                                    
+                                    VStack(alignment: .leading){
+                                        Text(listing.title).font(.headline)
+                                        Text("by " + listing.author).font(.subheadline).foregroundColor(.gray)
+                                        Spacer().frame(height: 15)
+                                        Text("$ " + String(listing.price)).font(.title)
+                                        //List button
+                                        Button(action: {
+                                            // TODO: Add action here
+                                            ctrl.currView = .EditLisitng
+                                        }) {
+                                            Text("Detail")
+                                                .frame(width: 80, height: 10)
+                                        }.buttonStyle(GradientButtonStyle())
                                     }
                                 }
                             }
                         }
+
                     }
                 }
             }
