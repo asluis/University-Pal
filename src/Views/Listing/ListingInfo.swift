@@ -113,6 +113,7 @@ struct ListingInfo: View {
                                         subject = selection
                                         ctrl.tempBook.setBookValues(title: title, author: Author, ISBN: ISBN, subject: subject, price: Price, image: image)
                                         ctrl.FirebasePush()
+                                        ctrl.currUser.appendToListedBooks(book: ctrl.tempBook)
                                         ctrl.currView = .ListingUploadImage
                                     }
                                 }) {
