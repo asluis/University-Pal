@@ -47,7 +47,7 @@ class Book{
         }
     }
     
-    enum Subject : String, CaseIterable, Identifiable{
+    enum Subject : String, CaseIterable, Identifiable, Codable{
         var id: String{ self.rawValue}
         
         case Mathematics

@@ -69,9 +69,35 @@ class Controller: ObservableObject{
                 }
             }
         })
+        
+        
     }
     
-    
+    // fetches book from DB and adds it to currUser's list
+    func fetchBook(bookID:String? = nil, bookIDS:[String]? = nil){
+        let ref = Database.database().reference()
+        
+        if bookID != nil {
+            ref.child("Books").child(bookID!).observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                let data = snapshot.value as? NSDictionary
+                
+                let ISBN = data?["ISBN"] as? String ?? "ERR"
+                let author = data?["author"] as? String ?? "ERR"
+                let price = data?["price"] as? Float ?? 0.0
+                let subject = data?["subject"] as? Book.Subject ?? .Other
+                let title = data?["title"] as? String ?? "ERR"
+                
+                let newBook = Book(title: title, author: author, ISBN: ISBN, subject: subject, price: price)
+                
+                self.currUser.listedBooks.append(newBook) // add book fetched from DB to user list
+            })
+        }
+        
+        if bookIDS != nil {
+        
+        }
+    }
     
     func fetchUserData(uid:String){
             let ref = Database.database().reference()
