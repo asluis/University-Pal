@@ -9,7 +9,7 @@
 import Foundation
 
 // TODO: Define more attributes of a user
-class User{
+class User: ObservableObject{
     @Published public var name:String
     @Published public var email:String
     @Published public var year:String
@@ -31,6 +31,22 @@ class User{
         self.listedIndexes = listedIndexes
         self.university = university
         self.year = year
+    }
+    
+    func appendToListedIndexes(index:String){
+        listedIndexes.append(index)
+    }
+    
+    func appendToPurchasedIndexes(index:String){
+        purchasedIndexes.append(index)
+    }
+    
+    func appendToListedBooks(book:Book) {
+        listedBooks.append(book)
+    }
+    
+    func appendToPurchasedBooks(book:Book) {
+        purchasedBooks.append(book)
     }
     
     func setUserValues(name:String? = nil, email:String? = nil, purchasedBooks:[Book]? = nil, listedBooks:[Book]? = nil, listedIndexes:[String]? = nil, purchasedIndexes:[String]? = nil, year:String? = nil, university:String? = nil){

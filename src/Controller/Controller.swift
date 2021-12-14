@@ -51,52 +51,59 @@ class Controller: ObservableObject{
         if let userID = Auth.auth().currentUser?.uid { // grabbing userID
             fetchUserData(uid: userID)
             fetchUserListedBooks(uid: userID)
-            
+            //print("Calling fetchBook w/ \(currUser.listedIndexes)")
+            fetchBook(bookIDS: currUser.listedIndexes)
         }
     }
     
     func fetchUserListedBooks(uid:String){
         let ref = Database.database().reference()
+        var listedBooks = [String]()
         ref.child("ListingIndexes").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
             for child in snapshot.children {
                 let uid = (child as AnyObject).key as String
                 let val = (child as! DataSnapshot).value as! NSNumber
                 let isListed = Bool(truncating: val)
-                
                 // adds uids to current user only if it's currently set to true--meaning book is still listed
                 if isListed {
-                    self.currUser.listedIndexes.append(uid)
+                    listedBooks.append(uid)
                 }
             }
         })
-        
-        
+        currUser.listedIndexes += listedBooks
+        print(listedBooks)
     }
     
-    // fetches book from DB and adds it to currUser's list
+    // fetches book from DB and adds it to currUser's list. Input can be either an individual ID or a list of IDs
     func fetchBook(bookID:String? = nil, bookIDS:[String]? = nil){
         let ref = Database.database().reference()
         
         if bookID != nil {
-            ref.child("Books").child(bookID!).observeSingleEvent(of: .value, with: { (snapshot) in
-                
-                let data = snapshot.value as? NSDictionary
-                
-                let ISBN = data?["ISBN"] as? String ?? "ERR"
-                let author = data?["author"] as? String ?? "ERR"
-                let price = data?["price"] as? Float ?? 0.0
-                let subject = data?["subject"] as? Book.Subject ?? .Other
-                let title = data?["title"] as? String ?? "ERR"
-                
-                let newBook = Book(title: title, author: author, ISBN: ISBN, subject: subject, price: price)
-                
-                self.currUser.listedBooks.append(newBook) // add book fetched from DB to user list
-            })
+            fetchBook(bookID: bookID!, ref: ref)
         }
         
         if bookIDS != nil {
-        
+            for id in bookIDS! {
+                fetchBook(bookID: id, ref: ref)
+            }
         }
+    }
+    
+    private func fetchBook(bookID:String?, ref:DatabaseReference){
+        ref.child("Books").child(bookID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let data = snapshot.value as? NSDictionary
+            
+            let ISBN = data?["ISBN"] as? String ?? "ERR"
+            let author = data?["author"] as? String ?? "ERR"
+            let price = data?["price"] as? Float ?? 0.0
+            let subject = data?["subject"] as? Book.Subject ?? .Other
+            let title = data?["title"] as? String ?? "ERR"
+            
+            let newBook = Book(title: title, author: author, ISBN: ISBN, subject: subject, price: price)
+            print("Adding book: \(newBook)")
+            self.currUser.listedBooks.append(newBook) // add book fetched from DB to user list
+        })
     }
     
     func fetchUserData(uid:String){

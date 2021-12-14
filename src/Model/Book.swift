@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class Book{
+class Book: ObservableObject{
     @Published public var title:String
     @Published public var author:String
     @Published public var ISBN:String
