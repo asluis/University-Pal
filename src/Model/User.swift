@@ -16,13 +16,13 @@ class User{
     @Published public var university:String
     
     // The indexes tell us which books to get from the Books section of the DB
-    @Published public var listedIndexes:[Int] // push to firebase if changed
-    @Published public var purchasedIndexes:[Int] // push to firebase if changed
+    @Published public var listedIndexes:[String] // push to firebase if changed
+    @Published public var purchasedIndexes:[String] // push to firebase if changed
     
     @Published public var listedBooks:[Book] // this is not pushed to firebase
     @Published public var purchasedBooks:[Book] // this is not pushed to firebase
     
-    init(name:String = "", email:String = "", listedBooks:[Book] = [Book](), purchasedBooks:[Book] = [Book](), listedIndexes:[Int] = [Int](), purchasedIndexes:[Int] = [Int](), university:String = "", year:String = ""){
+    init(name:String = "", email:String = "", listedBooks:[Book] = [Book](), purchasedBooks:[Book] = [Book](), listedIndexes:[String] = [String](), purchasedIndexes:[String] = [String](), university:String = "", year:String = ""){
         self.name = name
         self.email = email
         self.purchasedBooks = purchasedBooks

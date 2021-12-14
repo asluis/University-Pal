@@ -55,6 +55,10 @@ class Controller: ObservableObject{
         }
     }
     
+    func fetchUserListedBooks(){
+        
+    }
+    
     func fetchUserData(uid:String){
             let ref = Database.database().reference()
             ref.child("Users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
