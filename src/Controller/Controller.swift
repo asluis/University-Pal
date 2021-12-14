@@ -56,8 +56,22 @@ class Controller: ObservableObject{
     }
     
     func fetchUserListedBooks(uid:String){
-        
+        let ref = Database.database().reference()
+        ref.child("ListingIndexes").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            for child in snapshot.children {
+                let uid = (child as AnyObject).key as String
+                let val = (child as! DataSnapshot).value as! NSNumber
+                let isListed = Bool(truncating: val)
+                
+                // adds uids to current user only if it's currently set to true--meaning book is still listed
+                if isListed {
+                    self.currUser.listedIndexes.append(uid)
+                }
+            }
+        })
     }
+    
+    
     
     func fetchUserData(uid:String){
             let ref = Database.database().reference()
