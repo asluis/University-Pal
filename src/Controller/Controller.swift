@@ -50,28 +50,30 @@ class Controller: ObservableObject{
     func fetchUser(){
         if let userID = Auth.auth().currentUser?.uid { // grabbing userID
             fetchUserData(uid: userID)
-            fetchUserListedBooks(uid: userID)
-            //print("Calling fetchBook w/ \(currUser.listedIndexes)")
-            fetchBook(bookIDS: currUser.listedIndexes)
+            
+            fetchUserListedBooks(uid: userID, callback: { list in
+                self.currUser.listedIndexes = list
+                self.fetchBook(bookIDS: self.currUser.listedIndexes)
+            })
         }
     }
     
-    func fetchUserListedBooks(uid:String){
+    func fetchUserListedBooks(uid:String, callback: @escaping([String]) -> Void){
         let ref = Database.database().reference()
-        var listedBooks = [String]()
         ref.child("ListingIndexes").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            var listedIndexes = [String]()
             for child in snapshot.children {
                 let uid = (child as AnyObject).key as String
                 let val = (child as! DataSnapshot).value as! NSNumber
                 let isListed = Bool(truncating: val)
                 // adds uids to current user only if it's currently set to true--meaning book is still listed
                 if isListed {
-                    listedBooks.append(uid)
+                    listedIndexes.append(uid)
                 }
             }
+            callback(listedIndexes)
         })
-        currUser.listedIndexes += listedBooks
-        print(listedBooks)
+        
     }
     
     // fetches book from DB and adds it to currUser's list. Input can be either an individual ID or a list of IDs
@@ -101,7 +103,7 @@ class Controller: ObservableObject{
             let title = data?["title"] as? String ?? "ERR"
             
             let newBook = Book(title: title, author: author, ISBN: ISBN, subject: subject, price: price)
-            print("Adding book: \(newBook)")
+            print("Adding book: \(newBook.title)")
             self.currUser.listedBooks.append(newBook) // add book fetched from DB to user list
         })
     }
