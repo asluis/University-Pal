@@ -50,12 +50,12 @@ class Controller: ObservableObject{
     func fetchUser(){
         if let userID = Auth.auth().currentUser?.uid { // grabbing userID
             fetchUserData(uid: userID)
-            
+            fetchUserListedBooks(uid: userID)
             
         }
     }
     
-    func fetchUserListedBooks(){
+    func fetchUserListedBooks(uid:String){
         
     }
     

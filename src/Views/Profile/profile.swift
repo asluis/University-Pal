@@ -20,8 +20,8 @@ struct profile: View {
     
     @State public var name:String = ""
     @State public var email:String = ""
-    @State public var listedIndexes:[Int] = []
-    @State public var purchasedIndexes:[Int] = []
+    @State public var listedIndexes:[String] = []
+    @State public var purchasedIndexes:[String] = []
     @State public var listedBooks:[Book] = []
     @State public var purchasedBooks:[Book] = []
 //    @State private var university = ""
