@@ -47,7 +47,8 @@ struct MyListings: View {
                                         Text("by " + listing.author).font(.subheadline).foregroundColor(.gray)
                                         Spacer().frame(height: 15)
                                         Text("$ " + String(listing.price)).font(.title)
-                                        //List button
+                                        
+                                        //See detail button
                                         Button(action: {
                                             // TODO: Add action here
                                             ctrl.currView = .EditLisitng

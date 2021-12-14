@@ -13,9 +13,7 @@ class Book{
     @Published public var author:String
     @Published public var ISBN:String
     @Published public var subject:Subject
-//    @Published public var subject:String
     @Published public var price:Float
-//    @Published public var image:Image
     @Published public var image:UIImage?
     
     // default values assigned
