@@ -47,6 +47,29 @@ class Controller: ObservableObject{
         }
     }
     
+    func fetchUser(){
+        if let userID = Auth.auth().currentUser?.uid { // grabbing userID
+            fetchUserData(uid: userID)
+            
+            
+        }
+    }
+    
+    func fetchUserData(uid:String){
+            let ref = Database.database().reference()
+            ref.child("Users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                    
+                let data = snapshot.value as? NSDictionary
+                let name = data?["name"] as? String ?? "ERR"
+                let email = data?["email"] as? String ?? "ERR"
+                let univ = data?["university"] as? String ?? "ERR"
+                let yr = data?["year"] as? String ?? "ERR"
+                self.currUser.setUserValues(name: name, email: email, year: yr, university: univ)
+            })
+    }
+    
+    
+    
     // Obtains and returns the view to be displayed
     func determineView() -> AnyView{
         switch currView{
