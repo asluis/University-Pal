@@ -12,7 +12,7 @@ enum ViewBank{
     case WelcomeScreen
     case SignUpView
     case LoginView
-//    case EditLisitng
+    case EditLisitng
     case profile
     case PurchaseHistory
     case MyListings
