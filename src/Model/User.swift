@@ -33,7 +33,7 @@ class User{
         self.year = year
     }
     
-    func setUserValues(name:String? = nil, email:String? = nil, purchasedBooks:[Book]? = nil, listedBooks:[Book]? = nil, listedIndexes:[Int]? = nil, purchasedIndexes:[Int]? = nil, year:String? = nil, university:String? = nil){
+    func setUserValues(name:String? = nil, email:String? = nil, purchasedBooks:[Book]? = nil, listedBooks:[Book]? = nil, listedIndexes:[String]? = nil, purchasedIndexes:[String]? = nil, year:String? = nil, university:String? = nil){
         if name != nil {
             self.name = name!
         }
