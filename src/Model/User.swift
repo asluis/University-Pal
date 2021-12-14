@@ -33,8 +33,13 @@ class User: ObservableObject{
         self.year = year
     }
     
-    func appendToListedIndexes(index:String){
-        listedIndexes.append(index)
+    func appendToListedIndexes(index:String? = nil, indexes:[String]? = nil){
+        if index != nil {
+            listedIndexes.append(index!)
+        }
+        if indexes != nil {
+            listedIndexes += indexes!
+        }
     }
     
     func appendToPurchasedIndexes(index:String){

@@ -52,7 +52,7 @@ class Controller: ObservableObject{
             fetchUserData(uid: userID)
             
             fetchUserListedBooks(uid: userID, callback: { list in
-                self.currUser.listedIndexes = list
+                self.currUser.appendToListedIndexes(indexes: list)
                 self.fetchBook(bookIDS: self.currUser.listedIndexes)
             })
         }
@@ -104,7 +104,7 @@ class Controller: ObservableObject{
             
             let newBook = Book(title: title, author: author, ISBN: ISBN, subject: subject, price: price)
             print("Adding book: \(newBook.title)")
-            self.currUser.listedBooks.append(newBook) // add book fetched from DB to user list
+            self.currUser.appendToListedBooks(book: newBook) // add book fetched from DB to user list
         })
     }
     
