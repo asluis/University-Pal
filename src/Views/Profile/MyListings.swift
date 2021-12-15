@@ -12,9 +12,10 @@ struct MyListings: View {
     @StateObject var ctrl:Controller
 
     //Sample book list
+    /*
     var listings: Array<Listings> = [Listings(imageName: "textbooksample", title: "History", author: "Leslie P.", price: 50.55),
                                     Listings(imageName: "sample2", title: "Mathematics", author: "Karen Momison", price: 30.50)]
-    
+    */
     var body: some View {
         GeometryReader{ geo in
             ZStack{
@@ -34,19 +35,19 @@ struct MyListings: View {
                     }){
                         //list of Listing
                         List{
-                            ForEach(listings){ listing in
+                            ForEach(ctrl.currUser.listedBooks){ book in
                                 HStack{
-                                    Image(listing.imageName)
+                                    Image("sample2")
                                         .resizable()
                                         .frame(width: 120, height: 180)
                                         //.scaledToFit()
                                         .edgesIgnoringSafeArea(.top)
                                     
                                     VStack(alignment: .leading){
-                                        Text(listing.title).font(.headline)
-                                        Text("by " + listing.author).font(.subheadline).foregroundColor(.gray)
+                                        Text(book.title).font(.headline)
+                                        Text("by " + book.author).font(.subheadline).foregroundColor(.gray)
                                         Spacer().frame(height: 15)
-                                        Text("$ " + String(listing.price)).font(.title)
+                                        Text("$ " + String(book.price)).font(.title)
                                         
                                         //See detail button
                                         Button(action: {
