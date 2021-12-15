@@ -17,6 +17,7 @@ struct MyListings: View {
                                     Listings(imageName: "sample2", title: "Mathematics", author: "Karen Momison", price: 30.50)]
     */
     var body: some View {
+        
         GeometryReader{ geo in
             ZStack{
                 VStack{
@@ -51,7 +52,8 @@ struct MyListings: View {
                                         
                                         //See detail button
                                         Button(action: {
-                                            // TODO: Add action here
+                                            // TODO: Add action here\
+                                            ctrl.tempBook = book
                                             ctrl.currView = .EditLisitng
                                         }) {
                                             Text("Detail")
