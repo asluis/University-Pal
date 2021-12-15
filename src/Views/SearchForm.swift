@@ -1,24 +1,22 @@
 //
-//  SearchForm.swift
+//  ListingImage.swift
 //  University Pal
-//
-//  Created by Nguyen Kim Khanh on 12/11/21.
 //
 
 import SwiftUI
-import FirebaseAuth
 
 struct SearchForm: View {
     @StateObject var ctrl:Controller
     
     @State private var title = ""
-    @State private var author = ""
-    @State private var isbn = ""
-    @State private var confirmPassword = ""
+    @State private var Author = ""
+    @State private var ISBN = ""
+    @State private var Subject = ""
+    @State private var Price = 0.0
     
-    @State private var isShowingAlert = false
     @State private var alertTitle = ""
-    @State private var alertMsg = ""
+    @State private var showingAlert = false
+    
     
     var body: some View {
         GeometryReader{ geo in
@@ -40,77 +38,81 @@ struct SearchForm: View {
                         Form{
                             Section(header: Text("Title").font(.headline)){
                                 TextField("Title", text: $title)
-                                    .autocapitalization(UITextAutocapitalizationType.none)
                             }
                             Section(header: Text("Author").font(.headline)){
-                                TextField("Author", text: $author)
-                                    .autocapitalization(UITextAutocapitalizationType.none)
+                                TextField("Author", text: $Author)
                             }
                             Section(header: Text("ISBN").font(.headline)){
-                                TextField("ISBN", text: $isbn)
-                                    .autocapitalization(UITextAutocapitalizationType.none)
+                                TextField("ISBN", text: $ISBN)
+                                    .keyboardType(.numberPad)
                             }
-                        }.padding(.top, -geo.size.height * 0.07)
+                            Section(header: Text("Subject").font(.headline)){
+                                TextField("Subject", text: $Subject)
+                            }
+                            }
+                            
+                        }.padding(.vertical, -geo.size.height * 0.07)
                     }
                 }
-                VStack{
+                HStack{
+                    //Cancel button
+                    Button(action: {
+                        // TODO: Add action here
+                        ctrl.currView = .profile
+                    }) {
+                        HStack{
+                            Image(systemName: "multiply")
+                            Text("Cancel")
+                                .frame(width: 70, height: 30)
+                        }
+                    }.buttonStyle(GradButtonStyle(pressedColor: .red))
                     Spacer()
                     
+                    //List button
                     Button(action: {
-                        if !isValidTitle(title) || !isValidISBN(isbn) || !isValidAuthor(author){
-                            alertTitle = "Bad information"
-                            alertMsg = "Please enter the correct information"
-                            isShowingAlert = true
-                        } else if title == "" && isbn == "" && author == ""{
-                            alertTitle = "Empty fields"
-                            alertMsg = "Please enter at least one information"
-                            isShowingAlert = true
+                        if (title == "" && Author == "" && Subject == "" && ISBN == ""){
+                            alertTitle = "Please input at least one information"
+                            self.showingAlert = true
+                        } 
+                    }) {
+                        HStack{    
+                            Text("Search")
+                                .frame(width: 70, height: 30)
+                        }.alert(isPresented: $showingAlert) {
+                            Alert(title: Text(alertTitle))
                         }
-                    }, label: {
-                        Text("Search")
-                            .foregroundColor(.black)
-                            .font(.system(size: 30))
-                            .bold()
-                            .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.1)
-                            .background(Color.yellow)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
-                            .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                            .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
-                    })
-                        .padding(.bottom, geo.size.height * 0.05)
-                }
-                LineAccent(Orientation: .Vertical, percentLength: 0.9, lineColor: .yellow, circleColor: .black, lineWidth: 5)
-                    .padding(.leading, 5)
-                LineAccent(Orientation: .Horizontal, percentLength: 0.5, lineColor: .yellow, circleColor: .black, lineWidth: 5)
-                    .rotationEffect(Angle(degrees: 180))
+                    }.buttonStyle(GradButtonStyle())
+                    
+                }.padding(.top, -geo.size.height * -0.7)
+                    .padding(.horizontal, 40)
+
             }
-            .alert(isPresented: $isShowingAlert) {
-                Alert(title: Text(alertTitle), message: Text(alertMsg), dismissButton: .default(Text("Dismiss")))
-            }
-            
         }
     }
+
+
+struct GradButtonStyle: ButtonStyle{
     
-    func isValidTitle(_ title:String) -> Bool{
-        let authorRegEx = "abcd1234-=+-&%$!"
-        let authorPred = NSPredicate(format:"SELF MATCHES %@", authorRegEx)
-        return authorPred.evaluate(with: author)
-    }
-    func isValidAuthor(_ author:String) -> Bool{
-        let authorRegEx = "abcd"
-        let authorPred = NSPredicate(format:"SELF MATCHES %@", authorRegEx)
-        return authorPred.evaluate(with: author)
-    }
-    func isValidISBN(_ isbn:String) -> Bool{
-        let authorRegEx = "12345"
-        let authorPred = NSPredicate(format:"SELF MATCHES %@", authorRegEx)
-        return authorPred.evaluate(with: author)
+    var pressedColor:Color
     
+    // assumes green as default pressed color
+    init(pressedColor:Color = .green){
+        self.pressedColor = pressedColor
+    }
+    
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .foregroundColor(Color.white)
+            .padding()
+            .background(configuration.isPressed ? pressedColor : Color("MangoYellow"))
+            .cornerRadius(20)
+            .scaleEffect(configuration.isPressed ? 1.3 : 1.0)
+    }
 }
+
 
 struct SearchForm_Previews: PreviewProvider {
     static var previews: some View {
         SearchForm(ctrl: Controller())
     }
-}
 }
