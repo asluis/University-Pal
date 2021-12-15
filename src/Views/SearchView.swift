@@ -30,7 +30,7 @@ struct SearchView: View {
                     }){
                         //list of Listing
                         List{
-                            ForEach(ctrl.allBooks){ book in
+                            ForEach(ctrl.search()){ book in
                                 HStack{
                                     Image("sample2")
                                         .resizable()

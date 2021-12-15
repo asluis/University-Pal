@@ -20,6 +20,33 @@ class Controller: ObservableObject{
     // Temporary book for storing a book's details between views, this book is automatically uploaded to firebase upon calling FireBasePush
     @Published var tempBook:Book = Book()
     
+    @Published var titleQ = ""
+    @Published var authorQ = ""
+    @Published var ISBNQ = ""
+    @Published var subjectQ:Book.Subject = .Other
+    
+
+    
+    // Searches and filters allBooks array based on title,author,ISBN, and subject in order
+    func search() -> [Book]{
+        var copy = [Book](allBooks)
+        
+        if titleQ != "" {
+            copy = copy.filter { $0.title == titleQ }
+        }
+        if authorQ != "" {
+            copy = copy.filter { $0.author == authorQ }
+        }
+        if ISBNQ != "" {
+            copy = copy.filter { book in book.ISBN == ISBNQ }
+        }
+        if subjectQ != .Other {
+            copy = copy.filter { book in book.subject == subjectQ }
+        }
+        
+        return copy
+    }
+    
     // book: title, author, ISBN, subject, price, image
     func FirebasePush(book:Book? = nil){
         

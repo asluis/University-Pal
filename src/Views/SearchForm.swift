@@ -77,6 +77,9 @@ struct SearchForm: View {
                             self.showingAlert = true
                         }else{
                             //TODO: Handle sort here
+                            ctrl.titleQ = title
+                            ctrl.ISBNQ = ISBN
+                            ctrl.authorQ = Author
                             ctrl.currView = .SearchView
                         }
                     }) {
