@@ -77,7 +77,7 @@ struct SearchForm: View {
                             self.showingAlert = true
                         }else{
                             //TODO: Handle sort here
-                            ctrl.currView = .profile
+                            ctrl.currView = .SearchView
                         }
                     }) {
                         HStack{
