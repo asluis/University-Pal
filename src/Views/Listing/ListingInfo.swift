@@ -116,6 +116,7 @@ struct ListingInfo: View {
                                         
                                         ctrl.currUser.appendToListedBooks(book: book)
                                         print("\(ctrl.currUser.listedBooks)")
+                                        ctrl.fetchUser() // TODO: CALL TO DB IS TOO LARGE, FIX THIS
                                         ctrl.currView = .ListingUploadImage
                                     }
                                 }) {
