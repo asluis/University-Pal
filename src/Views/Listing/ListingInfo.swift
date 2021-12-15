@@ -111,12 +111,8 @@ struct ListingInfo: View {
                                     }else{
                                         //TODO: connect with ListingUploadImage
                                         subject = selection
-                                        let book = Book(title: title, author: Author, ISBN: ISBN, subject: subject, price: Price, image: image)
-                                        ctrl.FirebasePush(book: book)
-                                        
-                                        ctrl.currUser.appendToListedBooks(book: book)
-                                        print("\(ctrl.currUser.listedBooks)")
-                                        ctrl.fetchUser() // TODO: CALL TO DB IS TOO LARGE, FIX THIS
+                                        let book = Book(title: title, author: Author, ISBN: ISBN, subject: subject, price: Price, image: image)                                     
+                                        ctrl.tempBook = book
                                         ctrl.currView = .ListingUploadImage
                                     }
                                 }) {

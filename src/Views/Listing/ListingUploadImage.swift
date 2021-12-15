@@ -106,8 +106,10 @@ struct ListingUploadImage: View {
                 //List button
                 Button(action: {
                 //TODO: connect with ListingUploadImage
-                ctrl.tempBook.setBookValues(title: title, author: Author, ISBN: ISBN, subject: subject, price: Price, image: image)
-                ctrl.currView = .profile
+                    ctrl.FirebasePush()
+                    print("\(ctrl.currUser.listedBooks)")
+                    ctrl.fetchUser() // TODO: CALL TO DB IS TOO LARGE, FIX THIS
+                    ctrl.currView = .profile
             }) {
                 HStack{
                     Image(systemName: "plus.square.fill.on.square.fill")

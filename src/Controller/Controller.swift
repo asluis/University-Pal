@@ -48,11 +48,14 @@ class Controller: ObservableObject{
     }
     
     func fetchUser(){
+        currUser.listedBooks = [Book]() // re initializing var
+        currUser.listedIndexes = [String]()// re initializing var
         if let userID = Auth.auth().currentUser?.uid { // grabbing userID
             fetchUserData(uid: userID)
             
             fetchUserListedBooks(uid: userID, callback: { list in
                 self.currUser.appendToListedIndexes(indexes: list)
+                print("DATA: \(list)")
                 self.fetchBook(bookIDS: self.currUser.listedIndexes)
             })
         }
@@ -86,6 +89,7 @@ class Controller: ObservableObject{
         
         if bookIDS != nil {
             for id in bookIDS! {
+                print("ID: \(id)")
                 fetchBook(bookID: id, ref: ref)
             }
         }
