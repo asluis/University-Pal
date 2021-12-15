@@ -11,11 +11,6 @@ import SwiftUI
 struct MyListings: View {
     @StateObject var ctrl:Controller
 
-    //Sample book list
-    /*
-    var listings: Array<Listings> = [Listings(imageName: "textbooksample", title: "History", author: "Leslie P.", price: 50.55),
-                                    Listings(imageName: "sample2", title: "Mathematics", author: "Karen Momison", price: 30.50)]
-    */
     var body: some View {
         
         GeometryReader{ geo in
@@ -63,7 +58,6 @@ struct MyListings: View {
                                 }
                             }
                         }
-
                     }
                 }
             }

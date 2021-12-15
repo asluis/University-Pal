@@ -111,9 +111,11 @@ struct ListingInfo: View {
                                     }else{
                                         //TODO: connect with ListingUploadImage
                                         subject = selection
-                                        ctrl.tempBook.setBookValues(title: title, author: Author, ISBN: ISBN, subject: subject, price: Price, image: image)
-                                        ctrl.FirebasePush()
-                                        ctrl.currUser.appendToListedBooks(book: ctrl.tempBook)
+                                        let book = Book(title: title, author: Author, ISBN: ISBN, subject: subject, price: Price, image: image)
+                                        ctrl.FirebasePush(book: book)
+                                        
+                                        ctrl.currUser.appendToListedBooks(book: book)
+                                        print("\(ctrl.currUser.listedBooks)")
                                         ctrl.currView = .ListingUploadImage
                                     }
                                 }) {
