@@ -19,5 +19,6 @@ enum ViewBank{
     case ListingInfo
     case ListingUploadImage
     case SearchForm
+    case SearchView
 //    case ChatView
 }

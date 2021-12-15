@@ -13,6 +13,8 @@ class Controller: ObservableObject{
 
     @Published var currView:ViewBank = .WelcomeScreen
     @Published var currUser:User = User()
+    @Published var allBooks:[Book] = [Book]()
+    @Published var allIndexes = [String]()
     // TODO: Define model within controller
     
     // Temporary book for storing a book's details between views, this book is automatically uploaded to firebase upon calling FireBasePush
@@ -59,6 +61,50 @@ class Controller: ObservableObject{
                 self.fetchBook(bookIDS: self.currUser.listedIndexes)
             })
         }
+        fetchAllBooks(callback: { list in
+            self.allIndexes += list
+            print("AllIndexes SIZE: \(self.allIndexes.count)")
+            
+            for id in self.allIndexes {
+                self.fetchGeneralBook(bookID: id)
+            }
+            print("allBooks size: \(self.allBooks.count)")
+        })
+        
+        
+        
+    }
+    
+    func fetchAllBooks(callback: @escaping([String]) -> Void){
+        allIndexes = [String]()
+        allBooks = [Book]()
+        var indexes = [String]()
+        let ref = Database.database().reference()
+        ref.child("Books").observeSingleEvent(of: .value, with: { snapshot in
+            for id in snapshot.children {
+                let bookID = (id as AnyObject).key as String
+                indexes.append(bookID)
+            }
+            callback(indexes)
+        })
+    }
+    
+    func fetchGeneralBook(bookID:String){
+        let ref = Database.database().reference()
+        ref.child("Books").child(bookID).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let data = snapshot.value as? NSDictionary
+            
+            let ISBN = data?["ISBN"] as? String ?? "ERR"
+            let author = data?["author"] as? String ?? "ERR"
+            let price = data?["price"] as? Float ?? 0.0
+            let subject = data?["subject"] as? Book.Subject ?? .Other
+            let title = data?["title"] as? String ?? "ERR"
+            
+            let newBook = Book(title: title, author: author, ISBN: ISBN, subject: subject, price: price)
+            print("Adding ALLbook: \(newBook.title)")
+            self.allBooks.append(newBook) // add book fetched from DB to user list
+        })
     }
     
     func fetchUserListedBooks(uid:String, callback: @escaping([String]) -> Void){
@@ -89,7 +135,6 @@ class Controller: ObservableObject{
         
         if bookIDS != nil {
             for id in bookIDS! {
-                print("ID: \(id)")
                 fetchBook(bookID: id, ref: ref)
             }
         }
@@ -150,6 +195,8 @@ class Controller: ObservableObject{
             return AnyView(SearchForm(ctrl: self))
         case .EditLisitng:
             return AnyView(EditListing(ctrl: self))
+        case .SearchView:
+            return AnyView(SearchView(ctrl: self))
 //        case .ChatView:
 //            return AnyView(ChatView(ctrl: self))
         }
