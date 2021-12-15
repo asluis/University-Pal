@@ -21,7 +21,7 @@ struct SearchView: View {
                                 .resizable()
                                 .frame(width: geo.size.width, height: geo.size.height * 0.2)
                                 .edgesIgnoringSafeArea(.top)
-                            Text("My Listings")
+                            Text("Search")
                                 .foregroundColor(.white)
                                 .font(.system(size: 65))
                                 .bold()
