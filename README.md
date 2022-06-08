@@ -7,3 +7,5 @@ This project was made entirely in Swift. It used SwiftUI as the frontend framewo
 # UI Samples
 ![image](https://user-images.githubusercontent.com/37236328/172106490-524ef208-3a5b-43dc-9ac8-ca3498b690cf.png)
 ![image](https://user-images.githubusercontent.com/37236328/172106383-edaed635-970f-473a-a9dd-726acc77c64e.png)
+# Note
+This repo was made public because a new private repo was created to fix the issues this one had and expand on the idea. Any API keys found in this repo will not work.
